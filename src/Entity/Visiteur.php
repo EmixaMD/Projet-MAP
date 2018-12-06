@@ -74,7 +74,7 @@ class Visiteur
     /**
      * @ORM\Column(type="integer", nullable=true)
      */
-    private $date_naissance;
+    // private $date_naissance;
 
     /**
      * @ORM\Column(type="string", length=255, nullable=true)
@@ -243,17 +243,17 @@ class Visiteur
         return $this;
     }
 
-    public function getDate_naissance(): ?int
-    {
-        return $this->date_naissance;
-    }
+    // public function getDate_naissance(): ?int
+    // {
+    //     return $this->date_naissance;
+    // }
 
-    public function setDate_naissance(?int $date_naissance): self
-    {
-        $this->date_naissance = $date_naissance;
+    // public function setDate_naissance(?int $date_naissance): self
+    // {
+    //     $this->date_naissance = $date_naissance;
 
-        return $this;
-    }
+    //     return $this;
+    // }
 
     public function getVille(): ?string
     {

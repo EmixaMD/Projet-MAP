@@ -1,9 +1,9 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Visiteur index{% endblock %}
+{% block title %}Liste des Visiteurs {% endblock %}
 
 {% block body %}
-    <h1>Visiteur index</h1>
+    <h1>Liste des Visiteurs </h1>
 
     <table class="table">
         <thead>
@@ -45,7 +45,7 @@
                 <td>{{ visiteur.cni }}</td>
                 <td>{{ visiteur.idUnique }}</td>
                 <td>{{ visiteur.sexe }}</td>
-                <td>{{ visiteur.dateNaissance }}</td>
+                {# <td>{{ visiteur.dateNaissance }}</td> #}
                 <td>{{ visiteur.ville }}</td>
                 <td>{{ visiteur.codePostal }}</td>
                 <td>{{ visiteur.numeroRue }}</td>
