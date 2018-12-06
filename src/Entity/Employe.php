@@ -37,9 +37,9 @@ class Employe
     private $sexe;
 
     /**
-     * @ORM\Column(type="integer", nullable=true)
+     * @ORM\Column(type="date", nullable=true)
      */
-    private $age;
+    private $date_naissance;
 
     /**
      * @ORM\Column(type="integer")
@@ -104,18 +104,6 @@ class Employe
         return $this;
     }
 
-    public function getAge(): ?int
-    {
-        return $this->age;
-    }
-
-    public function setAge(?int $age): self
-    {
-        $this->age = $age;
-
-        return $this;
-    }
-
     public function getTelephone(): ?int
     {
         return $this->telephone;
@@ -136,6 +124,26 @@ class Employe
     public function setEmail(string $email): self
     {
         $this->email = $email;
+
+        return $this;
+    }
+
+    /**
+     * Get the value of date_naissance
+     */ 
+    public function getDate_naissance()
+    {
+        return $this->date_naissance;
+    }
+
+    /**
+     * Set the value of date_naissance
+     *
+     * @return  self
+     */ 
+    public function setDate_naissance($date_naissance)
+    {
+        $this->date_naissance = $date_naissance;
 
         return $this;
     }
