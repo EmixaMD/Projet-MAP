@@ -39,12 +39,12 @@ class Visiteur
     /**
      * @ORM\Column(type="string", length=255)
      */
-    private $zone_visite;
+    private $zoneVisite;
 
     /**
      * @ORM\Column(type="string", length=255)
      */
-    private $marque_vehicule;
+    private $marqueVehicule;
 
     /**
      * @ORM\Column(type="string", length=255)
@@ -64,7 +64,7 @@ class Visiteur
     /**
      * @ORM\Column(type="string", length=255)
      */
-    private $id_unique;
+    private $idUnique;
 
     /**
      * @ORM\Column(type="string", length=255, nullable=true)
@@ -74,7 +74,8 @@ class Visiteur
     /**
      * @ORM\Column(type="integer", nullable=true)
      */
-    // private $date_naissance;
+    private $dateNaissance;
+
 
     /**
      * @ORM\Column(type="string", length=255, nullable=true)
@@ -84,12 +85,12 @@ class Visiteur
     /**
      * @ORM\Column(type="integer", nullable=true)
      */
-    private $code_postal;
+    private $codePostal;
 
     /**
      * @ORM\Column(type="string", length=255, nullable=true)
      */
-    private $numero_rue;
+    private $numeroRue;
 
     /**
      * @ORM\Column(type="string", length=255)
@@ -161,24 +162,24 @@ class Visiteur
 
     public function getZoneVisite(): ?string
     {
-        return $this->zone_visite;
+        return $this->zoneVisite;
     }
 
-    public function setZoneVisite(string $zone_visite): self
+    public function setZoneVisite(string $zoneVisite): self
     {
-        $this->zone_visite = $zone_visite;
+        $this->zoneVisite = $zoneVisite;
 
         return $this;
     }
 
     public function getMarqueVehicule(): ?string
     {
-        return $this->marque_vehicule;
+        return $this->marqueVehicule;
     }
 
-    public function setMarqueVehicule(string $marque_vehicule): self
+    public function setMarqueVehicule(string $marqueVehicule): self
     {
-        $this->marque_vehicule = $marque_vehicule;
+        $this->marqueVehicule = $marqueVehicule;
 
         return $this;
     }
@@ -221,12 +222,12 @@ class Visiteur
 
     public function getIdUnique(): ?string
     {
-        return $this->id_unique;
+        return $this->idUnique;
     }
 
-    public function setIdUnique(string $id_unique): self
+    public function setIdUnique(string $idUnique): self
     {
-        $this->id_unique = $id_unique;
+        $this->idUnique = $idUnique;
 
         return $this;
     }
@@ -243,17 +244,19 @@ class Visiteur
         return $this;
     }
 
-    // public function getDate_naissance(): ?int
-    // {
-    //     return $this->date_naissance;
-    // }
 
-    // public function setDate_naissance(?int $date_naissance): self
-    // {
-    //     $this->date_naissance = $date_naissance;
+    public function getdateNaissance(): ?int
+    {
+        return $this->dateNaissance;
+    }
 
-    //     return $this;
-    // }
+    public function setdateNaissance(?int $dateNaissance): self
+    {
+        $this->dateNaissance = $dateNaissance;
+
+
+         return $this;
+     }
 
     public function getVille(): ?string
     {
@@ -269,24 +272,24 @@ class Visiteur
 
     public function getCodePostal(): ?int
     {
-        return $this->code_postal;
+        return $this->codePostal;
     }
 
-    public function setCodePostal(?int $code_postal): self
+    public function setCodePostal(?int $codePostal): self
     {
-        $this->code_postal = $code_postal;
+        $this->codePostal = $codePostal;
 
         return $this;
     }
 
     public function getNumeroRue(): ?string
     {
-        return $this->numero_rue;
+        return $this->numeroRue;
     }
 
-    public function setNumeroRue(?string $numero_rue): self
+    public function setNumeroRue(?string $numeroRue): self
     {
-        $this->numero_rue = $numero_rue;
+        $this->numeroRue = $numeroRue;
 
         return $this;
     }
