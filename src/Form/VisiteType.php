@@ -12,8 +12,8 @@ class VisiteType extends AbstractType
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
         $builder
-            ->add('heure_arrivee')
-            ->add('heure_depart')
+            ->add('heureArrivee')
+            ->add('heureDepart')
         ;
     }
 
