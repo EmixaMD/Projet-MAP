@@ -14,9 +14,9 @@ class EmployeType extends AbstractType
         $builder
             ->add('nom')
             ->add('prenom')
-            ->add('service_employe')
+            ->add('serviceEmploye')
             ->add('sexe')
-            ->add('date_naissance')
+            ->add('dateNaissance')
             ->add('telephone')
             ->add('email')
         ;

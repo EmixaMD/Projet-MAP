@@ -19,12 +19,12 @@ class Visite
     /**
      * @ORM\Column(type="datetime")
      */
-    private $heure_arrivee;
+    private $heureArrivee;
 
     /**
      * @ORM\Column(type="datetime")
      */
-    private $heure_depart;
+    private $heureDepart;
 
     public function getId(): ?int
     {
@@ -33,24 +33,24 @@ class Visite
 
     public function getHeureArrivee(): ?\DateTimeInterface
     {
-        return $this->heure_arrivee;
+        return $this->heureArrivee;
     }
 
-    public function setHeureArrivee(\DateTimeInterface $heure_arrivee): self
+    public function setHeureArrivee(\DateTimeInterface $heureArrivee): self
     {
-        $this->heure_arrivee = $heure_arrivee;
+        $this->heureArrivee = $heureArrivee;
 
         return $this;
     }
 
     public function getHeureDepart(): ?\DateTimeInterface
     {
-        return $this->heure_depart;
+        return $this->heureDepart;
     }
 
-    public function setHeureDepart(\DateTimeInterface $heure_depart): self
+    public function setHeureDepart(\DateTimeInterface $heureDepart): self
     {
-        $this->heure_depart = $heure_depart;
+        $this->heureDepart = $heureDepart;
 
         return $this;
     }

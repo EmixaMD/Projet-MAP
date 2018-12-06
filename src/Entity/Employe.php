@@ -29,7 +29,7 @@ class Employe
     /**
      * @ORM\Column(type="string", length=255)
      */
-    private $service_employe;
+    private $serviceEmploye;
 
     /**
      * @ORM\Column(type="string", length=255, nullable=true)
@@ -39,7 +39,7 @@ class Employe
     /**
      * @ORM\Column(type="date", nullable=true)
      */
-    private $date_naissance;
+    private $dateNaissance;
 
     /**
      * @ORM\Column(type="integer")
@@ -82,12 +82,12 @@ class Employe
 
     public function getServiceEmploye(): ?string
     {
-        return $this->service_employe;
+        return $this->serviceEmploye;
     }
 
-    public function setServiceEmploye(string $service_employe): self
+    public function setServiceEmploye(string $serviceEmploye): self
     {
-        $this->service_employe = $service_employe;
+        $this->serviceEmploye = $serviceEmploye;
 
         return $this;
     }
@@ -129,21 +129,21 @@ class Employe
     }
 
     /**
-     * Get the value of date_naissance
+     * Get the value of dateNaissance
      */ 
-    public function getDate_naissance()
+    public function getdateNaissance()
     {
-        return $this->date_naissance;
+        return $this->dateNaissance;
     }
 
     /**
-     * Set the value of date_naissance
+     * Set the value of dateNaissance
      *
      * @return  self
      */ 
-    public function setDate_naissance($date_naissance)
+    public function setdateNaissance($dateNaissance)
     {
-        $this->date_naissance = $date_naissance;
+        $this->dateNaissance = $dateNaissance;
 
         return $this;
     }
