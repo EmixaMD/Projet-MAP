@@ -72,7 +72,7 @@ class Visiteur
     private $sexe;
 
     /**
-     * @ORM\Column(type="integer", nullable=true)
+     * @ORM\Column(type="datetime", nullable=true)
      */
     private $dateNaissance;
 
