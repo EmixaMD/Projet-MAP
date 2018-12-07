@@ -1,4 +1,4 @@
-{% extends 'base.html.twig' %}
+{% extends 'layout.html.twig' %}
 
 {% block title %}Visiteur{% endblock %}
 
@@ -7,10 +7,10 @@
 
     <table class="table">
         <tbody>
-            <tr>
+            {# <tr>
                 <th>Id</th>
                 <td>{{ visiteur.id }}</td>
-            </tr>
+            </tr> #}
             <tr>
                 <th>Nom</th>
                 <td>{{ visiteur.nom }}</td>
@@ -31,7 +31,7 @@
                 <th>zoneVisite</th>
                 <td>{{ visiteur.zoneVisite }}</td>
             </tr>
-            <tr>
+            {# <tr>
                 <th>marqueVehicule</th>
                 <td>{{ visiteur.marqueVehicule }}</td>
             </tr>
@@ -46,12 +46,12 @@
             <tr>
                 <th>Cni</th>
                 <td>{{ visiteur.cni }}</td>
-            </tr>
+            </tr> #}
             <tr>
                 <th>idUnique</th>
                 <td>{{ visiteur.idUnique }}</td>
             </tr>
-            <tr>
+            {# <tr>
                 <th>Sexe</th>
                 <td>{{ visiteur.sexe }}</td>
             </tr>
@@ -82,13 +82,14 @@
             <tr>
                 <th>Email</th>
                 <td>{{ visiteur.email }}</td>
-            </tr>
+            </tr> #}
         </tbody>
     </table>
 
-    <a href="{{ path('visiteur_index') }}">back to list</a>
+    <a href="{{ path('visiteur_index') }}" class="btn btn-lg btn-primary"><i class="fa fa-arrow-left"></i></a>
 
-    <a href="{{ path('visiteur_edit', {'id': visiteur.id}) }}">edit</a>
+    {# <a href="{{ path('visiteur_edit', {'id': visiteur.id}) }}" class="btn btn-primary"><i class="fa fa-pencil-alt"></i></a> #}
 
-    {{ include('visiteur/_delete_form.html.twig') }}
+    {# {{ include('visiteur/_delete_form.html.twig') }} #}
+
 {% endblock %}

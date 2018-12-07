@@ -72,7 +72,7 @@ class Visiteur
     private $sexe;
 
     /**
-     * @ORM\Column(type="datetime", nullable=true)
+     * @ORM\Column(type="date", nullable=true)
      */
     private $dateNaissance;
 
@@ -243,17 +243,6 @@ class Visiteur
         return $this;
     }
 
-    public function getdateNaissance(): ?int
-    {
-        return $this->dateNaissance;
-    }
-
-    public function setdateNaissance(?int $dateNaissance): self
-    {
-        $this->dateNaissance = $dateNaissance;
-
-        return $this;
-    }
 
     public function getVille(): ?string
     {
@@ -323,6 +312,26 @@ class Visiteur
     public function setEmail(string $email): self
     {
         $this->email = $email;
+
+        return $this;
+    }
+
+    /**
+     * Get the value of dateNaissance
+     */ 
+    public function getDateNaissance()
+    {
+        return $this->dateNaissance;
+    }
+
+    /**
+     * Set the value of dateNaissance
+     *
+     * @return  self
+     */ 
+    public function setDateNaissance($dateNaissance)
+    {
+        $this->dateNaissance = $dateNaissance;
 
         return $this;
     }

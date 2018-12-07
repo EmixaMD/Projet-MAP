@@ -6,6 +6,7 @@ use App\Entity\Visiteur;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
+use Symfony\Component\Form\Extension\Core\Type\BirthdayType;
 
 class VisiteurType extends AbstractType
 {
@@ -17,19 +18,47 @@ class VisiteurType extends AbstractType
             ->add('societe')
             ->add('motif')
             ->add('zoneVisite')
-            ->add('marqueVehicule')
-            ->add('immatriculation')
-            ->add('couleur')
-            ->add('cni')
-            ->add('idUnique')
-            ->add('sexe')
-            ->add('dateNaissance')
-            ->add('ville')
-            ->add('codePostal')
-            ->add('numeroRue')
-            ->add('rue')
-            ->add('telephone')
-            ->add('email')
+            // ->add('marqueVehicule', null, array(
+                // 'required'=> false,
+            // ))
+            // ->add('immatriculation', null, array(
+                // 'required'=> false,
+            // ))
+            // ->add('couleur', null, array(
+                // 'required'=> false,
+            // ))
+            // ->add('cni', null, array(
+                // 'required'=> false,
+            // ))
+            // ->add('idUnique')
+            // ->add('sexe', null, array(
+                // 'required'=> false,
+            // ))
+            // ->add('dateNaissance', BirthdayType::class, array(
+                // 'placeholder' => array(
+                    // 'day'=>'Jour',
+                    // 'month'=>'Mois',
+                    // 'year'=>'Année',
+                // ),
+            // ))
+            // ->add('ville', null, array(
+                // 'required'=> false,
+            // ))
+            // ->add('codePostal', null, array(
+                // 'required'=> false,
+            // ))
+            // ->add('numeroRue', null, array(
+                // 'required'=> false,
+            // ))
+            // ->add('rue', null, array(
+                // 'required'=> false,
+            // ))
+            // ->add('telephone', null, array(
+                // 'required'=> false,
+            // ))
+            // ->add('email', null, array(
+                // 'required'=> false,
+            // ))
         ;
     }
 
