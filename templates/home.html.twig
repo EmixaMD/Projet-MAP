@@ -1,0 +1,20 @@
+{% extends 'layout.html.twig' %}
+
+{% block stylesheets %}
+<link rel="stylesheet" href="{{ asset('build/css/front.css') }}">
+{% endblock %}
+
+
+{% block page_content %}
+<div id="vue1">
+    <div class="clock"> <iframe src="https://www.zeitverschiebung.net/clock-widget-iframe-v2?language=fr&size=large&timezone=Europe%2FParis" width="100%" height="140" frameborder="0" seamless></iframe> </div>
+
+    <div class="fleche1"><a href="#"><i class="fa fa-arrow-alt-circle-left" style="color: #c05257; font-size: 100px;"></i></a><span>Sortie</span></div>
+    <div class="fleche2"><span>Entrée</span><a href="#"><i class="fa fa-arrow-alt-circle-right" style="color: #52c06d; font-size: 100px;"></i></a></div>
+</div>
+
+{% endblock page_content %}
+ 
+
+{% block javascripts %}
+{% endblock %}
