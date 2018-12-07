@@ -106,6 +106,11 @@ class Visiteur
      */
     private $email;
 
+    /**
+     * @ORM\OneToMany(targetEntity="App\Entity\Visite", mappedBy="visiteur")
+     */
+    private $visite;
+
     public function getId(): ?int
     {
         return $this->id;
@@ -332,6 +337,26 @@ class Visiteur
     public function setDateNaissance($dateNaissance)
     {
         $this->dateNaissance = $dateNaissance;
+
+        return $this;
+    }
+
+    /**
+     * Get the value of visite
+     */ 
+    public function getVisite()
+    {
+        return $this->visite;
+    }
+
+    /**
+     * Set the value of visite
+     *
+     * @return  self
+     */ 
+    public function setVisite($visite)
+    {
+        $this->visite = $visite;
 
         return $this;
     }

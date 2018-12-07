@@ -8,7 +8,7 @@
     <table class="table">
         <thead>
             <tr>
-                <th>Id</th>
+                {# <th>Id</th> #}
                 <th>Nom</th>
                 <th>Prenom</th>
                 <th>Societe</th>
@@ -26,13 +26,14 @@
                 {# <th>Rue</th> #}
                 {# <th>Telephone</th> #}
                 {# <th>Email</th> #}
+                <th>Heure d'arrivée</th>
                 <th>actions</th>
             </tr>
         </thead>
         <tbody>
         {% for visiteur in visiteurs %}
             <tr>
-                <td>{{ visiteur.id }}</td>
+                {# <td>{{ visiteur.id }}</td> #}
                 <td>{{ visiteur.nom }}</td>
                 <td>{{ visiteur.prenom }}</td>
                 <td>{{ visiteur.societe }}</td>
@@ -50,6 +51,7 @@
                 {# <td>{{ visiteur.rue }}</td> #}
                 {# <td>{{ visiteur.telephone }}</td> #}
                 {# <td>{{ visiteur.email }}</td> #}
+                <td>{{ visiteur.heureArrivee() }}</td>
                 <td>
                     <a href="{{ path('visiteur_show', {'id': visiteur.id}) }}"><i class="fa fa-eye"></i></a>
                     {# <a href="{{ path('visiteur_edit', {'id': visiteur.id}) }}"><i class="fa fa-pencil-alt"></i></a> #}
