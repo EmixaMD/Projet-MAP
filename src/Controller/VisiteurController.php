@@ -46,6 +46,32 @@ class VisiteurController extends AbstractController
         ]);
     }
 
+
+    /**
+     * @Route("/newfront", name="visiteurfront_new", methods="GET|POST")
+     */
+    public function newfront(Request $request):Response
+    {   
+        $visiteurfront = new Visiteur();
+        $form = $this->createForm(VisiteurType::class, $visiteurfront);
+        $form->handleRequest($request);
+
+        if ($form->isSubmitted() && $form->isValid()) {
+            $em = $this->getDoctrine()->getManager();
+            $em->persist($visiteurfront);
+            $em->flush();
+            
+           
+            // return $this->redirectToRoute('visiteur_index');
+        }
+
+        return $this->render('visiteur/newfront.html.twig', [
+            'visiteur' => $visiteurfront,
+            'form' => $form->createView(),
+        ]);
+
+    }
+
     /**
      * @Route("/{id}", name="visiteur_show", methods="GET")
      */

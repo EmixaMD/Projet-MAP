@@ -107,6 +107,24 @@ class Visiteur
      */
     private $email;
 
+
+    /**
+     * @ORM\ManyToOne(targetEntity="App\Entity\Employe", inversedBy="visiteur", cascade={"all"})
+     * 
+     */
+    private $employe; 
+
+    /**
+     * @ORM\ManyToOne(targetEntity="App\Entity\LieuVisite", inversedBy="visiteur", cascade={"all"})
+     */
+    private $lieuVisite;
+
+    /**
+     * @ORM\ManyToOne(targetEntity="App\Entity\MotifVisite", inversedBy="visiteur", cascade={"all"})
+     */
+    private $motifVisite;
+
+
     public function getId(): ?int
     {
         return $this->id;
@@ -326,6 +344,68 @@ class Visiteur
     public function setEmail(string $email): self
     {
         $this->email = $email;
+
+        return $this;
+    }
+
+    
+
+    /**
+     * Get the value of employe
+     */ 
+    public function getEmploye()
+    {
+        return $this->employe;
+    }
+
+    /**
+     * Set the value of employe
+     *
+     * @return  self
+     */ 
+    public function setEmploye($employe)
+    {
+        $this->employe = $employe;
+
+        return $this;
+    }
+
+    /**
+     * Get the value of lieuVisite
+     */ 
+    public function getLieuVisite()
+    {
+        return $this->lieuVisite;
+    }
+
+    /**
+     * Set the value of lieuVisite
+     *
+     * @return  self
+     */ 
+    public function setLieuVisite($lieuVisite)
+    {
+        $this->lieuVisite = $lieuVisite;
+
+        return $this;
+    }
+
+    /**
+     * Get the value of motifVisite
+     */ 
+    public function getMotifVisite()
+    {
+        return $this->motifVisite;
+    }
+
+    /**
+     * Set the value of motifVisite
+     *
+     * @return  self
+     */ 
+    public function setMotifVisite($motifVisite)
+    {
+        $this->motifVisite = $motifVisite;
 
         return $this;
     }
