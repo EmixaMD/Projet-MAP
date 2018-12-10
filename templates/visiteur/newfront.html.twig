@@ -7,18 +7,17 @@
     
     <div class="container">
         
-        
+
             <div class="row">
                 <div class="col-8">
-                    {{form_start(form)}}
-                    {{ include('visiteur/_form.html.twig') }} 
-                    {{form_end(form)}}   
+
+                {{ include('visiteur/_form.html.twig') }}
+                      
                 </div>
                 <div class="col-4">
                     
                 </div>
             </div>
-        
         
     </div>
     <a href="{{ path('visiteur_index') }}">Retour à l'écran d'accueil</a>

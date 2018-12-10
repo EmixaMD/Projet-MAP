@@ -126,6 +126,7 @@ class Visiteur
     private $motifVisite;
 
     /**
+
      * @ORM\Column(type="datetime")
      * 
      */
