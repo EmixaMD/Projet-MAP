@@ -27,7 +27,6 @@ class Visite
     private $heureDepart;
 
     /**
-     * @ORM\ManyToOne(targetEntity="App\Entity\Visiteur", inversedBy="visite")
      */
     private $visiteur;
 

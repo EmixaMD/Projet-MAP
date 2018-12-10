@@ -51,7 +51,7 @@
                 {# <td>{{ visiteur.rue }}</td> #}
                 {# <td>{{ visiteur.telephone }}</td> #}
                 {# <td>{{ visiteur.email }}</td> #}
-                {# <td>{{ visiteur.visite }}</td> #}
+                <td>{{ visiteur.heureArrivee|date("H:i") }}</td>
                 <td>
                     <a href="{{ path('visiteur_show', {'id': visiteur.id}) }}"><i class="fa fa-eye"></i></a>
                     {# <a href="{{ path('visiteur_edit', {'id': visiteur.id}) }}"><i class="fa fa-pencil-alt"></i></a> #}

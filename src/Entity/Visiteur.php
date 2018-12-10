@@ -107,9 +107,15 @@ class Visiteur
     private $email;
 
     /**
-     * @ORM\OneToMany(targetEntity="App\Entity\Visite", mappedBy="visiteur")
+     * @ORM\Column(type="datetime")
      */
-    private $visite;
+    private $heureArrivee;
+    
+    /**
+     * @ORM\Column(type="datetime")
+     */
+    private $heureDepart;
+
 
     public function getId(): ?int
     {
@@ -342,21 +348,41 @@ class Visiteur
     }
 
     /**
-     * Get the value of visite
+     * Get the value of heureArrivee
      */ 
-    public function getVisite()
+    public function getHeureArrivee(): ?\DateTimeInterface
     {
-        return $this->visite;
+        return $this->heureArrivee;
     }
 
     /**
-     * Set the value of visite
+     * Set the value of heureArrivee
      *
      * @return  self
      */ 
-    public function setVisite($visite)
+    public function setHeureArrivee(\DateTimeInterface $heureArrivee): self
     {
-        $this->visite = $visite;
+        $this->heureArrivee = $heureArrivee;
+
+        return $this;
+    }
+
+    /**
+     * Get the value of heureDepart
+     */ 
+    public function getHeureDepart(): ?\DateTimeInterface
+    {
+        return $this->heureDepart;
+    }
+
+    /**
+     * Set the value of heureDepart
+     *
+     * @return  self
+     */ 
+    public function setHeureDepart(\DateTimeInterface $heureDepart): self
+    {
+        $this->heureDepart = $heureDepart;
 
         return $this;
     }
