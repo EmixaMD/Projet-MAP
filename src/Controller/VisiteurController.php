@@ -3,6 +3,7 @@
 namespace App\Controller;
 
 use App\Entity\Visiteur;
+use App\Entity\Visite;
 use App\Form\VisiteurType;
 use App\Repository\VisiteurRepository;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
@@ -20,7 +21,10 @@ class VisiteurController extends AbstractController
      */
     public function index(VisiteurRepository $visiteurRepository): Response
     {
-        return $this->render('visiteur/index.html.twig', ['visiteurs' => $visiteurRepository->findAll()]);
+        $visitors = $visiteurRepository->findAll();
+        return $this->render('visiteur/index.html.twig', [
+            'visiteurs' => $visitors,
+        ]);
     }
 
     /**

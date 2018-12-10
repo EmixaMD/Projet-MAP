@@ -27,6 +27,10 @@ class Visite
      */
     private $heureDepart; 
 
+    /**
+     */
+    private $visiteur;
+
     public function getId(): ?int
     {
         return $this->id;
@@ -52,6 +56,26 @@ class Visite
     public function setHeureDepart(\DateTimeInterface $heureDepart): self
     {
         $this->heureDepart = $heureDepart;
+
+        return $this;
+    }
+
+    /**
+     * Get the value of visiteur
+     */ 
+    public function getVisiteur()
+    {
+        return $this->visiteur;
+    }
+
+    /**
+     * Set the value of visiteur
+     *
+     * @return  self
+     */ 
+    public function setVisiteur($visiteur)
+    {
+        $this->visiteur = $visiteur;
 
         return $this;
     }
