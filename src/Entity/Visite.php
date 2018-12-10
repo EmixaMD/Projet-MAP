@@ -18,13 +18,18 @@ class Visite
 
     /**
      * @ORM\Column(type="datetime")
+     * @ORM\OneToMany(targetEntity="App\Entity\Visiteur", mappedBy="Visite", cascade={"all"})
      */
     private $heureArrivee;
 
     /**
      * @ORM\Column(type="datetime")
      */
-    private $heureDepart;
+    private $heureDepart; 
+
+    /**
+     */
+    private $visiteur;
 
     public function getId(): ?int
     {
@@ -51,6 +56,26 @@ class Visite
     public function setHeureDepart(\DateTimeInterface $heureDepart): self
     {
         $this->heureDepart = $heureDepart;
+
+        return $this;
+    }
+
+    /**
+     * Get the value of visiteur
+     */ 
+    public function getVisiteur()
+    {
+        return $this->visiteur;
+    }
+
+    /**
+     * Set the value of visiteur
+     *
+     * @return  self
+     */ 
+    public function setVisiteur($visiteur)
+    {
+        $this->visiteur = $visiteur;
 
         return $this;
     }

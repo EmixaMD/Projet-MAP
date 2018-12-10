@@ -6,6 +6,7 @@ use App\Entity\Visiteur;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
+use Symfony\Component\Form\Extension\Core\Type\BirthdayType;
 
 class VisiteurType extends AbstractType
 {
@@ -14,12 +15,14 @@ class VisiteurType extends AbstractType
         $builder
             ->add('nom')
             ->add('prenom')
+
             ->add('societe',null, array(
                 'required'=> false,
             ))
             ->add('motifVisite')
             ->add('lieuVisite')
             ->add('employe')
+            
 
             // ->add('marqueVehicule', null, array(
             //     'required'=> false,
@@ -57,6 +60,7 @@ class VisiteurType extends AbstractType
             // ))
             // ->add('email', null, array(
             //     'required'=> false,
+
             // ))
         ;
     }

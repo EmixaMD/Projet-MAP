@@ -32,22 +32,22 @@ class Visiteur
     private $societe;
 
     /**
-     * @ORM\Column(type="string", length=255)
+     * @ORM\Column(type="string", length=255, nullable=true)
      */
     private $motif;
 
     /**
-     * @ORM\Column(type="string", length=255)
+     * @ORM\Column(type="string", length=255, nullable=true)
      */
     private $zoneVisite;
 
     /**
-     * @ORM\Column(type="string", length=255)
+     * @ORM\Column(type="string", length=255, nullable=true)
      */
     private $marqueVehicule;
 
     /**
-     * @ORM\Column(type="string", length=255)
+     * @ORM\Column(type="string", length=255, nullable=true)
      */
     private $immatriculation;
 
@@ -62,7 +62,7 @@ class Visiteur
     private $cni;
 
     /**
-     * @ORM\Column(type="string", length=255)
+     * @ORM\Column(type="string", length=255, nullable=true)
      */
     private $idUnique;
 
@@ -72,7 +72,7 @@ class Visiteur
     private $sexe;
 
     /**
-     * @ORM\Column(type="integer", nullable=true)
+     * @ORM\Column(type="date", nullable=true)
      */
     private $dateNaissance;
 
@@ -93,7 +93,7 @@ class Visiteur
     private $numeroRue;
 
     /**
-     * @ORM\Column(type="string", length=255)
+     * @ORM\Column(type="string", length=255, nullable=true)
      */
     private $rue;
 
@@ -103,9 +103,10 @@ class Visiteur
     private $telephone;
 
     /**
-     * @ORM\Column(type="string", length=255)
+     * @ORM\Column(type="string", length=255, nullable=true)
      */
     private $email;
+
 
 
     /**
@@ -125,8 +126,16 @@ class Visiteur
     private $motifVisite;
 
     /**
-     * @ORM\Column
+
+     * @ORM\Column(type="datetime")
+     * 
      */
+    private $heureArrivee;
+
+    /**
+     * @ORM\Column(type="datetime")
+     */
+    private $heureDepart;
 
 
     public function getId(): ?int
@@ -267,6 +276,7 @@ class Visiteur
     }
 
 
+
     public function getdateNaissance(): ?int
     {
         return $this->dateNaissance;
@@ -279,6 +289,7 @@ class Visiteur
 
          return $this;
      }
+
 
     public function getVille(): ?string
     {
@@ -352,7 +363,7 @@ class Visiteur
         return $this;
     }
 
-    
+   
 
     /**
      * Get the value of employe
@@ -371,10 +382,12 @@ class Visiteur
     {
         $this->employe = $employe;
 
+
         return $this;
     }
 
     /**
+
      * Get the value of lieuVisite
      */ 
     public function getLieuVisite()
@@ -391,10 +404,27 @@ class Visiteur
     {
         $this->lieuVisite = $lieuVisite;
 
+     * Get the value of heureArrivee
+     */ 
+    public function getHeureArrivee(): ?\DateTimeInterface
+    {
+        return $this->heureArrivee;
+    }
+
+    /**
+     * Set the value of heureArrivee
+     *
+     * @return  self
+     */ 
+    public function setHeureArrivee(\DateTimeInterface $heureArrivee): self
+    {
+        $this->heureArrivee = $heureArrivee;
+
         return $this;
     }
 
     /**
+
      * Get the value of motifVisite
      */ 
     public function getMotifVisite()
@@ -413,4 +443,27 @@ class Visiteur
 
         return $this;
     }
+
+
+
+  
+     * Get the value of heureDepart
+     */ 
+    public function getHeureDepart(): ?\DateTimeInterface
+    {
+        return $this->heureDepart;
+    }
+
+    /**
+     * Set the value of heureDepart
+     *
+     * @return  self
+     */ 
+    public function setHeureDepart(\DateTimeInterface $heureDepart): self
+    {
+        $this->heureDepart = $heureDepart;
+
+        return $this;
+    }
+
 }

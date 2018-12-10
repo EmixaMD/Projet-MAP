@@ -51,7 +51,7 @@ class VisiteController extends AbstractController
      */
     public function show(Visite $visite): Response
     {
-        return $this->render('visite/show.html.twig', ['visite' => $visite]);
+    return $this->render('visite/show.html.twig', ['visite' => $visite]);
     }
 
     /**

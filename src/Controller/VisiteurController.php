@@ -3,6 +3,7 @@
 namespace App\Controller;
 
 use App\Entity\Visiteur;
+use App\Entity\Visite;
 use App\Form\VisiteurType;
 use App\Repository\VisiteurRepository;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
@@ -20,7 +21,10 @@ class VisiteurController extends AbstractController
      */
     public function index(VisiteurRepository $visiteurRepository): Response
     {
-        return $this->render('visiteur/index.html.twig', ['visiteurs' => $visiteurRepository->findAll()]);
+        $visitors = $visiteurRepository->findAll();
+        return $this->render('visiteur/index.html.twig', [
+            'visiteurs' => $visitors,
+        ]);
     }
 
     /**
@@ -55,6 +59,7 @@ class VisiteurController extends AbstractController
         $visiteurfront = new Visiteur();
         $visiteurfront->setHeureArrivee(new \DateTime('now'));
         $form = $this->createForm(VisiteurType::class, $visiteurfront);
+        
         $form->handleRequest($request);
 
         if ($form->isSubmitted() && $form->isValid()) {
@@ -70,6 +75,17 @@ class VisiteurController extends AbstractController
             'visiteur' => $visiteurfront,
             'form' => $form->createView(),
         ]);
+
+
+        
+        
+
+
+
+
+
+
+
 
     }
 
