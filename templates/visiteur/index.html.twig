@@ -27,6 +27,8 @@
                 <th>Rue</th>
                 <th>Telephone</th>
                 <th>Email</th>
+                <th>personne visitées</th>
+                <th>heure d'arrivée</th>
                 <th>actions</th>
             </tr>
         </thead>
@@ -37,8 +39,8 @@
                 <td>{{ visiteur.nom }}</td>
                 <td>{{ visiteur.prenom }}</td>
                 <td>{{ visiteur.societe }}</td>
-                <td>{{ visiteur.motif }}</td>
-                <td>{{ visiteur.zoneVisite }}</td>
+                <td>{{ visiteur.motifVisite }}</td>
+                <td>{{ visiteur.lieuVisite }}</td>
                 <td>{{ visiteur.marqueVehicule }}</td>
                 <td>{{ visiteur.immatriculation }}</td>
                 <td>{{ visiteur.couleur }}</td>
@@ -52,6 +54,8 @@
                 <td>{{ visiteur.rue }}</td>
                 <td>{{ visiteur.telephone }}</td>
                 <td>{{ visiteur.email }}</td>
+                <td> {{ visiteur.employe}}</td>
+                 <td> {{ visiteur.heureArrivee|date("H:i")}}</td>
                 <td>
                     <a href="{{ path('visiteur_show', {'id': visiteur.id}) }}">show</a>
                     <a href="{{ path('visiteur_edit', {'id': visiteur.id}) }}">edit</a>

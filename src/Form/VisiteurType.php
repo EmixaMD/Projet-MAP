@@ -20,6 +20,7 @@ class VisiteurType extends AbstractType
             ->add('motifVisite')
             ->add('lieuVisite')
             ->add('employe')
+            
 
             // ->add('marqueVehicule', null, array(
             //     'required'=> false,

@@ -32,22 +32,22 @@ class Visiteur
     private $societe;
 
     /**
-     * @ORM\Column(type="string", length=255)
+     * @ORM\Column(type="string", length=255, nullable=true)
      */
     private $motif;
 
     /**
-     * @ORM\Column(type="string", length=255)
+     * @ORM\Column(type="string", length=255, nullable=true)
      */
     private $zoneVisite;
 
     /**
-     * @ORM\Column(type="string", length=255)
+     * @ORM\Column(type="string", length=255, nullable=true)
      */
     private $marqueVehicule;
 
     /**
-     * @ORM\Column(type="string", length=255)
+     * @ORM\Column(type="string", length=255, nullable=true)
      */
     private $immatriculation;
 
@@ -62,7 +62,7 @@ class Visiteur
     private $cni;
 
     /**
-     * @ORM\Column(type="string", length=255)
+     * @ORM\Column(type="string", length=255, nullable=true)
      */
     private $idUnique;
 
@@ -93,7 +93,7 @@ class Visiteur
     private $numeroRue;
 
     /**
-     * @ORM\Column(type="string", length=255)
+     * @ORM\Column(type="string", length=255, nullable=true)
      */
     private $rue;
 
@@ -103,7 +103,7 @@ class Visiteur
     private $telephone;
 
     /**
-     * @ORM\Column(type="string", length=255)
+     * @ORM\Column(type="string", length=255, nullable=true)
      */
     private $email;
 
@@ -124,6 +124,11 @@ class Visiteur
      */
     private $motifVisite;
 
+    /**
+     * @ORM\Column(type="datetime")
+     * 
+     */
+    private $heureArrivee;
 
     public function getId(): ?int
     {
@@ -408,5 +413,26 @@ class Visiteur
         $this->motifVisite = $motifVisite;
 
         return $this;
+    }
+
+
+
+   
+    public function getHeureArrivee(): ?\DateTimeInterface
+    {
+        return $this->heureArrivee;
+    }
+
+     
+    public function setHeureArrivee(\DateTimeInterface $heureArrivee): self
+    {
+        $this->heureArrivee = $heureArrivee;
+
+        return $this;
+    }
+
+    public function __toString()
+    {
+        return $this->getHeureArrivee();
     }
 }

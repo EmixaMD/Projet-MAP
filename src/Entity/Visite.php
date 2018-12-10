@@ -18,13 +18,14 @@ class Visite
 
     /**
      * @ORM\Column(type="datetime")
+     * @ORM\OneToMany(targetEntity="App\Entity\Visiteur", mappedBy="Visite", cascade={"all"})
      */
     private $heureArrivee;
 
     /**
      * @ORM\Column(type="datetime")
      */
-    private $heureDepart;
+    private $heureDepart; 
 
     public function getId(): ?int
     {
