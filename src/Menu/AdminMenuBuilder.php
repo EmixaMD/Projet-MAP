@@ -21,7 +21,11 @@ class AdminMenuBuilder
         $user = $this->tokenStorage->getToken()->getUser();
         $menu = $this->factory->createItem('root');
 
-        $menu->addChild('menu.users', ['route' => 'user_admin_index']);
+        $menu->addChild('menu.users', ['route' => 'admin_visiteur_index']);
+        $menu->addChild('menu.admin', ['route' => 'admin_visiteur_index']);
+        $menu->addChild('menu.categories', ['route' => 'admin_visiteur_index']);
+        $menu->addChild('menu.autrechose', ['route' => 'admin_visiteur_index']);
+        $menu->addChild('logout', ['route' => 'fos_user_security_logout']);
 
         return $menu;
     }

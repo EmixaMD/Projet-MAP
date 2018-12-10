@@ -1,24 +1,26 @@
-{% extends 'layout.html.twig' %}
+{% extends 'layout.html.twig' %} {% block title %}Inscription{% endblock %} {%
+block page_content %}
+<h1>Merci de remplir les champs nécessaires à l'inscription</h1>
 
-{% block title %}Inscription{% endblock %}
-
-{% block page_content %}
-    <h1>Merci de remplir les champs nécessaires à l'inscription</h1>
-    
-    <div class="container">
-        
-
-            <div class="row">
-                <div class="col-8">
-
-                {{ include('admin/visiteur/_form.html.twig') }}
-                      
-                </div>
-                <div class="col-4">
-                    
-                </div>
-            </div>
-        
+<div class="container">
+  {{form_start(form)}}
+  <div class="row">
+    <div class="col-8">{{ include('admin/visiteur/_form.html.twig') }}</div>
+    <div class="col-4">
+      <canvas
+        id="simple_sketch"
+      ></canvas>
+      <div
+        class="signature-buttons"
+        style="float:none; margin-left:155px; margin-top:-15px;"
+      >
+        {# <span class="save-signature btn btn-primary">Save Signature</span> #}
+        <br /><span class="reset-canvas btn btn-secondary">Reset Signature</span>
+      </div>
     </div>
-    <a href="{{ path('admin_visiteur_index') }}">Retour à l'écran d'accueil</a>
-{% endblock %}
+  </div>
+  <button class="btn">{{ button_label|default('Save') }}</button>
+  {{form_end(form)}} 
+</div>
+<a href="{{ path('admin_visiteur_index') }}">Retour à l'écran d'accueil</a> {%
+endblock %}
