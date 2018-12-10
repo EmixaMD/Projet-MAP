@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Controller;
+namespace App\Controller\Admin;
 
 use App\Entity\MotifVisite;
 use App\Form\MotifVisiteType;
@@ -11,7 +11,7 @@ use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 
 /**
- * @Route("/motif/visite")
+ * @Route("/admin/motif/visite", name="admin_")
  */
 class MotifVisiteController extends AbstractController
 {
@@ -20,7 +20,7 @@ class MotifVisiteController extends AbstractController
      */
     public function index(MotifVisiteRepository $motifVisiteRepository): Response
     {
-        return $this->render('motif_visite/index.html.twig', ['motif_visites' => $motifVisiteRepository->findAll()]);
+        return $this->render('admin/motif_visite/index.html.twig', ['motif_visites' => $motifVisiteRepository->findAll()]);
     }
 
     /**
@@ -37,10 +37,10 @@ class MotifVisiteController extends AbstractController
             $em->persist($motifVisite);
             $em->flush();
 
-            return $this->redirectToRoute('motif_visite_index');
+            return $this->redirectToRoute('admin_motif_visite_index');
         }
 
-        return $this->render('motif_visite/new.html.twig', [
+        return $this->render('admin/motif_visite/new.html.twig', [
             'motif_visite' => $motifVisite,
             'form' => $form->createView(),
         ]);
@@ -51,7 +51,7 @@ class MotifVisiteController extends AbstractController
      */
     public function show(MotifVisite $motifVisite): Response
     {
-        return $this->render('motif_visite/show.html.twig', ['motif_visite' => $motifVisite]);
+        return $this->render('admin/motif_visite/show.html.twig', ['motif_visite' => $motifVisite]);
     }
 
     /**
@@ -65,7 +65,7 @@ class MotifVisiteController extends AbstractController
         if ($form->isSubmitted() && $form->isValid()) {
             $this->getDoctrine()->getManager()->flush();
 
-            return $this->redirectToRoute('motif_visite_index', ['id' => $motifVisite->getId()]);
+            return $this->redirectToRoute('admin_motif_visite_index', ['id' => $motifVisite->getId()]);
         }
 
         return $this->render('motif_visite/edit.html.twig', [
@@ -85,6 +85,6 @@ class MotifVisiteController extends AbstractController
             $em->flush();
         }
 
-        return $this->redirectToRoute('motif_visite_index');
+        return $this->redirectToRoute('admin_motif_visite_index');
     }
 }

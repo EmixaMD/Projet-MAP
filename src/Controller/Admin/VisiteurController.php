@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Controller;
+namespace App\Controller\Admin;
 
 use App\Entity\Visiteur;
 use App\Entity\Visite;
@@ -12,23 +12,23 @@ use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 
 /**
- * @Route("/visiteur")
+ * @Route("/admin/visiteur")
  */
 class VisiteurController extends AbstractController
 {
     /**
-     * @Route("/", name="visiteur_index", methods="GET")
+     * @Route("/", name="admin_visiteur_index", methods="GET")
      */
     public function index(VisiteurRepository $visiteurRepository): Response
     {
         $visitors = $visiteurRepository->findAll();
-        return $this->render('visiteur/index.html.twig', [
+        return $this->render('admin/visiteur/index.html.twig', [
             'visiteurs' => $visitors,
         ]);
     }
 
     /**
-     * @Route("/new", name="visiteur_new", methods="GET|POST")
+     * @Route("/new", name="admin_visiteur_new", methods="GET|POST")
      */
     public function new(Request $request): Response
     {
@@ -41,10 +41,10 @@ class VisiteurController extends AbstractController
             $em->persist($visiteur);
             $em->flush();
 
-            return $this->redirectToRoute('visiteur_index');
+            return $this->redirectToRoute('admin_visiteur_index');
         }
 
-        return $this->render('visiteur/new.html.twig', [
+        return $this->render('admin/visiteur/new.html.twig', [
             'visiteur' => $visiteur,
             'form' => $form->createView(),
         ]);
@@ -68,10 +68,10 @@ class VisiteurController extends AbstractController
             $em->flush();
             
            
-            // return $this->redirectToRoute('visiteur_index');
+            // return $this->redirectToRoute('admin_visiteur_index');
         }
 
-        return $this->render('visiteur/newfront.html.twig', [
+        return $this->render('admin/visiteur/newfront.html.twig', [
             'visiteur' => $visiteurfront,
             'form' => $form->createView(),
         ]);
@@ -90,15 +90,15 @@ class VisiteurController extends AbstractController
     }
 
     /**
-     * @Route("/{id}", name="visiteur_show", methods="GET")
+     * @Route("/{id}", name="admin_visiteur_show", methods="GET")
      */
     public function show(Visiteur $visiteur): Response
     {
-        return $this->render('visiteur/show.html.twig', ['visiteur' => $visiteur]);
+        return $this->render('admin/visiteur/show.html.twig', ['visiteur' => $visiteur]);
     }
 
     /**
-     * @Route("/{id}/edit", name="visiteur_edit", methods="GET|POST")
+     * @Route("/{id}/edit", name="admin_visiteur_edit", methods="GET|POST")
      */
     public function edit(Request $request, Visiteur $visiteur): Response
     {
@@ -108,17 +108,17 @@ class VisiteurController extends AbstractController
         if ($form->isSubmitted() && $form->isValid()) {
             $this->getDoctrine()->getManager()->flush();
 
-            return $this->redirectToRoute('visiteur_index', ['id' => $visiteur->getId()]);
+            return $this->redirectToRoute('admin_visiteur_index', ['id' => $visiteur->getId()]);
         }
 
-        return $this->render('visiteur/edit.html.twig', [
+        return $this->render('admin/visiteur/edit.html.twig', [
             'visiteur' => $visiteur,
             'form' => $form->createView(),
         ]);
     }
 
     /**
-     * @Route("/{id}", name="visiteur_delete", methods="DELETE")
+     * @Route("/{id}", name="admin_visiteur_delete", methods="DELETE")
      */
     public function delete(Request $request, Visiteur $visiteur): Response
     {
@@ -128,6 +128,6 @@ class VisiteurController extends AbstractController
             $em->flush();
         }
 
-        return $this->redirectToRoute('visiteur_index');
+        return $this->redirectToRoute('admin_visiteur_index');
     }
 }

@@ -107,8 +107,6 @@ class Visiteur
      */
     private $email;
 
-
-
     /**
      * @ORM\ManyToOne(targetEntity="App\Entity\Employe", inversedBy="visiteur", cascade={"all"})
      * 
@@ -133,7 +131,7 @@ class Visiteur
     private $heureArrivee;
 
     /**
-     * @ORM\Column(type="datetime")
+     * @ORM\Column(type="datetime", nullable=true)
      */
     private $heureDepart;
 
@@ -274,22 +272,6 @@ class Visiteur
 
         return $this;
     }
-
-
-
-    public function getdateNaissance(): ?int
-    {
-        return $this->dateNaissance;
-    }
-
-    public function setdateNaissance(?int $dateNaissance): self
-    {
-        $this->dateNaissance = $dateNaissance;
-
-
-         return $this;
-     }
-
 
     public function getVille(): ?string
     {
@@ -468,4 +450,24 @@ class Visiteur
         return $this;
     }
 
+
+    /**
+     * Get the value of dateNaissance
+     */ 
+    public function getDateNaissance()
+    {
+        return $this->dateNaissance;
+    }
+
+    /**
+     * Set the value of dateNaissance
+     *
+     * @return  self
+     */ 
+    public function setDateNaissance($dateNaissance)
+    {
+        $this->dateNaissance = $dateNaissance;
+
+        return $this;
+    }
 }

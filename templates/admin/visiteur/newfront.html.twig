@@ -11,7 +11,7 @@
             <div class="row">
                 <div class="col-8">
 
-                {{ include('visiteur/_form.html.twig') }}
+                {{ include('admin/visiteur/_form.html.twig') }}
                       
                 </div>
                 <div class="col-4">
@@ -20,5 +20,5 @@
             </div>
         
     </div>
-    <a href="{{ path('visiteur_index') }}">Retour à l'écran d'accueil</a>
+    <a href="{{ path('admin_visiteur_index') }}">Retour à l'écran d'accueil</a>
 {% endblock %}

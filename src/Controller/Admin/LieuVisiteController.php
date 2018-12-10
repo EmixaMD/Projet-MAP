@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Controller;
+namespace App\Controller\Admin;
 
 use App\Entity\LieuVisite;
 use App\Form\LieuVisiteType;
@@ -11,20 +11,20 @@ use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 
 /**
- * @Route("/lieu/visite")
+ * @Route("/admin/lieu/visite")
  */
 class LieuVisiteController extends AbstractController
 {
     /**
-     * @Route("/", name="lieu_visite_index", methods="GET")
+     * @Route("/", name="admin_lieu_visite_index", methods="GET")
      */
     public function index(LieuVisiteRepository $lieuVisiteRepository): Response
     {
-        return $this->render('lieu_visite/index.html.twig', ['lieu_visites' => $lieuVisiteRepository->findAll()]);
+        return $this->render('admin_lieu_visite/index.html.twig', ['lieu_visites' => $lieuVisiteRepository->findAll()]);
     }
 
     /**
-     * @Route("/new", name="lieu_visite_new", methods="GET|POST")
+     * @Route("/new", name="admin_lieu_visite_new", methods="GET|POST")
      */
     public function new(Request $request): Response
     {
@@ -37,25 +37,25 @@ class LieuVisiteController extends AbstractController
             $em->persist($lieuVisite);
             $em->flush();
 
-            return $this->redirectToRoute('lieu_visite_index');
+            return $this->redirectToRoute('admin_lieu_visite_index');
         }
 
-        return $this->render('lieu_visite/new.html.twig', [
+        return $this->render('admin_lieu_visite/new.html.twig', [
             'lieu_visite' => $lieuVisite,
             'form' => $form->createView(),
         ]);
     }
 
     /**
-     * @Route("/{id}", name="lieu_visite_show", methods="GET")
+     * @Route("/{id}", name="admin_lieu_visite_show", methods="GET")
      */
     public function show(LieuVisite $lieuVisite): Response
     {
-        return $this->render('lieu_visite/show.html.twig', ['lieu_visite' => $lieuVisite]);
+        return $this->render('admin_lieu_visite/show.html.twig', ['lieu_visite' => $lieuVisite]);
     }
 
     /**
-     * @Route("/{id}/edit", name="lieu_visite_edit", methods="GET|POST")
+     * @Route("/{id}/edit", name="admin_lieu_visite_edit", methods="GET|POST")
      */
     public function edit(Request $request, LieuVisite $lieuVisite): Response
     {
@@ -65,17 +65,17 @@ class LieuVisiteController extends AbstractController
         if ($form->isSubmitted() && $form->isValid()) {
             $this->getDoctrine()->getManager()->flush();
 
-            return $this->redirectToRoute('lieu_visite_index', ['id' => $lieuVisite->getId()]);
+            return $this->redirectToRoute('admin_lieu_visite_index', ['id' => $lieuVisite->getId()]);
         }
 
-        return $this->render('lieu_visite/edit.html.twig', [
+        return $this->render('admin_lieu_visite/edit.html.twig', [
             'lieu_visite' => $lieuVisite,
             'form' => $form->createView(),
         ]);
     }
 
     /**
-     * @Route("/{id}", name="lieu_visite_delete", methods="DELETE")
+     * @Route("/{id}", name="admin_lieu_visite_delete", methods="DELETE")
      */
     public function delete(Request $request, LieuVisite $lieuVisite): Response
     {
@@ -85,6 +85,6 @@ class LieuVisiteController extends AbstractController
             $em->flush();
         }
 
-        return $this->redirectToRoute('lieu_visite_index');
+        return $this->redirectToRoute('admin_lieu_visite_index');
     }
 }

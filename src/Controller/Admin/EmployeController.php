@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Controller;
+namespace App\Controller\Admin;
 
 use App\Entity\Employe;
 use App\Form\EmployeType;
@@ -11,20 +11,20 @@ use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 
 /**
- * @Route("/employe")
+ * @Route("/admin/employe")
  */
 class EmployeController extends AbstractController
 {
     /**
-     * @Route("/", name="employe_index", methods="GET")
+     * @Route("/", name="admin_employe_index", methods="GET")
      */
     public function index(EmployeRepository $employeRepository): Response
     {
-        return $this->render('employe/index.html.twig', ['employes' => $employeRepository->findAll()]);
+        return $this->render('admin/employe/index.html.twig', ['employes' => $employeRepository->findAll()]);
     }
 
     /**
-     * @Route("/new", name="employe_new", methods="GET|POST")
+     * @Route("/new", name="admin_employe_new", methods="GET|POST")
      */
     public function new(Request $request): Response
     {
@@ -37,25 +37,25 @@ class EmployeController extends AbstractController
             $em->persist($employe);
             $em->flush();
 
-            return $this->redirectToRoute('employe_index');
+            return $this->redirectToRoute('admin_employe_index');
         }
 
-        return $this->render('employe/new.html.twig', [
+        return $this->render('admin/employe/new.html.twig', [
             'employe' => $employe,
             'form' => $form->createView(),
         ]);
     }
 
     /**
-     * @Route("/{id}", name="employe_show", methods="GET")
+     * @Route("/{id}", name="admin_employe_show", methods="GET")
      */
     public function show(Employe $employe): Response
     {
-        return $this->render('employe/show.html.twig', ['employe' => $employe]);
+        return $this->render('admin/employe/show.html.twig', ['employe' => $employe]);
     }
 
     /**
-     * @Route("/{id}/edit", name="employe_edit", methods="GET|POST")
+     * @Route("/{id}/edit", name="admin_employe_edit", methods="GET|POST")
      */
     public function edit(Request $request, Employe $employe): Response
     {
@@ -65,17 +65,17 @@ class EmployeController extends AbstractController
         if ($form->isSubmitted() && $form->isValid()) {
             $this->getDoctrine()->getManager()->flush();
 
-            return $this->redirectToRoute('employe_index', ['id' => $employe->getId()]);
+            return $this->redirectToRoute('admin_employe_index', ['id' => $employe->getId()]);
         }
 
-        return $this->render('employe/edit.html.twig', [
+        return $this->render('admin/employe/edit.html.twig', [
             'employe' => $employe,
             'form' => $form->createView(),
         ]);
     }
 
     /**
-     * @Route("/{id}", name="employe_delete", methods="DELETE")
+     * @Route("/{id}", name="admin_employe_delete", methods="DELETE")
      */
     public function delete(Request $request, Employe $employe): Response
     {
@@ -85,6 +85,6 @@ class EmployeController extends AbstractController
             $em->flush();
         }
 
-        return $this->redirectToRoute('employe_index');
+        return $this->redirectToRoute('admin_employe_index');
     }
 }

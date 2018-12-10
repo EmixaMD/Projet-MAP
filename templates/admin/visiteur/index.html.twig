@@ -1,8 +1,8 @@
-{% extends 'layout.html.twig' %}
+{% extends 'admin/admin_layout.html.twig' %}
 
 {% block title %}Liste des Visiteurs {% endblock %}
 
-{% block body %}
+{% block page_content %}
     <h1>Liste des Visiteurs </h1>
 
     <table class="table">
@@ -48,7 +48,7 @@
                 <td>{{ visiteur.cni }}</td>
                 <td>{{ visiteur.idUnique }}</td>
                 <td>{{ visiteur.sexe }}</td>
-                <td>{{ visiteur.dateNaissance }}</td>
+                <td>{{ visiteur.dateNaissance|date("d/m/Y") }}</td>
                 <td>{{ visiteur.ville }}</td>
                 <td>{{ visiteur.codePostal }}</td>
                 <td>{{ visiteur.numeroRue }}</td>
@@ -58,8 +58,8 @@
                 <td> {{ visiteur.employe}}</td>
                 <td> {{ visiteur.heureArrivee|date("H:i")}}</td>
                 <td>
-                    <a href="{{ path('visiteur_show', {'id': visiteur.id}) }}"><i class="fa fa-eye"></i></a>
-                    {# <a href="{{ path('visiteur_edit', {'id': visiteur.id}) }}"><i class="fa fa-pencil-alt"></i></a> #}
+                    <a href="{{ path('admin_visiteur_show', {'id': visiteur.id}) }}"><i class="fa fa-eye"></i></a>
+                    {# <a href="{{ path('admin_visiteur_edit', {'id': visiteur.id}) }}"><i class="fa fa-pencil-alt"></i></a> #}
                 </td>
             </tr>
         {% else %}
@@ -70,5 +70,5 @@
         </tbody>
     </table>
 
-    <a href="{{ path('visiteur_new') }}"><i class="fa fa-plus"></i> Ajouter un nouveau visiteur</a>
+    <a href="{{ path('admin_visiteur_new') }}"><i class="fa fa-plus"></i> Ajouter un nouveau visiteur</a>
 {% endblock %}
