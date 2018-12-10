@@ -72,7 +72,7 @@ class Visiteur
     private $sexe;
 
     /**
-     * @ORM\Column(type="datetime", nullable=true)
+     * @ORM\Column(type="date", nullable=true)
      */
     private $dateNaissance;
 
@@ -105,6 +105,17 @@ class Visiteur
      * @ORM\Column(type="string", length=255)
      */
     private $email;
+
+    /**
+     * @ORM\Column(type="datetime")
+     */
+    private $heureArrivee;
+    
+    /**
+     * @ORM\Column(type="datetime")
+     */
+    private $heureDepart;
+
 
     public function getId(): ?int
     {
@@ -243,17 +254,6 @@ class Visiteur
         return $this;
     }
 
-    public function getdateNaissance(): ?int
-    {
-        return $this->dateNaissance;
-    }
-
-    public function setdateNaissance(?int $dateNaissance): self
-    {
-        $this->dateNaissance = $dateNaissance;
-
-        return $this;
-    }
 
     public function getVille(): ?string
     {
@@ -323,6 +323,66 @@ class Visiteur
     public function setEmail(string $email): self
     {
         $this->email = $email;
+
+        return $this;
+    }
+
+    /**
+     * Get the value of dateNaissance
+     */ 
+    public function getDateNaissance()
+    {
+        return $this->dateNaissance;
+    }
+
+    /**
+     * Set the value of dateNaissance
+     *
+     * @return  self
+     */ 
+    public function setDateNaissance($dateNaissance)
+    {
+        $this->dateNaissance = $dateNaissance;
+
+        return $this;
+    }
+
+    /**
+     * Get the value of heureArrivee
+     */ 
+    public function getHeureArrivee(): ?\DateTimeInterface
+    {
+        return $this->heureArrivee;
+    }
+
+    /**
+     * Set the value of heureArrivee
+     *
+     * @return  self
+     */ 
+    public function setHeureArrivee(\DateTimeInterface $heureArrivee): self
+    {
+        $this->heureArrivee = $heureArrivee;
+
+        return $this;
+    }
+
+    /**
+     * Get the value of heureDepart
+     */ 
+    public function getHeureDepart(): ?\DateTimeInterface
+    {
+        return $this->heureDepart;
+    }
+
+    /**
+     * Set the value of heureDepart
+     *
+     * @return  self
+     */ 
+    public function setHeureDepart(\DateTimeInterface $heureDepart): self
+    {
+        $this->heureDepart = $heureDepart;
 
         return $this;
     }
