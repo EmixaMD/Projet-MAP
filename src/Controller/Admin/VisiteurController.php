@@ -19,7 +19,7 @@ class VisiteurController extends AbstractController
     /**
      * @Route("/", name="admin_visiteur_index", methods="GET")
      */
-    public function index(VisiteurRepository $visiteurRepository): Response
+    public function index(VisiteurRepository $visiteurRepository) : Response
     {
         $visitors = $visiteurRepository->findAll();
         return $this->render('admin/visiteur/index.html.twig', [
@@ -30,7 +30,7 @@ class VisiteurController extends AbstractController
     /**
      * @Route("/new", name="admin_visiteur_new", methods="GET|POST")
      */
-    public function new(Request $request): Response
+    public function new(Request $request) : Response
     {
         $visiteur = new Visiteur();
         $form = $this->createForm(VisiteurType::class, $visiteur);
@@ -54,12 +54,12 @@ class VisiteurController extends AbstractController
     /**
      * @Route("/newfront", name="visiteurfront_new", methods="GET|POST")
      */
-    public function newfront(Request $request):Response
-    {   
+    public function newfront(Request $request) : Response
+    {
         $visiteurfront = new Visiteur();
         $visiteurfront->setHeureArrivee(new \DateTime('now'));
         $form = $this->createForm(VisiteurType::class, $visiteurfront);
-        
+
         $form->handleRequest($request);
 
         if ($form->isSubmitted() && $form->isValid()) {
@@ -70,29 +70,36 @@ class VisiteurController extends AbstractController
            
             // return $this->redirectToRoute('admin_visiteur_index');
         }
+        if (isset($GLOBALS["HTTP_RAW_POST_DATA"])) {
+            // Get the data
+            $imageData = $GLOBALS['HTTP_RAW_POST_DATA'];
+ 
+            // Remove the headers (data:,) part.
+            // A real application should use them according to needs such as to check image type
+            $filteredData = substr($imageData, strpos($imageData, ",") + 1);
+ 
+            // Need to decode before saving since the data we received is already base64 encoded
+            $unencodedData = base64_decode($filteredData);
+ 
+            echo "unencodedData".$unencodedData;
+ 
+            // Save file. This example uses a hard coded filename for testing,
+            // but a real application can specify filename in POST variable
+            $fp = fopen('test.png', 'wb');
+            fwrite($fp, $unencodedData);
+            fclose($fp);
+        }
 
         return $this->render('admin/visiteur/newfront.html.twig', [
             'visiteur' => $visiteurfront,
             'form' => $form->createView(),
         ]);
-
-
-        
-        
-
-
-
-
-
-
-
-
     }
 
     /**
      * @Route("/{id}", name="admin_visiteur_show", methods="GET")
      */
-    public function show(Visiteur $visiteur): Response
+    public function show(Visiteur $visiteur) : Response
     {
         return $this->render('admin/visiteur/show.html.twig', ['visiteur' => $visiteur]);
     }
@@ -100,7 +107,7 @@ class VisiteurController extends AbstractController
     /**
      * @Route("/{id}/edit", name="admin_visiteur_edit", methods="GET|POST")
      */
-    public function edit(Request $request, Visiteur $visiteur): Response
+    public function edit(Request $request, Visiteur $visiteur) : Response
     {
         $form = $this->createForm(VisiteurType::class, $visiteur);
         $form->handleRequest($request);
@@ -120,9 +127,9 @@ class VisiteurController extends AbstractController
     /**
      * @Route("/{id}", name="admin_visiteur_delete", methods="DELETE")
      */
-    public function delete(Request $request, Visiteur $visiteur): Response
+    public function delete(Request $request, Visiteur $visiteur) : Response
     {
-        if ($this->isCsrfTokenValid('delete'.$visiteur->getId(), $request->request->get('_token'))) {
+        if ($this->isCsrfTokenValid('delete' . $visiteur->getId(), $request->request->get('_token'))) {
             $em = $this->getDoctrine()->getManager();
             $em->remove($visiteur);
             $em->flush();

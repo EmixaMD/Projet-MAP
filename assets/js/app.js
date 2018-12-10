@@ -181,6 +181,8 @@ $(function() {
       onEvent: function(e) {
         switch (e.type) {
           case 'mousedown':
+            this.startPainting();
+            break;
           case 'touchstart':
             this.startPainting();
             break;
@@ -257,4 +259,13 @@ $(function() {
       });
     });
   }
+
+
+  var canvas=document.getElementById("myCanvas");
+  var dataUrl=canvas.toDataURL("image/png");
+  var ajax = new XMLHttpRequest();
+
+  ajax.open("POST",'VisiteurController.php',false);
+  ajax.setRequestHeader('Content-Type', 'application/upload');
+  ajax.send(canvasData );
 });

@@ -20,7 +20,7 @@ class LieuVisiteController extends AbstractController
      */
     public function index(LieuVisiteRepository $lieuVisiteRepository): Response
     {
-        return $this->render('admin_lieu_visite/index.html.twig', ['lieu_visites' => $lieuVisiteRepository->findAll()]);
+        return $this->render('admin/lieu_visite/index.html.twig', ['lieu_visites' => $lieuVisiteRepository->findAll()]);
     }
 
     /**

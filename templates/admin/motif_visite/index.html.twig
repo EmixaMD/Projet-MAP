@@ -19,8 +19,8 @@
                 <td>{{ motif_visite.id }}</td>
                 <td>{{ motif_visite.nom }}</td>
                 <td>
-                    <a href="{{ path('motif_visite_show', {'id': motif_visite.id}) }}">show</a>
-                    <a href="{{ path('motif_visite_edit', {'id': motif_visite.id}) }}">edit</a>
+                    <a href="{{ path('admin_motif_visite_show', {'id': motif_visite.id}) }}">show</a>
+                    <a href="{{ path('admin_motif_visite_edit', {'id': motif_visite.id}) }}">edit</a>
                 </td>
             </tr>
         {% else %}
@@ -31,5 +31,5 @@
         </tbody>
     </table>
 
-    <a href="{{ path('motif_visite_new') }}">Create new</a>
+    <a href="{{ path('admin_motif_visite_new') }}">Create new</a>
 {% endblock %}

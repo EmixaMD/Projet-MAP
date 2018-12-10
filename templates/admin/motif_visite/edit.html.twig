@@ -5,9 +5,9 @@
 {% block body %}
     <h1>Edit MotifVisite</h1>
 
-    {{ include('motif_visite/_form.html.twig', {'button_label': 'Update'}) }}
+    {{ include('admin/motif_visite/_form.html.twig', {'button_label': 'Update'}) }}
 
-    <a href="{{ path('motif_visite_index') }}">back to list</a>
+    <a href="{{ path('admin_motif_visite_index') }}">back to list</a>
 
-    {{ include('motif_visite/_delete_form.html.twig') }}
+    {{ include('admin/motif_visite/_delete_form.html.twig') }}
 {% endblock %}
