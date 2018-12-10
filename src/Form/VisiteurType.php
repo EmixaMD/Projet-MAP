@@ -15,49 +15,52 @@ class VisiteurType extends AbstractType
         $builder
             ->add('nom')
             ->add('prenom')
-            ->add('societe')
-            ->add('motif')
-            ->add('zoneVisite')
+
+            ->add('societe',null, array(
+                'required'=> false,
+            ))
+            ->add('motifVisite')
+            ->add('lieuVisite')
+            ->add('employe')
+            
+
             // ->add('marqueVehicule', null, array(
-                // 'required'=> false,
+            //     'required'=> false,
             // ))
             // ->add('immatriculation', null, array(
-                // 'required'=> false,
+            //     'required'=> false,
             // ))
             // ->add('couleur', null, array(
-                // 'required'=> false,
+            //     'required'=> false,
             // ))
             // ->add('cni', null, array(
-                // 'required'=> false,
+            //     'required'=> false,
             // ))
-            // ->add('idUnique')
+            // ->add('idUnique') 
             // ->add('sexe', null, array(
-                // 'required'=> false,
+            //     'required'=> false,
             // ))
-            // ->add('dateNaissance', BirthdayType::class, array(
-                // 'placeholder' => array(
-                    // 'day'=>'Jour',
-                    // 'month'=>'Mois',
-                    // 'year'=>'Année',
-                // ),
+            // ->add('dateNaissance', null, array(
+            //     'required'=> false,
             // ))
-            // ->add('ville', null, array(
-                // 'required'=> false,
+            // ->add('ville',null, array(
+            //     'required'=> false,
             // ))
-            // ->add('codePostal', null, array(
-                // 'required'=> false,
+            // ->add('codePostal',null, array(
+            //     'required'=> false,
             // ))
-            // ->add('numeroRue', null, array(
-                // 'required'=> false,
+            // ->add('numeroRue',null, array(
+            //     'required'=> false,
             // ))
             // ->add('rue', null, array(
-                // 'required'=> false,
+            //     'required'=> false,
             // ))
-            // ->add('telephone', null, array(
-                // 'required'=> false,
+            // ->add('telephone',null, array(
+            //     'required'=> false,
             // ))
             // ->add('email', null, array(
-                // 'required'=> false,
+            //     'required'=> false,
+
             // ))
         ;
     }

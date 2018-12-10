@@ -1,0 +1,35 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}MotifVisite index{% endblock %}
+
+{% block body %}
+    <h1>MotifVisite index</h1>
+
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Nom</th>
+                <th>actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for motif_visite in motif_visites %}
+            <tr>
+                <td>{{ motif_visite.id }}</td>
+                <td>{{ motif_visite.nom }}</td>
+                <td>
+                    <a href="{{ path('motif_visite_show', {'id': motif_visite.id}) }}">show</a>
+                    <a href="{{ path('motif_visite_edit', {'id': motif_visite.id}) }}">edit</a>
+                </td>
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="3">no records found</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <a href="{{ path('motif_visite_new') }}">Create new</a>
+{% endblock %}

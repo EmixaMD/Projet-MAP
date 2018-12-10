@@ -1,9 +1,9 @@
 {% extends 'layout.html.twig' %}
 
-{% block title %}Visiteur index{% endblock %}
+{% block title %}Liste des Visiteurs {% endblock %}
 
 {% block body %}
-    <h1>Visiteur index</h1>
+    <h1>Liste des Visiteurs </h1>
 
     <table class="table">
         <thead>
@@ -14,19 +14,22 @@
                 <th>Societe</th>
                 <th>Motif</th>
                 <th>zoneVisite</th>
-                {# <th>marqueVehicule</th> #}
-                {# <th>Immatriculation</th> #}
-                {# <th>Couleur</th> #}
-                {# <th>Cni</th> #}
-                {# <th>idUnique</th> #}
-                {# <th>Sexe</th> #}
-                {# <th>Ville</th> #}
-                {# <th>codePostal</th> #}
-                {# <th>numeroRue</th> #}
-                {# <th>Rue</th> #}
-                {# <th>Telephone</th> #}
-                {# <th>Email</th> #}
-                <th>Heure d'arrivée</th>
+                <th>marqueVehicule</th>
+                <th>Immatriculation</th>
+                <th>Couleur</th>
+                <th>Cni</th>
+                <th>idUnique</th>
+                <th>Sexe</th>
+                <th>dateNaissance</th>
+                <th>Ville</th>
+                <th>codePostal</th>
+                <th>numeroRue</th>
+                <th>Rue</th>
+                <th>Telephone</th>
+                <th>Email</th>
+                <th>personne visitées</th>
+                <th>heure d'arrivée</th>
+
                 <th>actions</th>
             </tr>
         </thead>
@@ -37,21 +40,23 @@
                 <td>{{ visiteur.nom }}</td>
                 <td>{{ visiteur.prenom }}</td>
                 <td>{{ visiteur.societe }}</td>
-                <td>{{ visiteur.motif }}</td>
-                <td>{{ visiteur.zoneVisite }}</td>
-                {# <td>{{ visiteur.marqueVehicule }}</td> #}
-                {# <td>{{ visiteur.immatriculation }}</td> #}
-                {# <td>{{ visiteur.couleur }}</td> #}
-                {# <td>{{ visiteur.cni }}</td> #}
-                {# <td>{{ visiteur.idUnique }}</td> #}
-                {# <td>{{ visiteur.sexe }}</td> #}
-                {# <td>{{ visiteur.ville }}</td> #}
-                {# <td>{{ visiteur.codePostal }}</td> #}
-                {# <td>{{ visiteur.numeroRue }}</td> #}
-                {# <td>{{ visiteur.rue }}</td> #}
-                {# <td>{{ visiteur.telephone }}</td> #}
-                {# <td>{{ visiteur.email }}</td> #}
-                <td>{{ visiteur.heureArrivee|date("H:i") }}</td>
+                <td>{{ visiteur.motifVisite }}</td>
+                <td>{{ visiteur.lieuVisite }}</td>
+                <td>{{ visiteur.marqueVehicule }}</td>
+                <td>{{ visiteur.immatriculation }}</td>
+                <td>{{ visiteur.couleur }}</td>
+                <td>{{ visiteur.cni }}</td>
+                <td>{{ visiteur.idUnique }}</td>
+                <td>{{ visiteur.sexe }}</td>
+                <td>{{ visiteur.dateNaissance }}</td>
+                <td>{{ visiteur.ville }}</td>
+                <td>{{ visiteur.codePostal }}</td>
+                <td>{{ visiteur.numeroRue }}</td>
+                <td>{{ visiteur.rue }}</td>
+                <td>{{ visiteur.telephone }}</td>
+                <td>{{ visiteur.email }}</td>
+                <td> {{ visiteur.employe}}</td>
+                <td> {{ visiteur.heureArrivee|date("H:i")}}</td>
                 <td>
                     <a href="{{ path('visiteur_show', {'id': visiteur.id}) }}"><i class="fa fa-eye"></i></a>
                     {# <a href="{{ path('visiteur_edit', {'id': visiteur.id}) }}"><i class="fa fa-pencil-alt"></i></a> #}

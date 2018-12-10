@@ -32,22 +32,22 @@ class Visiteur
     private $societe;
 
     /**
-     * @ORM\Column(type="string", length=255)
+     * @ORM\Column(type="string", length=255, nullable=true)
      */
     private $motif;
 
     /**
-     * @ORM\Column(type="string", length=255)
+     * @ORM\Column(type="string", length=255, nullable=true)
      */
     private $zoneVisite;
 
     /**
-     * @ORM\Column(type="string", length=255)
+     * @ORM\Column(type="string", length=255, nullable=true)
      */
     private $marqueVehicule;
 
     /**
-     * @ORM\Column(type="string", length=255)
+     * @ORM\Column(type="string", length=255, nullable=true)
      */
     private $immatriculation;
 
@@ -62,7 +62,7 @@ class Visiteur
     private $cni;
 
     /**
-     * @ORM\Column(type="string", length=255)
+     * @ORM\Column(type="string", length=255, nullable=true)
      */
     private $idUnique;
 
@@ -75,6 +75,7 @@ class Visiteur
      * @ORM\Column(type="date", nullable=true)
      */
     private $dateNaissance;
+
 
     /**
      * @ORM\Column(type="string", length=255, nullable=true)
@@ -92,7 +93,7 @@ class Visiteur
     private $numeroRue;
 
     /**
-     * @ORM\Column(type="string", length=255)
+     * @ORM\Column(type="string", length=255, nullable=true)
      */
     private $rue;
 
@@ -102,15 +103,34 @@ class Visiteur
     private $telephone;
 
     /**
-     * @ORM\Column(type="string", length=255)
+     * @ORM\Column(type="string", length=255, nullable=true)
      */
     private $email;
 
+
+
+    /**
+     * @ORM\ManyToOne(targetEntity="App\Entity\Employe", inversedBy="visiteur", cascade={"all"})
+     * 
+     */
+    private $employe; 
+
+    /**
+     * @ORM\ManyToOne(targetEntity="App\Entity\LieuVisite", inversedBy="visiteur", cascade={"all"})
+     */
+    private $lieuVisite;
+
+    /**
+     * @ORM\ManyToOne(targetEntity="App\Entity\MotifVisite", inversedBy="visiteur", cascade={"all"})
+     */
+    private $motifVisite;
+
     /**
      * @ORM\Column(type="datetime")
+     * 
      */
     private $heureArrivee;
-    
+
     /**
      * @ORM\Column(type="datetime")
      */
@@ -255,6 +275,21 @@ class Visiteur
     }
 
 
+
+    public function getdateNaissance(): ?int
+    {
+        return $this->dateNaissance;
+    }
+
+    public function setdateNaissance(?int $dateNaissance): self
+    {
+        $this->dateNaissance = $dateNaissance;
+
+
+         return $this;
+     }
+
+
     public function getVille(): ?string
     {
         return $this->ville;
@@ -327,27 +362,47 @@ class Visiteur
         return $this;
     }
 
+   
+
     /**
-     * Get the value of dateNaissance
+     * Get the value of employe
      */ 
-    public function getDateNaissance()
+    public function getEmploye()
     {
-        return $this->dateNaissance;
+        return $this->employe;
     }
 
     /**
-     * Set the value of dateNaissance
+     * Set the value of employe
      *
      * @return  self
      */ 
-    public function setDateNaissance($dateNaissance)
+    public function setEmploye($employe)
     {
-        $this->dateNaissance = $dateNaissance;
+        $this->employe = $employe;
+
 
         return $this;
     }
 
     /**
+
+     * Get the value of lieuVisite
+     */ 
+    public function getLieuVisite()
+    {
+        return $this->lieuVisite;
+    }
+
+    /**
+     * Set the value of lieuVisite
+     *
+     * @return  self
+     */ 
+    public function setLieuVisite($lieuVisite)
+    {
+        $this->lieuVisite = $lieuVisite;
+
      * Get the value of heureArrivee
      */ 
     public function getHeureArrivee(): ?\DateTimeInterface
@@ -368,6 +423,29 @@ class Visiteur
     }
 
     /**
+
+     * Get the value of motifVisite
+     */ 
+    public function getMotifVisite()
+    {
+        return $this->motifVisite;
+    }
+
+    /**
+     * Set the value of motifVisite
+     *
+     * @return  self
+     */ 
+    public function setMotifVisite($motifVisite)
+    {
+        $this->motifVisite = $motifVisite;
+
+        return $this;
+    }
+
+
+
+  
      * Get the value of heureDepart
      */ 
     public function getHeureDepart(): ?\DateTimeInterface
@@ -386,4 +464,5 @@ class Visiteur
 
         return $this;
     }
+
 }

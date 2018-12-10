@@ -1,0 +1,11 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}New MotifVisite{% endblock %}
+
+{% block body %}
+    <h1>Create new MotifVisite</h1>
+
+    {{ include('motif_visite/_form.html.twig') }}
+
+    <a href="{{ path('motif_visite_index') }}">back to list</a>
+{% endblock %}
