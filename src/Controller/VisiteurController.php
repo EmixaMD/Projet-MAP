@@ -53,6 +53,7 @@ class VisiteurController extends AbstractController
     public function newfront(Request $request):Response
     {   
         $visiteurfront = new Visiteur();
+        $visiteurfront->setHeureArrivee(new \DateTime('now'));
         $form = $this->createForm(VisiteurType::class, $visiteurfront);
         $form->handleRequest($request);
 

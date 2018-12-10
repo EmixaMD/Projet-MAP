@@ -124,6 +124,10 @@ class Visiteur
      */
     private $motifVisite;
 
+    /**
+     * @ORM\Column
+     */
+
 
     public function getId(): ?int
     {

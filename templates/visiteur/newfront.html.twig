@@ -7,22 +7,18 @@
     
     <div class="container">
         
-        <form>
+       
             <div class="row">
                 <div class="col-8">
-                    {{form_start(form)}}
-                    {{ include('visiteur/_form.html.twig') }} 
-                    {{form_end(form)}}   
+
+                {{ include('visiteur/_form.html.twig') }}
+                      
                 </div>
                 <div class="col-4">
-                    <div class="form-group">
-                      <label for="">Email</label>
-                      <input type="email" class="form-control" name="" id="" aria-describedby="emailHelpId" placeholder="">
-                      <small id="emailHelpId" class="form-text text-muted">Help text</small>
-                    </div>
+                    
                 </div>
             </div>
-        </form>
+      
         
     </div>
     <a href="{{ path('visiteur_index') }}">Retour à l'écran d'accueil</a>
