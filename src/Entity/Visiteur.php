@@ -404,6 +404,8 @@ class Visiteur
     {
         $this->lieuVisite = $lieuVisite;
 
+    }
+    /**
      * Get the value of heureArrivee
      */ 
     public function getHeureArrivee(): ?\DateTimeInterface
@@ -446,7 +448,7 @@ class Visiteur
 
 
 
-  
+    /**
      * Get the value of heureDepart
      */ 
     public function getHeureDepart(): ?\DateTimeInterface
