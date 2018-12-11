@@ -194,6 +194,51 @@ body {
     }
 }
 
+//***************** SORTIE ******************//
 
+.ident-sortie {
+    height: 125px;
+    width: 400px;
+    font-size: 56px;
+    text-align: center;
+    border: 4mm ridge rgba(104, 173, 175, 0.637);
+    padding-bottom: 40px;
+    margin-top: 150px;
+    color: rgb(184, 83, 83);
+    font-weight: bold;
+}
+
+.background-sortie {
+    background-color: #7dced1;
+    height: 21vh;
+    margin-top: 34.7vh;
+}
+
+@media only screen and (max-width: 1025px) {
+    .background-sortie {
+        background-color: #7dced1;
+        height: 21vh;
+        margin-top: 23.3vh;
+    }
+
+}
+
+//*************** RECEPTION CODE ********************//
+
+#reception-code {
+    position: absolute;
+    top: 47%;
+    right: 40%;
+    font-size: 25px;
+}
+
+@media only screen and (max-width: 1025px) {
+    #reception-code {
+        position: absolute;
+        top: 57%;
+        right: 31%;
+        font-size: 25px;
+    }
+}
 
 
