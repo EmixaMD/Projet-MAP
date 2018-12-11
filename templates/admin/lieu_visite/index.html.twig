@@ -1,14 +1,14 @@
-{% extends 'base.html.twig' %}
+{% extends 'admin/admin_layout.html.twig' %}
 
-{% block title %}LieuVisite index{% endblock %}
+{% block title %}Paramétrage lieu de visite{% endblock %}
 
-{% block body %}
-    <h1>LieuVisite index</h1>
+{% block page_content  %}
+    <h1>Paramétrage lieu de visite</h1>
 
     <table class="table">
         <thead>
             <tr>
-                <th>Id</th>
+                
                 <th>Nom</th>
                 <th>actions</th>
             </tr>
@@ -16,11 +16,15 @@
         <tbody>
         {% for lieu_visite in lieu_visites %}
             <tr>
-                <td>{{ lieu_visite.id }}</td>
+                
                 <td>{{ lieu_visite.nom }}</td>
                 <td>
-                    <a href="{{ path('admin_lieu_visite_show', {'id': lieu_visite.id}) }}">show</a>
-                    <a href="{{ path('admin_lieu_visite_edit', {'id': lieu_visite.id}) }}">edit</a>
+                    <form method="post" action="{{ path('admin_lieu_visite_delete', {'id': lieu_visite.id}) }}" onsubmit="return confirm('Confirmez-vous la suppression {{ lieu_visite.nom}}?');">
+                    <input type="hidden" name="_method" value="DELETE">
+                    <input type="hidden" name="_token" value="{{ csrf_token('delete' ~ lieu_visite.id) }}">
+                    <button id="btntrash" class="btn"><i class="fa fa-trash"></i></button>
+                    </form>
+                    <a class="btn" id="btnupdate" href="{{ path('admin_lieu_visite_edit', {'id': lieu_visite.id}) }}"><i class="fas fa-pen-alt"></i></a>
                 </td>
             </tr>
         {% else %}
@@ -31,5 +35,5 @@
         </tbody>
     </table>
 
-    <a href="{{ path('admin_lieu_visite_new') }}">Create new</a>
+    <a href="{{ path('admin_lieu_visite_new') }}">Créer un nouveau lieu de visite</a>
 {% endblock %}

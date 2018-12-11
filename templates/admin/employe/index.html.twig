@@ -1,14 +1,14 @@
-{% extends 'base.html.twig' %}
+{% extends 'admin/admin_layout.html.twig' %}
 
-{% block title %}Employe index{% endblock %}
+{% block title %}Liste des employés{% endblock %}
 
-{% block body %}
-    <h1>Employe index</h1>
+{% block page_content %}
+    <h1>Liste des employés</h1>
 
     <table class="table">
         <thead>
             <tr>
-                <th>Id</th>
+                
                 <th>Nom</th>
                 <th>Prenom</th>
                 <th>serviceEmploye</th>
@@ -22,7 +22,7 @@
         <tbody>
         {% for employe in employes %}
             <tr>
-                <td>{{ employe.id }}</td>
+             
                 <td>{{ employe.nom }}</td>
                 <td>{{ employe.prenom }}</td>
                 <td>{{ employe.serviceEmploye }}</td>
@@ -31,8 +31,12 @@
                 <td>{{ employe.telephone }}</td>
                 <td>{{ employe.email }}</td>
                 <td>
-                    <a href="{{ path('admin_employe_show', {'id': employe.id}) }}">show</a>
-                    <a href="{{ path('admin_employe_edit', {'id': employe.id}) }}">edit</a>
+                    <form method="post" action="{{ path('admin_employe_delete', {'id': employe.id}) }}" onsubmit="return confirm('Confirmez-vous la suppression de l'employé {{ employe.nom}} {{ employe.prenom}} ?');">
+                    <input type="hidden" name="_method" value="DELETE">
+                    <input type="hidden" name="_token" value="{{ csrf_token('delete' ~ employe.id) }}">
+                    <button id="btntrash" type="submit" class="btn"><i class="fa fa-trash"></i></button>
+                    </form>
+                    <a class="btn" id="btnupdate" href="{{ path('admin_employe_edit', {'id': employe.id}) }}"><i class="fas fa-pen-alt"></i></a>
                 </td>
             </tr>
         {% else %}
@@ -43,5 +47,5 @@
         </tbody>
     </table>
 
-    <a href="{{ path('admin_employe_new') }}">Create new</a>
+    <a href="{{ path('admin_employe_new') }}">Créer un nouvel employé</a>
 {% endblock %}
