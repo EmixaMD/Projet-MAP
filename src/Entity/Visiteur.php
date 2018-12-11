@@ -3,9 +3,12 @@
 namespace App\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
+use Symfony\Component\HttpFoundation\File\UploadedFile;
+
 
 /**
  * @ORM\Entity(repositoryClass="App\Repository\VisiteurRepository")
+ * @ORM\HasLifecycleCallbacks
  */
 class Visiteur
 {
@@ -140,6 +143,10 @@ class Visiteur
      */
     private $image;
 
+    /**
+     * @var string
+     */
+    private $imageData;
 
     public function getId(): ?int
     {
@@ -494,5 +501,50 @@ class Visiteur
         $this->image = $image;
 
         return $this;
+    }
+
+    /**
+     * Get the value of imageData
+     *
+     * @return  string
+     */ 
+    public function getImageData()
+    {
+        return $this->imageData;
+    }
+
+    /**
+     * Set the value of imageData
+     *
+     * @param  string  $imageData
+     *
+     * @return  self
+     */ 
+    public function setImageData(string $imageData)
+    {
+        $this->imageData = $imageData;
+
+        return $this;
+    }
+
+    /**
+     * @ORM\PrePersist()
+     */
+    public function dataToImage()
+    {
+        // copier l'image 
+        if ($this->imageData) {
+            $idata = $this->imageData;
+            //Génère le chemin du fichier à uploader
+            $imageName = uniqid('img_') . '.png';
+            
+            $imageFile = fopen(__DIR__.'/../../public/signatures/' . $imageName, 'w+');
+            fwrite($imageFile, base64_decode($idata));
+            fclose($imageFile);
+
+            $this->image = $imageName;
+            
+
+        }
     }
 }

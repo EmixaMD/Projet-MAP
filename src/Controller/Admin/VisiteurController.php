@@ -35,6 +35,9 @@ class VisiteurController extends AbstractController
         $visiteur = new Visiteur();
         $form = $this->createForm(VisiteurType::class, $visiteur);
         $form->handleRequest($request);
+        echo "<pre>";
+        var_dump($request);
+        echo "</pre>";
 
         if ($form->isSubmitted() && $form->isValid()) {
             $em = $this->getDoctrine()->getManager();
