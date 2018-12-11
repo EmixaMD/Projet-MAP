@@ -7,9 +7,10 @@
 {% block body %}
 {% embed 'decorator/_navbar.html.twig' with {'class' : 'fixed-top navbar-dark bg-dark', 'brandUrl' : path('index')} %}
     {% block brand %}
-    MAP
+    <img class="logomap" src="/uploads/MAP-LOGO.PNG"></img>
     {% endblock %}
 {% endembed %}
+
 
     {% block page_content %}
     {% endblock %}
