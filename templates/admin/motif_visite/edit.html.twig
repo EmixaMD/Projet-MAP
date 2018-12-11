@@ -1,13 +1,11 @@
-{% extends 'base.html.twig' %}
+{% extends 'admin/admin_layout.html.twig' %}
 
-{% block title %}Edit MotifVisite{% endblock %}
+{% block title %}Modifier le motif de visite{% endblock %}
 
-{% block body %}
-    <h1>Edit MotifVisite</h1>
+{% block page_content %}
+    <h1>Modifier le motif de visite suivant: {{ motif_visite.nom }} </h1>
 
-    {{ include('admin/motif_visite/_form.html.twig', {'button_label': 'Update'}) }}
+    {{ include('admin/motif_visite/_form.html.twig', {'button_label': 'Valider'}) }}
 
-    <a href="{{ path('admin_motif_visite_index') }}">back to list</a>
-
-    {{ include('admin/motif_visite/_delete_form.html.twig') }}
+    <a href="{{ path('admin_motif_visite_index') }}">Retour à la liste des motifs de visite</a>
 {% endblock %}

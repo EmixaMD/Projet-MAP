@@ -112,7 +112,7 @@ class Visiteur
 
     /**
      * @ORM\ManyToOne(targetEntity="App\Entity\Employe", inversedBy="visiteur", cascade={"all"})
-     * 
+     * @ORM\JoinColumn(onDelete="SET NULL")
      */
     private $employe; 
 

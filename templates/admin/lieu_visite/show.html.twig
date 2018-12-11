@@ -1,26 +1,26 @@
-{% extends 'base.html.twig' %}
+{% extends 'admin/admin_layout.html.twig' %}
 
 {% block title %}LieuVisite{% endblock %}
 
-{% block body %}
+{% block page_content %}
     <h1>LieuVisite</h1>
 
     <table class="table">
-        <tbody>
-            <tr>
-                <th>Id</th>
-                <td>{{ admin_lieu_visite.id }}</td>
-            </tr>
-            <tr>
-                <th>Nom</th>
-                <td>{{ admin_lieu_visite.nom }}</td>
-            </tr>
-        </tbody>
+    <thead>
+        <tr>
+            <th>Nom lieu de visite </th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td>{{ lieu_visite.nom }}</td>
+        </tr>
+    </tbody>
     </table>
 
     <a href="{{ path('admin_lieu_visite_index') }}">back to list</a>
 
-    <a href="{{ path('admin_lieu_visite_edit', {'id': admin_lieu_visite.id}) }}">edit</a>
+    <a href="{{ path('admin_lieu_visite_edit', {'id': lieu_visite.id}) }}">edit</a>
 
-    {{ include('admin_lieu_visite/_delete_form.html.twig') }}
+    {{ include('admin/lieu_visite/_delete_form.html.twig') }}
 {% endblock %}

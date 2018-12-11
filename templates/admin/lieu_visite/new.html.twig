@@ -1,11 +1,11 @@
-{% extends 'base.html.twig' %}
+{% extends 'admin/admin_layout.html.twig' %}
 
-{% block title %}New LieuVisite{% endblock %}
+{% block title %}Création nouveau lieu de visite{% endblock %}
 
-{% block body %}
-    <h1>Create new LieuVisite</h1>
+{% block page_content %}
+    <h1>Création nouveau lieu de visite</h1>
 
     {{ include('admin/lieu_visite/_form.html.twig') }}
 
-    <a href="{{ path('admin_lieu_visite_index') }}">back to list</a>
+    <a href="{{ path('admin_lieu_visite_index') }}">Retour à la liste des lieux de visite</a>
 {% endblock %}
