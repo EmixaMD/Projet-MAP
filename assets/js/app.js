@@ -266,13 +266,24 @@ $(function() {
         interval: 50000
     });
 
-  var canvas=document.getElementById("myCanvas");
-  var dataUrl=canvas.toDataURL("image/png");
-  var ajax = new XMLHttpRequest();
-
-  ajax.open("POST",'VisiteurController.php',false);
-  ajax.setRequestHeader('Content-Type', 'application/upload');
-  ajax.send(canvasData );
+  var canvas = document.getElementById("simple_sketch");
+  var $form = $('form') ;
+  $form.on('submit',function() {
+    var dataUrl=canvas.toDataURL();
+    console.log(dataUrl);
+    $form.find('#visiteur_imageData').val(dataUrl.split(",",)[1]);
+    
+    $.ajax({
+      type: 'POST',
+      url: $form.attr('action'),
+      data: $form.serialize(),
+      dataType: 'json',
+    }).done(function (data) {
+      console.log($form.serialize());
+    });
+    return false;
+    
+  });
 });
 
 

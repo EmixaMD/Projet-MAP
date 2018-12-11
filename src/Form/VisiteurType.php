@@ -7,6 +7,7 @@ use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
 use Symfony\Component\Form\Extension\Core\Type\BirthdayType;
+use Symfony\Component\Form\Extension\Core\Type\HiddenType;
 
 class VisiteurType extends AbstractType
 {
@@ -22,6 +23,9 @@ class VisiteurType extends AbstractType
             ->add('motifVisite')
             ->add('lieuVisite')
             ->add('employe')
+            ->add('imageData',HiddenType::class, array(
+
+            ))
             
 
             // ->add('marqueVehicule', null, array(
