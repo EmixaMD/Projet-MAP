@@ -123,5 +123,77 @@ body {
     color: white;
 }
 
+//****************** CATEGORIE *********************//
+
+//**** Modification pour vue tablette ****//
+
+
+#h1categorie {
+    margin-bottom: 10vh;
+}
+
+
+.card {
+    height: 31vh;
+    width: 18rem;
+    background-color: #f6f6f6;
+    
+}
+
+#technique {
+    width: 90%;
+    margin-top: 10px;
+    margin-left: 10px;
+    height: 200px;
+}
+
+
+
+
+#affaire {
+    width: 257px;
+    height: 200px;
+    margin-top: 10px;
+    margin-left: 10px;
+}
+
+.para-categorie {
+    text-align: center;
+    font-size: 25px;
+}
+
+
+.background-categorie {
+    background-color: #7dced1;
+    height: 21vh;
+    margin-top: 27.3vh;
+}
+
+@media only screen and (max-width: 1025px) {
+    .background-categorie {
+        background-color: #7dced1;
+        height: 21vh;
+        margin-top: 24.5vh;
+    }
+
+    #technique {
+        width: 90%;
+        margin-left: 10px;
+        margin-top: 0px;
+        height: 200px;
+    }
+    #affaire {
+        width: 257px;
+        height: 200px;
+        margin-top: 0px;
+        margin-left: 10px;
+    }
+
+    .card-body {
+        padding-bottom: 0px;
+    }
+}
+
+
 
 
