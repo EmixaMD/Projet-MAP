@@ -1,0 +1,13 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Edit MotifVisite{% endblock %}
+
+{% block body %}
+    <h1>Edit MotifVisite</h1>
+
+    {{ include('admin/motif_visite/_form.html.twig', {'button_label': 'Update'}) }}
+
+    <a href="{{ path('admin_motif_visite_index') }}">back to list</a>
+
+    {{ include('admin/motif_visite/_delete_form.html.twig') }}
+{% endblock %}

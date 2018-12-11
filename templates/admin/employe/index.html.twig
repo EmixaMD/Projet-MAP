@@ -31,8 +31,8 @@
                 <td>{{ employe.telephone }}</td>
                 <td>{{ employe.email }}</td>
                 <td>
-                    <a href="{{ path('employe_show', {'id': employe.id}) }}">show</a>
-                    <a href="{{ path('employe_edit', {'id': employe.id}) }}">edit</a>
+                    <a href="{{ path('admin_employe_show', {'id': employe.id}) }}">show</a>
+                    <a href="{{ path('admin_employe_edit', {'id': employe.id}) }}">edit</a>
                 </td>
             </tr>
         {% else %}
@@ -43,5 +43,5 @@
         </tbody>
     </table>
 
-    <a href="{{ path('employe_new') }}">Create new</a>
+    <a href="{{ path('admin_employe_new') }}">Create new</a>
 {% endblock %}

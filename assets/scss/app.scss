@@ -1,3 +1,40 @@
+@import '~@fortawesome/fontawesome-free/scss/fontawesome.scss';
+@import '~@fortawesome/fontawesome-free/scss/solid.scss';
 
-@import "~@fortawesome/fontawesome-free/scss/fontawesome.scss";
-@import "~@fortawesome/fontawesome-free/scss/solid.scss";
+.signature-field {
+  float: left;
+  width: 100%;
+  min-height: 100px;
+  font-size: 22px;
+  padding: 20px 0px;
+  display: none;
+}
+.signature-field input {
+  font-size: 22px;
+  border-bottom: 2px solid #000;
+  width: 325px;
+}
+.save-signature,
+.reset-canvas {
+  color: blue;
+  font-size: 12px;
+  cursor: pointer;
+}
+.save-signature:hover,
+.reset-canvas:hover {
+  text-decoration: underline;
+}
+.signature-field {
+  float: left;
+  width: 100%;
+  min-height: 100px;
+  font-size: 22px;
+  padding: 20px 0px;
+  display: none;
+}
+canvas {
+    border:1px solid grey; 
+    border-radius:7px;
+    width: 400;
+    height: 300;
+}

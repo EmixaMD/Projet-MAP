@@ -68,7 +68,7 @@ class MotifVisiteController extends AbstractController
             return $this->redirectToRoute('admin_motif_visite_index', ['id' => $motifVisite->getId()]);
         }
 
-        return $this->render('motif_visite/edit.html.twig', [
+        return $this->render('admin/motif_visite/edit.html.twig', [
             'motif_visite' => $motifVisite,
             'form' => $form->createView(),
         ]);

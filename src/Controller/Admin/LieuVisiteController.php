@@ -20,7 +20,7 @@ class LieuVisiteController extends AbstractController
      */
     public function index(LieuVisiteRepository $lieuVisiteRepository): Response
     {
-        return $this->render('admin_lieu_visite/index.html.twig', ['lieu_visites' => $lieuVisiteRepository->findAll()]);
+        return $this->render('admin/lieu_visite/index.html.twig', ['lieu_visites' => $lieuVisiteRepository->findAll()]);
     }
 
     /**
@@ -40,7 +40,7 @@ class LieuVisiteController extends AbstractController
             return $this->redirectToRoute('admin_lieu_visite_index');
         }
 
-        return $this->render('admin_lieu_visite/new.html.twig', [
+        return $this->render('admin/lieu_visite/new.html.twig', [
             'lieu_visite' => $lieuVisite,
             'form' => $form->createView(),
         ]);
@@ -51,7 +51,7 @@ class LieuVisiteController extends AbstractController
      */
     public function show(LieuVisite $lieuVisite): Response
     {
-        return $this->render('admin_lieu_visite/show.html.twig', ['lieu_visite' => $lieuVisite]);
+        return $this->render('admin/lieu_visite/show.html.twig', ['lieu_visite' => $lieuVisite]);
     }
 
     /**
@@ -68,7 +68,7 @@ class LieuVisiteController extends AbstractController
             return $this->redirectToRoute('admin_lieu_visite_index', ['id' => $lieuVisite->getId()]);
         }
 
-        return $this->render('admin_lieu_visite/edit.html.twig', [
+        return $this->render('admin/lieu_visite/edit.html.twig', [
             'lieu_visite' => $lieuVisite,
             'form' => $form->createView(),
         ]);

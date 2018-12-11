@@ -14,13 +14,13 @@
             </tr>
         </thead>
         <tbody>
-        {% for admin_lieu_visite in admin_lieu_visites %}
+        {% for lieu_visite in lieu_visites %}
             <tr>
-                <td>{{ admin_lieu_visite.id }}</td>
-                <td>{{ admin_lieu_visite.nom }}</td>
+                <td>{{ lieu_visite.id }}</td>
+                <td>{{ lieu_visite.nom }}</td>
                 <td>
-                    <a href="{{ path('admin_lieu_visite_show', {'id': admin_lieu_visite.id}) }}">show</a>
-                    <a href="{{ path('admin_lieu_visite_edit', {'id': admin_lieu_visite.id}) }}">edit</a>
+                    <a href="{{ path('admin_lieu_visite_show', {'id': lieu_visite.id}) }}">show</a>
+                    <a href="{{ path('admin_lieu_visite_edit', {'id': lieu_visite.id}) }}">edit</a>
                 </td>
             </tr>
         {% else %}

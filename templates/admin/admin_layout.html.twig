@@ -7,7 +7,7 @@
 {% block body %}
 {# HEADER #}
 <header class="main-header">
-    {% embed 'decorator/_navbar.html.twig' with {'class': 'fixed-top navbar-dark bg-primary', 'brandUrl': path('index') } %}
+    {% embed 'decorator/_admin_navbar.html.twig' with {'class': 'fixed-top navbar-dark bg-primary', 'brandUrl': path('index') } %}
         {% block brand %}
             Visitor MAP
         {% endblock %}
@@ -22,7 +22,7 @@
 <aside class="main-sidebar">
     <section class="side-menu">
     {# MENU #}
-        {{ knp_menu_render('user', {'style': 'vertical-pills'}) }}
+        {{ knp_menu_render('admin', {'style': 'vertical-pills'}) }}
     </section>
 </aside>
 
