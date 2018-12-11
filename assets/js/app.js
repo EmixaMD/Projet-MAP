@@ -232,6 +232,7 @@ $(function() {
         return (this.context.globalCompositeOperation = oldcomposite);
       }
     });
+
   })(jQuery);
   var __slice = Array.prototype.slice;
   if ($('.signature-field:visible')) {
@@ -259,7 +260,11 @@ $(function() {
       });
     });
   }
+  
 
+     $('.carousel').carousel({
+        interval: 50000
+    });
 
   var canvas=document.getElementById("myCanvas");
   var dataUrl=canvas.toDataURL("image/png");
@@ -269,3 +274,10 @@ $(function() {
   ajax.setRequestHeader('Content-Type', 'application/upload');
   ajax.send(canvasData );
 });
+
+
+
+
+
+
+

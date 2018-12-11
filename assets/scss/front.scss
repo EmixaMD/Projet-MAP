@@ -1,6 +1,9 @@
 @import "~bootswatch/dist/Minty/_variables";
 @import "~bootstrap/scss/bootstrap";
 
+// color ton vert acceuil clair: #7dced1;
+//color ton vert acceuil foncé: #67adaf;
+//********************************* GENERAL **************************//
 
 * {
     box-sizing: border-box;
@@ -10,6 +13,7 @@
 body {
     padding-top: 40px;
 }
+
 
 #vue1 {
 //    background: url('../../public/uploads/background-vue1.jpg') no-repeat center bottom; 
@@ -56,3 +60,68 @@ body {
         top: -28px;
     }
 }
+
+.logomap {
+    width: 40px;
+    height: 40px;
+    margin-left: 22px;
+}
+
+//***************************** SECURITE (carousel)*************************//
+
+.carousel-inner {
+    margin-top: 15vh;
+    padding: 10px;
+    margin: auto;
+    width: 60vw;
+    height: 50vh; 
+}
+.carousel-item > img{
+    margin: auto;
+    width: 30vw;
+    height: 50vh; 
+}
+
+.carousel-control-next-icon {
+    background-color: #67adaf;
+    border-radius: 50%;
+    width: 40px;
+    height: 40px;
+}
+
+.carousel-control-prev-icon {
+    background-color: #67adaf;
+    border-radius: 50%;
+    width: 40px;
+    height: 40px;
+}
+
+.background-securite {
+    background-color: #7dced1;
+    height: 21vh;
+    margin-top: 10.9vh;
+}
+
+@media only screen and (max-width: 1025px) {
+    .background-securite {
+        background-color: #7dced1;
+        height: 21vh;
+        margin-top: 8.2vh;
+    }
+}
+
+#buttonvue2form {
+    width: 120px;
+    height: 60px;
+    margin-right: 80px;
+}
+
+.conditionsecurite {
+    font-size: 26px;
+}
+.valid-consign-secu {
+    color: white;
+}
+
+
+
