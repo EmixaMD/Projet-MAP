@@ -79,4 +79,5 @@ class Visite
 
         return $this;
     }
+    
 }
