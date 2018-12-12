@@ -11,30 +11,7 @@ import 'bootstrap';
 import 'chosen-js';
 
 $(function() {
-  var $followLink = $('.follow-link');
-
-  // Pour chaque élément ".follow-link"
-  $followLink.each(function(index, element) {
-    // Intercepte l'événement "click" du lien
-    $(element).click(function(e) {
-      e.preventDefault(); // Annule le chargement de la page
-
-      $.getJSON($(this).attr('href'), function(data) {
-        if (data.success) {
-          if (data.isFollow) {
-            // Si on suis l'article
-            $(element)
-              .addClass('text-warning')
-              .removeClass('text-primary');
-          } else {
-            $(element)
-              .addClass('text-primary')
-              .removeClass('text-warning');
-          }
-        }
-      });
-    });
-  });
+  var cmpt = 0;
 
   var __slice = Array.prototype.slice;
   (function($) {
@@ -128,6 +105,7 @@ $(function() {
         return this.canvas.trigger('sketch.change' + key, value);
       };
       Sketch.prototype.startPainting = function() {
+        cmpt++;
         this.painting = true;
         return (this.action = {
           tool: this.tool,
@@ -233,7 +211,6 @@ $(function() {
         return (this.context.globalCompositeOperation = oldcomposite);
       }
     });
-
   })(jQuery);
   var __slice = Array.prototype.slice;
   if ($('.signature-field:visible')) {
@@ -253,6 +230,7 @@ $(function() {
         $('.signature-buttons').replaceWith('');
       });
       $('.reset-canvas').click(function() {
+        cmpt = 0;
         sktch.sketch().actions = [];
         var myCanvas = document.getElementById('simple_sketch');
         var ctx = myCanvas.getContext('2d');
@@ -261,39 +239,33 @@ $(function() {
       });
     });
   }
-  
 
-     $('.carousel').carousel({
-        interval: 50000
-    });
-
-  var canvas = document.getElementById("simple_sketch");
-  var $form = $('form') ;
-  $form.on('submit',function() {
-    var dataUrl=canvas.toDataURL();
-    console.log(dataUrl);
-    $form.find('#visiteur_imageData').val(dataUrl.split(",",)[1]);
-    
-    $.ajax({
-      type: 'POST',
-      url: $form.attr('action'),
-      data: $form.serialize(),
-      dataType: 'json',
-    }).done(function (data) {
-      console.log($form.serialize());
-    });
-    
-    
+  $('.carousel').carousel({
+    interval: 50000
   });
+
+  var canvas = document.getElementById('simple_sketch');
+  var $form = $('form');
+  $form.on('submit', function() {
+    var dataUrl = canvas.toDataURL();
+    console.log(dataUrl);
+    $form.find('#visiteur_imageData').val(dataUrl.split(',')[1]);
+      if (cmpt == 0 ) {
+        $('.signature-error').replaceWith(
+          '<div class="alert alert-danger">Votre signature n\'est pas valide veuillez recommencer</div>'
+        );
+        return false;
+      } else {
+        $.ajax({
+          type: 'POST',
+          url: $form.attr('action'),
+          data: $form.serialize(),
+          dataType: 'json'
+        }).done(function(data) {
+          console.log($form.serialize());
+        });
+      }
+
+  });
+  $('select').chosen();
 });
-
-
-$("select").chosen();
-
-
-
-
-
-
-
-

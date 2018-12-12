@@ -11,8 +11,9 @@ block page_content %}
       <div class="container">
         <div class ="row">  
           <div class= "col-12" style="margin-left: 3vh">
-            <label style="display: flex">Veuillez signer</label>
-            <canvas id="simple_sketch" {#data-url="{{ path() }}"#}></canvas>
+            <div class="signature-error"></div>
+            <label style="display: flex">Veuillez signer ici:</label>
+            <canvas id="simple_sketch"></canvas>
             <div class="signature-buttons">
             <br /><span class="reset-canvas btn btn-primary">Réinitialisez votre signature </span>
             </div>
@@ -22,7 +23,7 @@ block page_content %}
           <div class="col-12">
             <div class="fleche2">
             <span></span>
-            <button style="background:white; border:none;"  ><i class="fa fa-arrow-alt-circle-right" style="color: #52c06d; font-size: 100px;"></i></button></div>
+            <button style="background:white; border:none;" class="btn-form-sign" ><i class="fa fa-arrow-alt-circle-right" style="color: #52c06d; font-size: 100px;"></i></button></div>
           </div>
         </div>
       </div>
