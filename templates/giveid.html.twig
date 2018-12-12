@@ -10,18 +10,18 @@
 {% block page_content %}
 
 
-<h1 class="text-center mt-4">Veuillez entrer votre identifiant unique de sortie</h1>
-<h3 class="font-weight-light text-center">Merci de votre visite et à bientôt</h3>
-
+<h1 class="text-center mt-4">Recuperation de votre identifiant unique de sortie</h1>
+<h3 class="font-weight-light text-center">Veuillez retenir ce code afin de pouvoir sortir de l'entreprise</h3>
 
 <div class="container">
-    <form class="row">
+    <div class="row">
         <div class="form-group justify-content-center mx-auto">
-            <input type="text" class="form-control text-uppercase" id="ident-sortie" aria-describedby="monIdentifiant" placeholder="">
-            <button id="reception-code" href="#" type="submit" class="btn btn-success btn-block">Au revoir</button>
+            <div id="ident-sortie" class="text-uppercase ">{# {{ visiteur.idUnique }} #}</div>
+            <button id="reception-code" href="#" type="submit" class="btn btn-success btn-block">C'est noté</button>
         </div>
-    </form>
+    </div>
 </div>
+
 
 {% endblock page_content %}
  

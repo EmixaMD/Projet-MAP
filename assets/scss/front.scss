@@ -3,17 +3,17 @@
 
 // color ton vert acceuil clair: #7dced1;
 //color ton vert acceuil foncé: #67adaf;
-//********************************* GENERAL **************************//
+
+
+//*********************************  CSS GENERAL **************************//
 
 * {
     box-sizing: border-box;
 }
 
-
 body {
     padding-top: 40px;
 }
-
 
 #vue1 {
 //    background: url('../../public/uploads/background-vue1.jpg') no-repeat center bottom; 
@@ -30,8 +30,6 @@ body {
 .container-fluid{
     padding: 0;
 }
-    
-
 
 .fleche1{
     position: absolute;
@@ -66,179 +64,3 @@ body {
     height: 40px;
     margin-left: 22px;
 }
-
-//***************************** SECURITE (carousel)*************************//
-
-.carousel-inner {
-    margin-top: 15vh;
-    padding: 10px;
-    margin: auto;
-    width: 60vw;
-    height: 50vh; 
-}
-.carousel-item > img{
-    margin: auto;
-    width: 30vw;
-    height: 50vh; 
-}
-
-.carousel-control-next-icon {
-    background-color: #67adaf;
-    border-radius: 50%;
-    width: 40px;
-    height: 40px;
-}
-
-.carousel-control-prev-icon {
-    background-color: #67adaf;
-    border-radius: 50%;
-    width: 40px;
-    height: 40px;
-}
-
-.background-securite {
-    background-color: #7dced1;
-    height: 21vh;
-    margin-top: 10.9vh;
-}
-
-@media only screen and (max-width: 1025px) {
-    .background-securite {
-        background-color: #7dced1;
-        height: 21vh;
-        margin-top: 8.2vh;
-    }
-}
-
-#buttonvue2form {
-    width: 120px;
-    height: 60px;
-    margin-right: 80px;
-}
-
-.conditionsecurite {
-    font-size: 26px;
-}
-.valid-consign-secu {
-    color: white;
-}
-
-//****************** CATEGORIE *********************//
-
-//**** Modification pour vue tablette ****//
-
-
-#h1categorie {
-    margin-bottom: 10vh;
-}
-
-
-.card {
-    height: 31vh;
-    width: 18rem;
-    background-color: #f6f6f6;
-    
-}
-
-#technique {
-    width: 90%;
-    margin-top: 10px;
-    margin-left: 10px;
-    height: 200px;
-}
-
-
-
-
-#affaire {
-    width: 257px;
-    height: 200px;
-    margin-top: 10px;
-    margin-left: 10px;
-}
-
-.para-categorie {
-    text-align: center;
-    font-size: 25px;
-}
-
-
-.background-categorie {
-    background-color: #7dced1;
-    height: 21vh;
-    margin-top: 27.3vh;
-}
-
-@media only screen and (max-width: 1025px) {
-    .background-categorie {
-        background-color: #7dced1;
-        height: 21vh;
-        margin-top: 24.5vh;
-    }
-
-    #technique {
-        width: 90%;
-        margin-left: 10px;
-        margin-top: 0px;
-        height: 200px;
-    }
-    #affaire {
-        width: 257px;
-        height: 200px;
-        margin-top: 0px;
-        margin-left: 10px;
-    }
-
-    .card-body {
-        padding-bottom: 0px;
-    }
-}
-
-//***************** SORTIE ******************//
-
-.ident-sortie {
-    height: 125px;
-    width: 400px;
-    font-size: 56px;
-    text-align: center;
-    border: 4mm ridge rgba(104, 173, 175, 0.637);
-    padding-bottom: 40px;
-    margin-top: 150px;
-    color: rgb(184, 83, 83);
-    font-weight: bold;
-}
-
-.background-sortie {
-    background-color: #7dced1;
-    height: 21vh;
-    margin-top: 34.7vh;
-}
-
-@media only screen and (max-width: 1025px) {
-    .background-sortie {
-        background-color: #7dced1;
-        height: 21vh;
-        margin-top: 23.3vh;
-    }
-
-}
-
-//*************** RECEPTION CODE ********************//
-
-#reception-code {
-    position: absolute;
-    top: 47%;
-    right: 40%;
-    font-size: 25px;
-}
-
-@media only screen and (max-width: 1025px) {
-    #reception-code {
-        position: absolute;
-        top: 57%;
-        right: 31%;
-        font-size: 25px;
-    }
-}
-
-
