@@ -115,7 +115,7 @@ class VisiteurController extends AbstractController
             $em->persist($visiteurfront);
             $em->flush();
             
-            return $this->redirectToRoute('admin_visiteur_index');
+            return $this->redirectToRoute('giveid', ['id'=> $visiteurfront->getId()]);
         }
         if (isset($GLOBALS["HTTP_RAW_POST_DATA"])) {
             // Get the data

@@ -16,8 +16,8 @@
 <div class="container">
     <div class="row">
         <div class="form-group justify-content-center mx-auto">
-            <div id="ident-sortie" class="text-uppercase ">{# {{ visiteur.idUnique }} #}</div>
-            <button id="reception-code" href="#" type="submit" class="btn btn-success btn-block">C'est noté</button>
+            <div id="ident-sortie" class="text-uppercase "> {{ visiteur.idUnique }} </div>
+            <button id="reception-code" href="{{ path ('home_index') }}" type="submit" class="btn btn-success btn-block">C'est noté</button>
         </div>
     </div>
 </div>

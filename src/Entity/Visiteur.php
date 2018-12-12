@@ -555,7 +555,7 @@ class Visiteur
     {
         $name = $this->nom;
         $firstname = $this->prenom;
-        $random = rand(0, 99);
+        $random = rand(10, 99);
         $name = str_replace("'","",iconv("utf-8", "ASCII//TRANSLIT", $name));
         $firstname = str_replace("'","",iconv("utf-8", "ASCII//TRANSLIT", $firstname));
         $firstPart = substr($name."XXX", 0, 3);
