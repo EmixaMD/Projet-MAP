@@ -8,6 +8,7 @@
 // Need jQuery? Install it with "yarn add jquery", then uncomment to require it.
 //var $ = require('jquery');
 import 'bootstrap';
+import 'chosen-js';
 
 $(function() {
   var $followLink = $('.follow-link');
@@ -281,10 +282,14 @@ $(function() {
     }).done(function (data) {
       console.log($form.serialize());
     });
-    return false;
+    
     
   });
 });
+
+
+$("select").chosen();
+
 
 
 

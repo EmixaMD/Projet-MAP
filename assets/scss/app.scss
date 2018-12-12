@@ -1,5 +1,7 @@
 @import '~@fortawesome/fontawesome-free/scss/fontawesome.scss';
 @import '~@fortawesome/fontawesome-free/scss/solid.scss';
+// @import '~chosen-js/chosen.css';
+@import './component-chosen.css';
 
 .signature-field {
   float: left;
@@ -35,6 +37,35 @@
 canvas {
     border:1px solid grey; 
     border-radius:7px;
-    width: 400;
-    height: 300;
+    width: 400px;
+    height: 150px;
+}
+
+#titre-front{
+  margin-top : 3vh;
+}
+
+#container-form-check-in{
+  margin-top:3vh;
+
+}
+.footer-form-check-in {
+  position: absolute;
+  background-color: #7dced1;
+  height: 20vh;
+  width: 100vw;
+  bottom: 0;
+  left: 0px;
+}
+
+
+@media only screen and (max-width: 1025px) {
+.footer-form-check-in {
+  position: absolute;
+  background-color: #7dced1;
+  height: 10vh;
+  width: 100vw;
+  bottom: 0;
+  left: 0px;
+}
 }
