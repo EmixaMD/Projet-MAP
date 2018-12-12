@@ -285,10 +285,11 @@ $(function() {
     
     
   });
+  $("chosen-select").chosen();
 });
 
 
-$("select").chosen();
+
 
 
 
