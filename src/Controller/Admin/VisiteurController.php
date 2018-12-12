@@ -12,12 +12,12 @@ use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 
 /**
- * @Route("/admin/visiteur")
+ * @Route("/admin/visiteur" , name="admin_")
  */
 class VisiteurController extends AbstractController
 {
     /**
-     * @Route("/", name="admin_visiteur_index", methods="GET")
+     * @Route("/", name="visiteur_index", methods="GET")
      */
     public function index(VisiteurRepository $visiteurRepository) : Response
     {
@@ -28,7 +28,18 @@ class VisiteurController extends AbstractController
     }
 
     /**
-     * @Route("/new", name="admin_visiteur_new", methods="GET|POST")
+     * @Route("/historique", name="visiteur_historique")
+     */
+    public function look(): Response
+    {   
+       
+        return $this->render('admin/visiteur/historique.html.twig');
+    }
+
+
+
+    /**
+     * @Route("/new", name="visiteur_new", methods="GET|POST")
      */
     public function new(Request $request) : Response
     {
@@ -68,8 +79,7 @@ class VisiteurController extends AbstractController
             $em->persist($visiteurfront);
             $em->flush();
             
-           
-            // return $this->redirectToRoute('admin_visiteur_index');
+            return $this->redirectToRoute('admin_visiteur_index');
         }
         if (isset($GLOBALS["HTTP_RAW_POST_DATA"])) {
             // Get the data
@@ -89,6 +99,8 @@ class VisiteurController extends AbstractController
             $fp = fopen('test.png', 'wb');
             fwrite($fp, $unencodedData);
             fclose($fp);
+
+            
         }
 
         return $this->render('admin/visiteur/newfront.html.twig', [
@@ -98,15 +110,18 @@ class VisiteurController extends AbstractController
     }
 
     /**
-     * @Route("/{id}", name="admin_visiteur_show", methods="GET")
+     * @Route("/{id}", name="visiteur_show", methods="GET")
      */
     public function show(Visiteur $visiteur) : Response
     {
         return $this->render('admin/visiteur/show.html.twig', ['visiteur' => $visiteur]);
     }
 
+    
+
+
     /**
-     * @Route("/{id}/edit", name="admin_visiteur_edit", methods="GET|POST")
+     * @Route("/{id}/edit", name="visiteur_edit", methods="GET|POST")
      */
     public function edit(Request $request, Visiteur $visiteur) : Response
     {
@@ -126,7 +141,7 @@ class VisiteurController extends AbstractController
     }
 
     /**
-     * @Route("/{id}", name="admin_visiteur_delete", methods="DELETE")
+     * @Route("/{id}", name="visiteur_delete", methods="DELETE")
      */
     public function delete(Request $request, Visiteur $visiteur) : Response
     {
