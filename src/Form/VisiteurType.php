@@ -20,9 +20,25 @@ class VisiteurType extends AbstractType
             ->add('societe',null, array(
                 'required'=> false,
             ))
-            ->add('motifVisite')
-            ->add('lieuVisite')
-            ->add('employe')
+            ->add('motifVisite', NULL, array(
+                'attr' =>array(
+                'class'=>"select", 
+                'data-placeholder' => "Choisir un motif de visite",
+                )
+            ))
+            ->add('lieuVisite', NULL, array(
+                'attr' =>array(
+                'class'=>"select", 
+                'data-placeholder' => "Choisir un lieu de visite",
+                )
+            ))
+            ->add('employe', NULL, array(
+                "attr"=> array(
+                'class'=> "select ",
+                'data-placeholder'=>"Choisir un employé" ,
+                
+                )
+            ))
             ->add('imageData',HiddenType::class, array(
 
             ))

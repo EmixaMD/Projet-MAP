@@ -22,11 +22,11 @@ class AdminMenuBuilder
         $menu = $this->factory->createItem('root');
 
         $menu->addChild('Personnes encore presente', ['route' => 'admin_visiteur_index']);
-        $menu->addChild('Historique', ['route' => 'admin_visiteur_index']);
+        $menu->addChild('Historique', ['route' => 'admin_visiteur_historique']);
         $menu->addChild('Liste des utilisateurs', ['route' => 'admin_visiteur_index']);
 
     
-        $parentUser = $menu->addChild('paramétrage', ['uri' => '#']);
+        $parentUser = $menu->addChild('Paramétrage', ['uri' => '#']);
         $parentUser->addChild('Motif de visite', ['route' => 'admin_motif_visite_index']);
         $parentUser->addChild('Lieu de visite', ['route' => 'admin_lieu_visite_index']);
         $parentUser->addChild('Liste des employés', ['route' => 'admin_employe_index']);
