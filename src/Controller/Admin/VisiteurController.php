@@ -34,7 +34,7 @@ class VisiteurController extends AbstractController
     {
         $visiteur = new Visiteur();
         $form = $this->createForm(VisiteurType::class, $visiteur);
-        $form->handleRequest($request);
+        $form->handleRequest($request)
        ;
 
         if ($form->isSubmitted() && $form->isValid()) {

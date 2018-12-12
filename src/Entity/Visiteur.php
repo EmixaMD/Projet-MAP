@@ -556,6 +556,8 @@ class Visiteur
         $name = $this->nom;
         $firstname = $this->prenom;
         $random = rand(0, 99);
+        $name = str_replace("'","",iconv("utf-8", "ASCII//TRANSLIT", $name));
+        $firstname = str_replace("'","",iconv("utf-8", "ASCII//TRANSLIT", $firstname));
         $firstPart = substr($name."XXX", 0, 3);
         $secondPart = substr($firstname."XXX", 0,3);
         $idUnique = $firstPart.$secondPart.$random;
