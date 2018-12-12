@@ -1,0 +1,11 @@
+{% extends 'admin/admin_layout.html.twig' %}
+
+
+{% block page_content %}
+<form method="post" action="{{ path('admin_lieu_visite_delete', {'id': lieu_visite.id}) }}" onsubmit="return confirm('Confirmez-vous la suppression {{ lieu_visite.nom}}?');">
+    <input type="hidden" name="_method" value="DELETE">
+    <input type="hidden" name="_token" value="{{ csrf_token('delete' ~ lieu_visite.id) }}">
+    <button class="btn">Supprimer</button>
+</form>
+
+{% endblock %}

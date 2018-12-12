@@ -1,0 +1,13 @@
+{% extends 'admin/admin_layout.html.twig' %}
+
+{% block title %}Modifier les paramètres d'un employé{% endblock %}
+
+{% block page_content %}
+    <h1>Modifier les paramètres de l'employé suivant: {{employe.nom}}, {{employe.prenom}}</h1>
+
+    {{ include('admin/employe/_form.html.twig', {'button_label': 'Valider'}) }}
+
+    <a href="{{ path('admin_employe_index') }}">Retour à la liste des employés</a>
+
+   
+{% endblock %}

@@ -1,0 +1,37 @@
+{% extends 'admin/admin_layout.html.twig' %}
+
+{% block title %}Paramétrage Motif de visite {% endblock %}
+
+{% block page_content %}
+    <h1>Paramétrage Motif de visite</h1>
+
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Nom</th>
+                <th>actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for motif_visite in motif_visites %}
+            <tr>
+                <td>{{ motif_visite.nom }}</td>
+                <td>
+                    <form method="post" action="{{ path('admin_motif_visite_delete', {'id': motif_visite.id}) }}" onsubmit="return confirm('Confirmez-vous la suppression {{ motif_visite.nom}}?');">
+                    <input type="hidden" name="_method" value="DELETE">
+                    <input type="hidden" name="_token" value="{{ csrf_token('delete' ~ motif_visite.id) }}">
+                    <button id="btntrash" class="btn"><i class="fa fa-trash"></i></button>
+                    </form>
+                    <a class="btn" id="btnupdate" href="{{ path('admin_motif_visite_edit', {'id': motif_visite.id}) }}"><i class="fas fa-pen-alt"></i></a>
+                </td>
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="3">no records found</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <a href="{{ path('admin_motif_visite_new') }}">Créer un nouveau motif de visite</a>
+{% endblock %}

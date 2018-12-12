@@ -1,0 +1,13 @@
+{% extends 'admin/admin_layout.html.twig' %}
+
+{% block title %}Modifier le lieu de visite{% endblock %}
+
+{% block page_content %}
+    <h1>Modifier le lieu de visite suivant: {{ lieu_visite.nom }}</h1>
+
+    {{ include('admin/lieu_visite/_form.html.twig', {'button_label': 'Valider'}) }}
+
+    <a href="{{ path('admin_lieu_visite_index') }}">Retour à la liste des lieux de visite</a>
+
+    
+{% endblock %}

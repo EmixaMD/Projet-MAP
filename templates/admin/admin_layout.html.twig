@@ -1,4 +1,4 @@
-{% extends 'base.html.twig' %}
+{% extends '/base.html.twig' %}
 
 {% block stylesheets %}
 <link rel="stylesheet" href="{{ asset('build/css/admin.css') }}">
@@ -7,9 +7,9 @@
 {% block body %}
 {# HEADER #}
 <header class="main-header">
-    {% embed 'decorator/_navbar.html.twig' with {'class': 'fixed-top navbar-dark bg-primary', 'brandUrl': path('index') } %}
+    {% embed 'decorator/_admin_navbar.html.twig' with {'class': 'fixed-top navbar-dark bg-primary', 'brandUrl': path('index') } %}
         {% block brand %}
-            Blog WebFroce 3
+            Visitor MAP
         {% endblock %}
 
         {% block menu %}

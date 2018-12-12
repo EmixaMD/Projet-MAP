@@ -6,6 +6,8 @@ use App\Entity\Visiteur;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
+use Symfony\Component\Form\Extension\Core\Type\BirthdayType;
+use Symfony\Component\Form\Extension\Core\Type\HiddenType;
 
 class VisiteurType extends AbstractType
 {
@@ -14,22 +16,72 @@ class VisiteurType extends AbstractType
         $builder
             ->add('nom')
             ->add('prenom')
-            ->add('societe')
-            ->add('motif')
-            ->add('zoneVisite')
-            ->add('marqueVehicule')
-            ->add('immatriculation')
-            ->add('couleur')
-            ->add('cni')
-            ->add('idUnique')
-            ->add('sexe')
-            ->add('dateNaissance')
-            ->add('ville')
-            ->add('codePostal')
-            ->add('numeroRue')
-            ->add('rue')
-            ->add('telephone')
-            ->add('email')
+
+            ->add('societe',null, array(
+                'required'=> false,
+            ))
+            ->add('motifVisite', NULL, array(
+                'attr' =>array(
+                'class'=>"select", 
+                'data-placeholder' => "Choisir un motif de visite",
+                )
+            ))
+            ->add('lieuVisite', NULL, array(
+                'attr' =>array(
+                'class'=>"select", 
+                'data-placeholder' => "Choisir un lieu de visite",
+                )
+            ))
+            ->add('employe', NULL, array(
+                "attr"=> array(
+                'class'=> "select ",
+                'data-placeholder'=>"Choisir un employé" ,
+                
+                )
+            ))
+            ->add('imageData',HiddenType::class, array(
+
+            ))
+            
+
+            // ->add('marqueVehicule', null, array(
+            //     'required'=> false,
+            // ))
+            // ->add('immatriculation', null, array(
+            //     'required'=> false,
+            // ))
+            // ->add('couleur', null, array(
+            //     'required'=> false,
+            // ))
+            // ->add('cni', null, array(
+            //     'required'=> false,
+            // ))
+            // ->add('idUnique') 
+            // ->add('sexe', null, array(
+            //     'required'=> false,
+            // ))
+            // ->add('dateNaissance', null, array(
+            //     'required'=> false,
+            // ))
+            // ->add('ville',null, array(
+            //     'required'=> false,
+            // ))
+            // ->add('codePostal',null, array(
+            //     'required'=> false,
+            // ))
+            // ->add('numeroRue',null, array(
+            //     'required'=> false,
+            // ))
+            // ->add('rue', null, array(
+            //     'required'=> false,
+            // ))
+            // ->add('telephone',null, array(
+            //     'required'=> false,
+            // ))
+            // ->add('email', null, array(
+            //     'required'=> false,
+
+            // ))
         ;
     }
 

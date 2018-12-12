@@ -1,0 +1,40 @@
+{% extends 'layout.html.twig' %} {% block title %}Inscription{% endblock %} {%
+block page_content %}
+<h1 id="titre-front" class="text-center" >Merci de remplir les champs nécessaires à l'inscription</h1>
+<div class="container" id="container-form-check-in">
+  <div class="row">
+    <div class="col-6">
+    {{form_start(form)}}
+    {{ include('admin/visiteur/_form.html.twig') }}
+    </div>
+    <div class="col-6" id="signature-form-check-in">
+      <div class="container">
+        <div class ="row">  
+          <div class= "col-12" style="margin-left: 3vh">
+            <label style="display: flex">Veuillez signer</label>
+            <canvas id="simple_sketch" {#data-url="{{ path() }}"#}></canvas>
+            <div class="signature-buttons">
+            <br /><span class="reset-canvas btn btn-primary">Réinitialisez votre signature </span>
+            </div>
+          </div>
+        </div>  
+        <div class="row" id="fleche-direction-form-check-in" style="margin-top:10vh">
+          <div class="col-12">
+            <div class="fleche2">
+            <span></span>
+            <button style="background:white; border:none;"  ><i class="fa fa-arrow-alt-circle-right" style="color: #52c06d; font-size: 100px;"></i></button></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>  
+
+  {{form_end(form)}} 
+
+<a href="{{ path('admin_visiteur_index') }}">Retour à l'écran d'accueil</a> 
+
+
+{% endblock %}
+
+

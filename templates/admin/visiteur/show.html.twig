@@ -1,0 +1,45 @@
+{% extends 'admin/admin_layout.html.twig' %}
+
+{% block title %}Visiteur{% endblock %}
+
+{% block page_content %}
+    <h1>Visiteur</h1>
+
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Nom</th>
+                <th>Prénom</th>
+                <th>Société</th>
+                <th>Motif de visite</th>
+                <th>Zone de visite</th>
+                <th>Heure d'arrivée</th>
+                <th>Heure de départ</th>
+                <th>Validation des consignes</th>
+                <th>Signature</th>
+                <th>Identifiant unique </th>
+            </tr>
+        </thead>    
+        <tbody>
+            <tr>
+                <td>{{ visiteur.nom }}</td>
+                <td>{{ visiteur.prenom }}</td>
+                <td>{{ visiteur.societe }}</td>
+                <td>{{ visiteur.motifVisite }}</td>
+                <td>{{ visiteur.lieuVisite }}</td>
+                <td>{{ visiteur.heureArrivee|date("H:i") }}</td>
+                <td>{{ visiteur.heureDepart|date("H:i") }}</td>
+                <td>{{ visiteur.nom  }}</td>
+                <td> <img src ="{{ asset('signatures/' ~ visiteur.image) }}" </td>
+                <td>{{ visiteur.idUnique }}</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <a href="{{ path('admin_visiteur_index') }}" class="btn btn-lg btn-primary"><i class="fa fa-arrow-left"></i></a>
+
+    {# <a href="{{ path('admin_visiteur_edit', {'id': visiteur.id}) }}" class="btn btn-primary"><i class="fa fa-pencil-alt"></i></a> #}
+
+    {# {{ include('admin/visiteur/_delete_form.html.twig') }} #}
+
+{% endblock %}
