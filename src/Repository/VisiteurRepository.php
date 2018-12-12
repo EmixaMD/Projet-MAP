@@ -19,22 +19,74 @@ class VisiteurRepository extends ServiceEntityRepository
         parent::__construct($registry, Visiteur::class);
     }
 
-    // /**
-    //  * @return Visiteur[] Returns an array of Visiteur objects
-    //  */
-    /*
-    public function findByExampleField($value)
+    private function endQuery($query, $value)
+    {
+        $query->setParameter('val', $value)
+        ->orderBy('v.heure_arrivee', 'DESC')
+        ->getQuery()
+        ->getResult()
+        ;
+        return $query;
+    }
+
+    /**
+    * @return Visiteur[] Returns an array of Visiteur objects
+    */
+    
+    public function findByName($value)
+    {
+       $query = $this->createQueryBuilder('v')
+            ->andWhere('v.nom = :val')
+        ;
+        endQuery($query, $value);
+        return $query;
+
+    }
+
+    public function findByFirstName($value)
+    {
+        $query = $this->createQueryBuilder('v')
+            ->andWhere('v.prenom = :val')
+        ;
+        endQuery($query, $value);
+        return $query;
+        
+    }
+
+    public function findBySociety($value)
+    {
+        $query = $this->createQueryBuilder('v')
+            ->andWhere('v.societe = :val')
+        ;
+        endQuery($query, $value);
+        return $query;
+        
+    }
+
+    public function findByMotive($value)
+    {
+        $query = $this->createQueryBuilder('v')
+            ->andWhere('v.motif = :val')
+        ;
+        endQuery($query, $value);
+        return $query;
+        
+    }
+
+    public function findByDate($value1, $value2)
     {
         return $this->createQueryBuilder('v')
-            ->andWhere('v.exampleField = :val')
-            ->setParameter('val', $value)
-            ->orderBy('v.id', 'ASC')
-            ->setMaxResults(10)
+            ->andWhere('v.heure_arrivee >= :val1')
+            ->andWhere('v.heure_depart <= :val2')
+            ->setParameter('val1', $value1)
+            ->setParameter('val2', $value2)
+            ->orderBy('v.heure_arrivee', 'DESC')
             ->getQuery()
             ->getResult()
-        ;
+            ;
+        
     }
-    */
+    
 
     /*
     public function findOneBySomeField($value): ?Visiteur

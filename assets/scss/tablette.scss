@@ -1,0 +1,27 @@
+//**** CSS pour vue tablette ****//
+
+@media only screen and (max-width: 1025px) {
+
+    // Image technicien
+    #technique {
+        width: 90%;
+        margin-left: 10px;
+        margin-top: 0px;
+        height: 200px;
+    }
+
+    // Image Administrative
+    #affaire {
+        width: 257px;
+        height: 200px;
+        margin-top: 0px;
+        margin-left: 10px;
+    }
+
+    // card-body (categorie)
+    .card-body {
+        padding-bottom: 0px;
+    }
+
+
+}

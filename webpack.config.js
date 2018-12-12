@@ -23,6 +23,10 @@ Encore
   .addStyleEntry('css/app', './assets/scss/app.scss')
   .addStyleEntry('css/front', './assets/scss/front.scss')
   .addStyleEntry('css/admin', './assets/scss/admin.scss')
+  .addStyleEntry('css/id', './assets/scss/id.scss')
+  .addStyleEntry('css/securite', './assets/scss/securite.scss')
+  .addStyleEntry('css/categorie', './assets/scss/categorie.scss')
+  .addStyleEntry('css/tablette', './assets/scss/tablette.scss')
 
   // will require an extra script tag for runtime.js
   // but, you probably want this, unless you're building a single-page app
