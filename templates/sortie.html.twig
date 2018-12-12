@@ -1,0 +1,24 @@
+{% extends 'layout.html.twig' %}
+
+{% block stylesheets %}
+<link rel="stylesheet" href="{{ asset('build/css/front.css') }}">
+{% endblock %}
+
+
+{% block page_content %}
+
+
+<h1 class="text-center mt-4">Recuperation de votre identifiant unique de sortie</h1>
+<h3 class="font-weight-light text-center">Veuillez retenir ce code afin de pouvoir sortir de l'entreprise</h3>
+
+<div class="mx-auto ident-sortie text-uppercase ">{{ visiteur.id_unique }}</div>
+
+<button id="reception-code" href="#" type="submit" class="btn btn-success">Valider</button>
+
+<footer class="background-sortie"></footer>
+
+{% endblock page_content %}
+ 
+
+{% block javascripts %}
+{% endblock %}
