@@ -14,33 +14,51 @@ class VisiteurType extends AbstractType
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
         $builder
-            ->add('nom')
-            ->add('prenom')
+            ->add('nom',null, array(
+                'attr' =>array(
+                'required'=>true,
+                )
+            ))
+            ->add('prenom', null, array(
+                'attr' =>array(
+                'required'=>true,
+                )
+            ))
 
             ->add('societe',null, array(
-                'required'=> false,
+                'attr' =>array(
+                'required'=> true,
+                )
             ))
             ->add('motifVisite', NULL, array(
+                
                 'attr' =>array(
+                'required' => true,
                 'class'=>"select", 
                 'data-placeholder' => "Choisir un motif de visite",
                 )
             ))
             ->add('lieuVisite', NULL, array(
+                
                 'attr' =>array(
+                'required' => true,
                 'class'=>"select", 
                 'data-placeholder' => "Choisir un lieu de visite",
                 )
             ))
             ->add('employe', NULL, array(
+              
                 "attr"=> array(
+                'required' => true,
                 'class'=> "select ",
                 'data-placeholder'=>"Choisir un employé" ,
                 
                 )
             ))
             ->add('imageData',HiddenType::class, array(
-
+                "attr"=> array(
+                'required'=>true,
+                )
             ))
             
 
