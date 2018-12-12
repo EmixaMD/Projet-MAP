@@ -73,7 +73,7 @@ class VisiteurRepository extends ServiceEntityRepository
         
     }
 
-    public function findByDate($value1='0000-00-00 00-00-00', $value2=date('Y-m-d H:i:s'))
+    public function findByDate($value1, $value2)
     {
         return $this->createQueryBuilder('v')
             ->andWhere('v.heure_arrivee >= :val1')
@@ -83,6 +83,7 @@ class VisiteurRepository extends ServiceEntityRepository
             ->orderBy('v.heure_arrivee', 'DESC')
             ->getQuery()
             ->getResult()
+            ;
         
     }
     
