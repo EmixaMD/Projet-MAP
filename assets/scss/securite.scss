@@ -1,0 +1,49 @@
+// CSS de la page securite
+
+.carousel-inner {
+    margin-top: 15vh;
+    padding: 10px;
+    margin: auto;
+    width: 60vw;
+    height: 50vh; 
+}
+.carousel-item > img{
+    margin: auto;
+    width: 30vw;
+    height: 50vh; 
+}
+
+.carousel-control-next-icon {
+    background-color: #67adaf;
+    border-radius: 50%;
+    width: 40px;
+    height: 40px;
+}
+
+.carousel-control-prev-icon {
+    background-color: #67adaf;
+    border-radius: 50%;
+    width: 40px;
+    height: 40px;
+}
+
+.background-securite {
+    background-color: #7dced1;
+    height: 21vh;
+    margin-top: 10.9vh;
+}
+
+
+
+#buttonvue2form {
+    width: 120px;
+    height: 60px;
+    margin-right: 80px;
+}
+
+.conditionsecurite {
+    font-size: 26px;
+}
+.valid-consign-secu {
+    color: white;
+}
