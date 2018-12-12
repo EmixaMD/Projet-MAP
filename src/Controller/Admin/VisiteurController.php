@@ -22,9 +22,45 @@ class VisiteurController extends AbstractController
     public function index(VisiteurRepository $visiteurRepository) : Response
     {
         $visitors = $visiteurRepository->findAll();
-        return $this->render('admin/visiteur/index.html.twig', [
-            'visiteurs' => $visitors,
-        ]);
+        
+        
+
+        if ($form->isSubmitted() && $form->isValid()) {
+            $em = $this->getDoctrine()->getManager();
+
+            if(!empty($_GET) && isset($_GET['nom'])) {
+                findByName($_GET['nom']);
+            }
+
+            if(!empty($_GET) && isset($_GET['prenom'])) {
+                findByFirstName($_GET['prenom'])
+            }
+
+            if(!empty($_GET) && isset($_GET['societe'])) {
+                findBySociety($_GET['societe'])
+            }
+
+            if(!empty($_GET) && isset($_GET['motif'])) {
+                findByMotive($_GET['motif'])
+            }
+
+            if(!empty($_GET) && isset($_GET['heure_arrivee'])) {
+                if(!empty($_GET) && isset($_GET['heure_depart'])) {
+                    findByDate($_GET['heure_arrivee'],$_GET['heure_depart']);
+                } else {
+                    findByDate($_GET['heure_arrivee']);
+                }
+            }
+
+            if(!empty($_GET) && isset($_GET['heure_depart']) && !isset($_GET['heure_arrivee'])) {
+                    findByDate('',$_GET['heure_depart']);
+            }
+            
+            return $this->render('admin/visiteur/index.html.twig', [
+                'visiteurs' => $visitors,
+                ]);
+        }
+
     }
 
     /**
@@ -35,9 +71,7 @@ class VisiteurController extends AbstractController
         $visiteur = new Visiteur();
         $form = $this->createForm(VisiteurType::class, $visiteur);
         $form->handleRequest($request);
-        echo "<pre>";
-        var_dump($request);
-        echo "</pre>";
+
 
         if ($form->isSubmitted() && $form->isValid()) {
             $em = $this->getDoctrine()->getManager();
