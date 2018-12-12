@@ -2,6 +2,8 @@
 
 namespace App\Controller;
 
+
+use App\Entity\Visiteur;
 use App\Entity\GiveId;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
@@ -9,15 +11,15 @@ use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 
 /**
- * @Route("/giveid")
+ * @Route("/giveid" )
  */
 class GiveIdController extends AbstractController
 {
     /**
-     * @Route("/", name="giveid_index", methods="GET")
+     * @Route("/{id}", name="giveid", methods="GET")
      */
-    public function index(): Response
+    public function index(Visiteur $visiteur): Response
     {
-        return $this->render('giveid.html.twig');
+        return $this->render('giveid.html.twig', ['visiteur' => $visiteur]);
     }
 }

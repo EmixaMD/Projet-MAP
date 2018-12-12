@@ -50,9 +50,10 @@ canvas {
 
 }
 .footer-form-check-in {
+  z-index: -1;
   position: absolute;
   background-color: #7dced1;
-  height: 20vh;
+  height: 21vh;
   width: 100vw;
   bottom: 0;
   left: 0px;
