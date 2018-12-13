@@ -245,11 +245,11 @@ $(function() {
   });
 
   var canvas = document.getElementById('simple_sketch');
-  var $form = $('form');
-  $form.on('submit', function() {
+  var $formFront = $('form');
+  $formFront.on('submit', function(e) {
     var dataUrl = canvas.toDataURL();
-    console.log(dataUrl);
-    $form.find('#visiteur_imageData').val(dataUrl.split(',')[1]);
+    e.preventDefault();
+    $formFront.find('#visiteur_imageData').val(dataUrl.split(',')[1]);
       if (cmpt == 0 ) {
         $('.signature-error').replaceWith(
           '<div class="alert alert-danger">Votre signature n\'est pas valide veuillez recommencer</div>'
@@ -258,11 +258,11 @@ $(function() {
       } else {
         $.ajax({
           type: 'POST',
-          url: $form.attr('action'),
-          data: $form.serialize(),
+          url: $formFront.attr('action'),
+          data: $formFront.serialize(),
           dataType: 'json'
         }).done(function(data) {
-          console.log($form.serialize());
+          console.log($formFront.serialize());
         });
       }
 
