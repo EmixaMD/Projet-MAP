@@ -12,6 +12,10 @@ import 'chosen-js';
 
 $(function() {
   var cmpt = 0;
+  var canvas = document.getElementById('simple_sketch');
+  var $formFront = $('form');
+  var $exitForm =$('.exit-form').parent().parent('form');
+  var $field=$('#form_idUnique');
 
   var __slice = Array.prototype.slice;
   (function($) {
@@ -244,12 +248,11 @@ $(function() {
     interval: 50000
   });
 
-  var canvas = document.getElementById('simple_sketch');
-  var $form = $('form');
-  $form.on('submit', function() {
+
+  $formFront.on('submit', function(e) {
     var dataUrl = canvas.toDataURL();
-    console.log(dataUrl);
-    $form.find('#visiteur_imageData').val(dataUrl.split(',')[1]);
+    e.preventDefault();
+    $formFront.find('#visiteur_imageData').val(dataUrl.split(',')[1]);
       if (cmpt == 0 ) {
         $('.signature-error').replaceWith(
           '<div class="alert alert-danger">Votre signature n\'est pas valide veuillez recommencer</div>'
@@ -258,14 +261,26 @@ $(function() {
       } else {
         $.ajax({
           type: 'POST',
-          url: $form.attr('action'),
-          data: $form.serialize(),
+          url: $formFront.attr('action'),
+          data: $formFront.serialize(),
           dataType: 'json'
         }).done(function(data) {
-          console.log($form.serialize());
+          console.log($formFront.serialize());
         });
       }
 
+  });
+
+  $field.on('keyUp', function(e) {
+    e.preventDefault();
+    $.ajax({
+      type: 'POST',
+      url: $exitForm.attr('action'),
+      data: $exitForm.serialize(),
+      dataType: 'json',
+    }).done(function(data) {
+      console.log(data);
+    });
   });
 
   $("chosen-select").chosen();

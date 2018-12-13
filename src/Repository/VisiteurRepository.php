@@ -86,6 +86,18 @@ class VisiteurRepository extends ServiceEntityRepository
             ;
         
     }
+
+    public function findByIdUnique($value)
+    {
+        $query =$this->createQueryBuilder('v')
+            ->andWhere ('v.idUnique = :val')
+            ->setParameter ('val', $value)
+            ;
+            endQuery($query, $value);
+            return $query; 
+    }
+
+
     
 
     /*
