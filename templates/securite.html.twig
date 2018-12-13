@@ -8,7 +8,7 @@
 
 
 {% block page_content %}
-<h1 class="mt-4 text-center">Consigne de securité</h1>
+<h1 class="mt-4 text-center">{{ "securite.h1"|trans }}</h1>
 {# Mise en place d'un carousel Bootstrap pour les consignes de sécurité #}
 <section class="monCarouss mt-5">
     <div id="carouselExampleControls" class="carousel slide" data-ride="carousel">
@@ -33,19 +33,19 @@
     {# CheckBox Bootstrap confirmation connaissance des règles de sécurité #}
                 <div class="form-group form-check">
                     <input type="checkbox" required class="form-check-input" id="exampleCheck1">
-                    <label class="form-check-label" for="exampleCheck1" class="conditionsecurite">En cochant cette case, j'atteste avoir bien pris connaissance des règles de sécurité et m'engage à les respecter tout au long de ma visite</label>
+                    <label class="form-check-label" for="exampleCheck1" class="conditionsecurite">{{ "securite.checkbox"|trans }}</label>
                 </div>
-                <button id="buttonvue2form" type="submit" class="btn btn-success"><a class="valid-consign-secu" href="127.0.0.1:8000/admin/visiteur/newfront">Valider</a></button>
+                <button id="buttonvue2form" type="submit" class="btn btn-success"><a class="valid-consign-secu" href="{{ path ('admin_visiteurfront_new') }}">{{ "securite.valid"|trans }}</a></button>
             </form>
         </div>
     </div>
     <a class="carousel-control-prev" href="#carouselExampleControls" role="button" data-slide="prev">
         <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-        <span class="sr-only">Previous</span>
+        <span class="sr-only">{{ "securite.previous"|trans }}</span>
     </a>
     <a class="carousel-control-next" href="#carouselExampleControls" role="button" data-slide="next">
         <span class="carousel-control-next-icon" aria-hidden="true"></span>
-        <span class="sr-only">Next</span>
+        <span class="sr-only">{{ "securite.next"|trans }}</span>
 </a>
     </div>
 </section>

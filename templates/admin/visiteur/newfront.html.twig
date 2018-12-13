@@ -1,6 +1,6 @@
-{% extends 'layout.html.twig' %} {% block title %}Inscription{% endblock %} {%
+{% extends 'layout.html.twig' %} {% block title %}{{ "formulaire.inscription"|trans }}{% endblock %} {%
 block page_content %}
-<h1 id="titre-front" class="text-center" >Merci de remplir les champs nécessaires à l'inscription</h1>
+<h1 id="titre-front" class="text-center" >{{ "formulaire.h1"|trans }}</h1>
 <div class="container" id="container-form-check-in">
   <div class="row">
     <div class="col-6">
@@ -12,10 +12,10 @@ block page_content %}
         <div class ="row">  
           <div class= "col-12" style="margin-left: 3vh">
             <div class="signature-error"></div>
-            <label style="display: flex">Veuillez signer ici:</label>
+            <label style="display: flex">{{ "formulaire.signature.title"|trans }}</label>
             <canvas id="simple_sketch"></canvas>
             <div class="signature-buttons">
-            <br /><span class="reset-canvas btn btn-primary">Réinitialisez votre signature </span>
+            <br /><span class="reset-canvas btn btn-primary">{{ "formulaire.signature.reini"|trans }}</span>
             </div>
           </div>
         </div>  
@@ -33,7 +33,7 @@ block page_content %}
 
   {{form_end(form)}} 
 
-<a href="{{ path('admin_visiteur_index') }}">Retour à l'écran d'accueil</a> 
+<a href="{{ path('admin_visiteur_index') }}">{{ "accueil.return"|trans }}</a> 
 
 
 {% endblock %}

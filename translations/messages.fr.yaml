@@ -12,3 +12,42 @@ user:
     fournisseur: Fournisseur
 
 logout: .icon-door-open Se déconnecter
+
+accueil:
+  return: Retour à l'écran d'accueil
+
+categorie:
+  h1: Choisissez la raison de votre visite
+  technique: Technique
+  administrative: Administrative
+
+securite:
+  h1: Consigne de securité
+  checkbox: En cochant cette case, j'atteste avoir bien pris connaissance des règles de sécurité et m'engage à les respecter tout au long de ma visite
+  valid: Valider
+  previous: Precedent
+  next: Suivant
+
+formulaire:
+  inscription: Inscription
+  h1: Merci de remplir les champs nécessaires à l'inscription
+  signature: 
+    title: "Veuillez signer ici:"
+    reini: Réinitialisez votre signature
+  nom: Nom
+  prenom: Prénom
+  societe: Société
+  motif: Motif de la visite
+  lieu: Lieu de la visite
+
+giveid:
+  h1: Recuperation de votre identifiant unique de sortie
+  h3: Veuillez retenir ce code afin de pouvoir sortir de l'entreprise
+  valide: C'est noté
+
+sortie:
+  h1: Veuillez entrer votre identifiant unique de sortie
+  h3: Merci de votre visite et à bientôt
+  valide: Au revoir
+
+  
