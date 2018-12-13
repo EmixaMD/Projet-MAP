@@ -4,7 +4,9 @@
 
 {% block page_content %}
     <h1>Liste des Visiteurs </h1>
-
+    {{ form_start(form) }}
+        
+    {{ form_end(form) }}
     <table class="table">
         <thead>
             <tr>
@@ -14,7 +16,6 @@
                 <th>Societe</th>
                 <th>Motif de la visite</th>
                 <th>Lieu de la visite</th>
-                
                 {# <th>marqueVehicule</th>
                 <th>Immatriculation</th>
                 <th>Couleur</th>
@@ -30,6 +31,7 @@
                 <th>Email</th> #}
                 <th>Personne visitée</th>
                 <th>Heure d'arrivée</th>
+                <th>Heure de départ</th>
                 <th>Signature</th>
 
                 <th>Actions</th>
@@ -59,6 +61,7 @@
                 <td>{{ visiteur.email }}</td> #}
                 <td> {{ visiteur.employe}}</td>
                 <td> {{ visiteur.heureArrivee|date("H:i")}}</td>
+                <td> {{ visiteur.heureDepart|date("H:i")}}</td>
                 <td> {{ visiteur.image }}</td>
                 <td>
                     <a href="{{ path('admin_visiteur_show', {'id': visiteur.id}) }}"><i class="fa fa-eye"></i></a>
