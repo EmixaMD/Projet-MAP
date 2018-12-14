@@ -240,34 +240,35 @@ $(function() {
     });
   }
 
-  $('.carousel').carousel({
-    interval: 50000
-  });
-
   var canvas = document.getElementById('simple_sketch');
   var $form = $('form');
   $form.on('submit', function() {
     var dataUrl = canvas.toDataURL();
     console.log(dataUrl);
     $form.find('#visiteur_imageData').val(dataUrl.split(',')[1]);
-      if (cmpt == 0 ) {
-        $('.signature-error').replaceWith(
-          '<div class="alert alert-danger">Votre signature n\'est pas valide veuillez recommencer</div>'
-        );
-        return false;
-      } else {
-        $.ajax({
-          type: 'POST',
-          url: $form.attr('action'),
-          data: $form.serialize(),
-          dataType: 'json'
-        }).done(function(data) {
-          console.log($form.serialize());
-        });
-      }
-
+    if (cmpt == 0) {
+      $('.signature-error').replaceWith(
+        '<div class="alert alert-danger">Votre signature n\'est pas valide veuillez recommencer</div>'
+      );
+      return false;
+    } else {
+      $.ajax({
+        type: 'POST',
+        url: $form.attr('action'),
+        data: $form.serialize(),
+        dataType: 'json'
+      }).done(function(data) {
+        console.log($form.serialize());
+      });
+    }
   });
 
-  $("chosen-select").chosen();
-});
+  $('chosen-select').chosen();
 
+  // CAROUSEL
+  // Changement de la vitesse de defilement
+  $('.carousel').carousel({
+    interval: 120000
+  });
+
+}); // loading...

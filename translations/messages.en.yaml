@@ -2,14 +2,14 @@ accueil:
   return: Back to home
 
 categorie:
-  h1: Choose the reason of your visit
+  h1: Select the reason of your visit
   technique: Technical
   administrative: Management
 
 
 securite:
   h1: Security rules
-  checkbox: By ticking this box, I certify have read the security rules and agree to respect all of them for my visit.
+  checkbox: By ticking this box, I certify having read the security rules and agreeing to them.
   valid: I agree
   previous: Previous
   next: Next
@@ -22,7 +22,7 @@ formulaire:
     reini: Reset your signature
   nom: Name
   prenom: First name
-  societe: Society
+  societe: Company
   motif: Reason of the visit
   lieu: Location of the visit
 

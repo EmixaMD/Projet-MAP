@@ -12,13 +12,15 @@
 <div class="container mt-3">
     <div class="row justify-content-around">
         <div class="col-4">
-            <a href= "{{ path ('securite_index') }}"><div class="card">
+            <a class="imgcat" href= "{{ path ('securite_index') }}">
+            <div class="card">
                 <img class="card-img-top" src="/uploads/technician1.png" id="technique" alt="Card image cap">
                 <p class="para-categorie">{{ "categorie.technique"|trans }}</p>
             </div></a>
         </div>
         <div class="col-4">
-            <a  href= "{{ path ('admin_visiteurfront_new') }}"><div class="card">
+            <a class="imgcat" href= "{{ path ('formulaire_index') }}">
+            <div class="card">
                 <img class="card-img-top" src="/uploads/pro.jpg" id="affaire" alt="Card image cap">
                 <p class="para-categorie">{{ "categorie.administrative"|trans}}</p>
             </div></a>

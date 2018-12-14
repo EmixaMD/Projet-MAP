@@ -17,7 +17,7 @@
     <div class="row">
         <div class="form-group justify-content-center mx-auto">
             <div id="ident-sortie" class="text-uppercase "> {{ visiteur.idUnique }} </div>
-            <button id="reception-code" type="submit" class="btn btn-success btn-block"><a href="{{ path ('home_index') }}" ></a>{{ "giveid.valide"|trans }}</button>
+            <button id="reception-code" type="submit" class="btn btn-success btn-block"><a class="valide" href="{{ path ('home_index') }}">{{ "giveid.valide"|trans }}</a></button>
         </div>
     </div>
 </div>
