@@ -13,18 +13,23 @@ use Symfony\Component\Form\Extension\Core\Type\DateType;
 use Symfony\Component\Form\Extension\Core\Type\DateTimeType;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 
+
+
+
 /**
  * @Route("/admin/visiteur" , name="admin_")
  */
 class VisiteurController extends AbstractController
-{
+{   
+
+
     /**
      * @Route("/", name="visiteur_index", methods="GET")
      */
     public function index(VisiteurRepository $visiteurRepository) : Response
     {
         $visitors = $visiteurRepository->findAll();
-        
+
         return $this->render('admin/visiteur/index.html.twig', [
             'visiteurs' => $visitors,
             ]);
@@ -41,6 +46,7 @@ class VisiteurController extends AbstractController
             ->add('date', DateType::class)
             ->getForm();
        ;
+     
         // if ($form->isSubmitted() && $form->isValid()) {
         //     $em = $this->getDoctrine()->getManager();
 
@@ -141,7 +147,7 @@ class VisiteurController extends AbstractController
             fwrite($fp, $unencodedData);
             fclose($fp);
 
-            
+           
         }
 
         return $this->render('admin/visiteur/newfront.html.twig', [
@@ -194,4 +200,7 @@ class VisiteurController extends AbstractController
 
         return $this->redirectToRoute('admin_visiteur_index');
     }
+
+
+    
 }
