@@ -248,7 +248,6 @@ $(function() {
     interval: 50000
   });
 
-
   $formFront.on('submit', function(e) {
     var dataUrl = canvas.toDataURL();
     e.preventDefault();
