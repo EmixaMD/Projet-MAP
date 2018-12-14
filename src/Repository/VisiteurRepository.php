@@ -19,16 +19,6 @@ class VisiteurRepository extends ServiceEntityRepository
         parent::__construct($registry, Visiteur::class);
     }
 
-    private function endQuery($query, $value)
-    {
-        $query->setParameter('val', $value)
-        ->orderBy('v.heure_arrivee', 'DESC')
-        ->getQuery()
-        ->getResult()
-        ;
-        return $query;
-    }
-
     /**
     * @return Visiteur[] Returns an array of Visiteur objects
     */
@@ -37,8 +27,10 @@ class VisiteurRepository extends ServiceEntityRepository
     {
        $query = $this->createQueryBuilder('v')
             ->andWhere('v.nom = :val')
-        ;
-        endQuery($query, $value);
+            ->setParameter('val', $value)
+            ->orderBy('v.heure_arrivee', 'DESC')
+            ->getQuery()
+            ->getResult();
         return $query;
 
     }
@@ -47,8 +39,10 @@ class VisiteurRepository extends ServiceEntityRepository
     {
         $query = $this->createQueryBuilder('v')
             ->andWhere('v.prenom = :val')
-        ;
-        endQuery($query, $value);
+            ->setParameter('val', $value)
+            ->orderBy('v.heure_arrivee', 'DESC')
+            ->getQuery()
+            ->getResult();
         return $query;
         
     }
@@ -57,8 +51,10 @@ class VisiteurRepository extends ServiceEntityRepository
     {
         $query = $this->createQueryBuilder('v')
             ->andWhere('v.societe = :val')
-        ;
-        endQuery($query, $value);
+            ->setParameter('val', $value)
+            ->orderBy('v.heure_arrivee', 'DESC')
+            ->getQuery()
+            ->getResult();
         return $query;
         
     }
@@ -67,8 +63,10 @@ class VisiteurRepository extends ServiceEntityRepository
     {
         $query = $this->createQueryBuilder('v')
             ->andWhere('v.motif = :val')
-        ;
-        endQuery($query, $value);
+            ->setParameter('val', $value)
+            ->orderBy('v.heure_arrivee', 'DESC')
+            ->getQuery()
+            ->getResult();
         return $query;
         
     }
@@ -91,10 +89,13 @@ class VisiteurRepository extends ServiceEntityRepository
     {
         $query =$this->createQueryBuilder('v')
             ->andWhere ('v.idUnique = :val')
+            // ->andWhere ('v.heureDepart = :val2')
             ->setParameter ('val', $value)
+            // ->setParameter ('val2', null)
+            ->getQuery()
+            ->getOneOrNullResult()
             ;
-            endQuery($query, $value);
-            return $query; 
+            return $query;
     }
 
 

@@ -3,6 +3,7 @@
 namespace App\Controller;
 
 use App\Entity\Sortie;
+use App\Entity\Visiteur;
 use App\Form\SortieType;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
@@ -12,6 +13,7 @@ use App\Repository\VisiteurRepository;
 use Doctrine\ORM\Mapping as ORM;
 use Symfony\Component\Form\Extension\Core\Type\TextType;
 use Symfony\Component\Form\Extension\Core\Type\DateTimeType;
+use App\Controller\Admin\VisiteurController;
 
 /**
  * @Route("/sortie") 
@@ -46,23 +48,36 @@ class SortieController extends AbstractController
 
 
         // $form = $this->createForm(SortieType::class);
-        // $form->handleRequest($request);
+        $form->handleRequest($request);
         if ($form->isSubmitted() && $form->isValid()) {
-            $em = $this->getDoctrine()->getManager();
-
-            if(!empty($_POST) && isset($_POST['idUnique'])) {
-                $data = $form->getData();
-                var_dump($data);
-                $toto = $em->getRepository(Visiteur::class)->findByIdUnique($data['idUnique']);
-                if($toto != null)
-                {
-                    return $this->redirectToRoute('home_index');
-                } else {
-                    return $this->redirectToRoute('categorie_index');
-                }
 
             
+            $em = $this->getDoctrine()->getManager();
+            if(!empty($_POST['form']) && isset($_POST['form']['idUnique'])) {
+                $data = $form->getData();
+
+                // $entity = $em->getRepository(Visiteur::class)->find([
+                //     'id'=>true,
+                //     'idUnique'=>$data['idUnique'],
+                //     'heureDepart'=>null
+                //     ]);
+                $entity = $em->getRepository(Visiteur::class)->findByIdUnique(strtoupper($data['idUnique']));
+                
+                // echo "<pre>";
+                //     var_dump($entity);
+                // echo "</pre>";
+                if($entity != null && $entity->getHeureDepart() == null)
+                {   
+                    $entity->setHeureDepart(new \DateTime('now'));
+                    $em->flush();
+                    return $this->redirectToRoute('home_index');
+                } else {
+
+                    echo "<div class='alert alert-danger'>Veuillez sélectionner un id de sortie valide</div>";
+                    // return $this->redirectToRoute('categorie_index');
+                }
             }
+            
         }
         return $this->render('sortie.html.twig', ['form'=> $form->createView()]);
     }

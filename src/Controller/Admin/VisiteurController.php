@@ -66,10 +66,12 @@ class VisiteurController extends AbstractController
     /**
      * @Route("/historique", name="visiteur_historique")
      */
-    public function look(): Response
+    public function history(VisiteurRepository $visiteurRepository): Response
     {   
-       
-        return $this->render('admin/visiteur/historique.html.twig');
+        $visitors = $visiteurRepository->findAll();
+        return $this->render('admin/visiteur/historique.html.twig',[
+            'visiteurs'=>$visitors,
+        ]);
     }
 
 
@@ -109,7 +111,6 @@ class VisiteurController extends AbstractController
         $form = $this->createForm(VisiteurType::class, $visiteurfront);
 
         $form->handleRequest($request);
-
         if ($form->isSubmitted() && $form->isValid()) {
             $em = $this->getDoctrine()->getManager();
             $em->persist($visiteurfront);
