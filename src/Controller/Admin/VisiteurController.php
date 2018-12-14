@@ -73,8 +73,23 @@ class VisiteurController extends AbstractController
         //     }
             
         // }
-       
-        return $this->render('admin/visiteur/historique.html.twig', ['form' => $form->createView()]);
+
+        return $this->render('admin/visiteur/index.html.twig', [
+            'visiteurs' => $visitors,
+            ]);
+
+    }
+
+    /**
+     * @Route("/historique", name="visiteur_historique")
+     */
+    public function history(VisiteurRepository $visiteurRepository): Response
+    {   
+        $visitors = $visiteurRepository->findAll();
+        return $this->render('admin/visiteur/historique.html.twig',[
+            'visiteurs'=>$visitors,
+        ]);
+
     }
 
 
@@ -114,7 +129,6 @@ class VisiteurController extends AbstractController
         $form = $this->createForm(VisiteurType::class, $visiteurfront);
 
         $form->handleRequest($request);
-
         if ($form->isSubmitted() && $form->isValid()) {
             $em = $this->getDoctrine()->getManager();
             $em->persist($visiteurfront);

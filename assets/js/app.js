@@ -12,6 +12,10 @@ import 'chosen-js';
 
 $(function() {
   var cmpt = 0;
+  var canvas = document.getElementById('simple_sketch');
+  var $formFront = $('form');
+  var $exitForm =$('.exit-form').parent().parent('form');
+  var $field=$('#form_idUnique');
 
   var __slice = Array.prototype.slice;
   (function($) {
@@ -244,8 +248,6 @@ $(function() {
     interval: 50000
   });
 
-  var canvas = document.getElementById('simple_sketch');
-  var $formFront = $('form');
   $formFront.on('submit', function(e) {
     var dataUrl = canvas.toDataURL();
     e.preventDefault();
@@ -266,6 +268,18 @@ $(function() {
         });
       }
 
+  });
+
+  $field.on('keyUp', function(e) {
+    e.preventDefault();
+    $.ajax({
+      type: 'POST',
+      url: $exitForm.attr('action'),
+      data: $exitForm.serialize(),
+      dataType: 'json',
+    }).done(function(data) {
+      console.log(data);
+    });
   });
 
   $("chosen-select").chosen();

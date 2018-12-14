@@ -564,3 +564,5 @@ class Visiteur
         return $this->idUnique = strtoupper($idUnique);
     }
 }
+
+

@@ -13,15 +13,14 @@
 <h1 class="text-center mt-4">Veuillez entrer votre identifiant unique de sortie</h1>
 <h3 class="font-weight-light text-center">Merci de votre visite et à bientôt</h3>
 
-
+{{form_start(form)}}
 <div class="container">
-    <form class="row">
-        <div class="form-group justify-content-center mx-auto">
-            <input type="text" class="form-control text-uppercase" id="ident-sortie" aria-describedby="monIdentifiant" placeholder="">
-            <button id="reception-code" href="{{ path ('home_index') }}" type="submit" class="btn btn-success btn-block">Au revoir</button>
-        </div>
-    </form>
+    <div class="form-group justify-content-center mx-auto exit-form">
+        {{ include('admin/visiteur/_form.html.twig') }}
+        <button id="reception-code" type="submit" class="btn btn-success btn-block">Au revoir</button>
+    </div>
 </div>
+{{form_end(form)}}
 
 {% endblock page_content %}
  
