@@ -25,6 +25,7 @@ formulaire:
   societe: Company
   motif: Reason of the visit
   lieu: Location of the visit
+  employe: Employe
 
 giveid:
   h1: Recovering your unique exit ID

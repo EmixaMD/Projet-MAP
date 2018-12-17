@@ -15,23 +15,26 @@ class VisiteurType extends AbstractType
     {
         $builder
             ->add('nom',null, array(
+                'label' => 'formulaire.nom',
                 'attr' =>array(
                 'required'=>true,
                 )
             ))
             ->add('prenom', null, array(
+                'label' => 'formulaire.prenom',
                 'attr' =>array(
                 'required'=>true,
                 )
             ))
 
             ->add('societe',null, array(
+                'label' => 'formulaire.societe',
                 'attr' =>array(
                 'required'=> true,
                 )
             ))
             ->add('motifVisite', NULL, array(
-                
+                'label' => 'formulaire.motif',
                 'attr' =>array(
                 'required' => true,
                 'class'=>"select", 
@@ -39,7 +42,7 @@ class VisiteurType extends AbstractType
                 )
             ))
             ->add('lieuVisite', NULL, array(
-                
+                'label' => 'formulaire.lieu',
                 'attr' =>array(
                 'required' => true,
                 'class'=>"select", 
@@ -47,7 +50,7 @@ class VisiteurType extends AbstractType
                 )
             ))
             ->add('employe', NULL, array(
-              
+                'label' => 'formulaire.employe',
                 "attr"=> array(
                 'required' => true,
                 'class'=> "select ",
@@ -56,6 +59,7 @@ class VisiteurType extends AbstractType
                 )
             ))
             ->add('imageData',HiddenType::class, array(
+               
                 "attr"=> array(
                 'required'=>true,
                 )
