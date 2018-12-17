@@ -4,12 +4,21 @@
 {% if class is not defined %}
 {% set class = "navbar-light bg-light" %}
 {% endif %}
-<nav class="navbar navbar-expand-lg {{ class }}">
 
     {% if block('brand') is defined %}
+{# Mise en place de notre barre nav, (select langue) #}
+<nav class="nav justify-content-between {{ class }}">
     <a class="navbar-brand" href="{% if brandUrl is not empty %}{{ brandUrl }}{% else %}#{% endif %}">
         {{ block('brand') }}
     </a>
+    <ul class="nav justify-content-end">
+  <li class="nav-item">
+    <a class="nav-link active" href="{{ path('change_locale', {'locale': 'fr'}) }}"><img style="height: 30px;" src="/uploads/FlagFrance.png" alt="français"></a>
+  </li>
+  <li class="nav-item">
+    <a class="nav-link" href="{{ path('change_locale', {'locale': 'en'}) }}"><img style="height: 30px;" src="/uploads/FlagEngland.png" alt="english"></a>
+  </li>
+</ul>
     {% endif %}
 
     {% if block('menu') is defined %}

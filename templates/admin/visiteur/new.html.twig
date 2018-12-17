@@ -1,0 +1,21 @@
+{% extends 'admin/admin_layout.html.twig' %}
+
+{% block title %}Ajouter un nouveau visiteur {% endblock %}
+
+{% block page_content %}
+    <h1>Ajouter un nouveau visiteur</h1>
+
+<div class="container">
+  {{form_start(form)}}
+  <div class="row">
+    <div class="col-8">{{ include('admin/visiteur/_form.html.twig') }}</div>
+    <div class="col-4">
+    </div>
+  </div>
+  <button class="btn">{{ button_label|default('Enregistrer') }}</button>
+  {{form_end(form)}} 
+</div>
+<a href="{{ path('admin_visiteur_index') }}">Retour à l'écran d'accueil</a> 
+{% endblock %}
+
+

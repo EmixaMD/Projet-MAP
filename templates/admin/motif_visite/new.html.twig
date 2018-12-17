@@ -1,0 +1,11 @@
+{% extends 'admin/admin_layout.html.twig' %}
+
+{% block title %}Création nouveau motif de visite{% endblock %}
+
+{% block page_content %}
+    <h1>Création nouveau motif de visite</h1>
+
+    {{ include('admin/motif_visite/_form.html.twig') }}
+
+    <a href="{{ path('admin_motif_visite_index') }}">Retour à la liste des motif de visite</a>
+{% endblock %}

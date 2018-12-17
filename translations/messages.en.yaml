@@ -1,0 +1,42 @@
+accueil:
+  return: Back to home
+  exit: Exit
+  cloak: https://www.zeitverschiebung.net/clock-widget-iframe-v2?language=en&size=large&timezone=Europe%2FParis
+  enter: Enter
+
+
+categorie:
+  h1: Select the reason of your visit
+  technique: Technical
+  administrative: Management
+
+
+securite:
+  h1: Security rules
+  checkbox: By ticking this box, I certify having read the security rules and agreeing it.
+  valid: I agree
+  previous: Previous
+  next: Next
+
+formulaire:
+  inscription: Registration
+  h1: Please complete the form for your registration
+  signature: 
+    title: "Please sign here:"
+    reini: Reset your signature
+  nom: Name
+  prenom: First name
+  societe: Company
+  motif: Reason of the visit
+  lieu: Location of the visit
+  employe: Employee
+
+giveid:
+  h1: Recovering your unique exit ID
+  h3: Please remember this code, You need it for leave our company
+  valide: I agree
+
+sortie:
+  h1: Please enter your unique exit ID or scan your QR Code
+  h3: Thank you for your visit, see you soon
+  valide: Good Bye

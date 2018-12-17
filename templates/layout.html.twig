@@ -5,13 +5,21 @@
 {% endblock %}
 
 {% block body %}
-{% embed 'decorator/_navbar.html.twig' with {'class' : 'fixed-top navbar-dark bg-dark', 'brandUrl' : path('index')} %}
+{% embed 'decorator/_navbar.html.twig' with {'class' : 'fixed-top navbar-dark bg-dark', 'brandUrl' : path('home_index')} %}
     {% block brand %}
-    MAP
+    <img class="logomap" src="/uploads/MAP-LOGO.PNG"></img>
     {% endblock %}
 {% endembed %}
-<div class="container">
+
+
     {% block page_content %}
     {% endblock %}
-</div>
+
+{% block footer %}
+{# <footer class="footer-form-check-in"> #}
+
+{% embed 'decorator/_footer.html.twig' %}
+{% endembed %}
+
+{% endblock %}
 {% endblock %}

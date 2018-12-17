@@ -1,0 +1,39 @@
+{% extends 'layout.html.twig' %}
+
+{% block stylesheets %}
+<link rel="stylesheet" href="{{ asset('build/css/front.css') }}">
+<link rel="stylesheet" href="{{ asset('build/css/categorie.css') }}">
+<link rel="stylesheet" href="{{ asset('build/css/tablette.css') }}">
+{% endblock %}
+
+
+{% block page_content %}
+
+    <h1 class="mt-3 text-center" id="h1categorie">{{ "categorie.h1"|trans }}</h1>
+    <div class="container mt-3" >
+        <div class="row justify-content-around">
+            <div class="col-4">
+                <a class="imgcat" href= "{{ path ('securite_index') }}">
+                <div class="card">
+                    <img class="card-img-top" src="/uploads/technician1.png" id="technique" alt="Card image cap">
+                    <p class="para-categorie">{{ "categorie.technique"|trans }}</p>
+                </div></a>
+            </div>
+            <div class="col-4">
+                <a class="imgcat" href= "{{ path ('formulaire_index') }}">
+                <div class="card">
+                    <img class="card-img-top" src="/uploads/pro.jpg" id="affaire" alt="Card image cap">
+                    <p class="para-categorie">{{ "categorie.administrative"|trans}}</p>
+                </div></a>
+            </div>
+        </div>
+    </div>
+
+
+
+
+{% endblock page_content %}
+ 
+
+{% block javascripts %}
+{% endblock %}

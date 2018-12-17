@@ -1,0 +1,37 @@
+{% extends 'layout.html.twig' %}
+
+{% block stylesheets %}
+<link rel="stylesheet" href="{{ asset('build/css/front.css') }}">
+<link rel="stylesheet" href="{{ asset('build/css/id.css') }}">
+<link rel="stylesheet" href="{{ asset('build/css/tablette.css') }}">
+<script> let timer = 30000; </script>
+{% endblock %}
+
+
+{% block page_content %}
+
+
+
+<h1 class="text-center mt-4">{{ "sortie.h1"|trans }}</h1>
+<h3 class="font-weight-light text-center">{{ "sortie.h3"|trans }}</h3>
+
+
+{{form_start(form)}}
+<div class="container">
+
+    <div class="form-group justify-content-center mx-auto exit-form">
+        {{ include('admin/visiteur/_form.html.twig') }}
+        <button id="reception-code" type="submit" class="btn btn-success btn-block">{{ "sortie.valide"|trans }}</button>
+    </div>
+
+</div>
+
+
+{{form_end(form)}}
+
+
+{% endblock page_content %}
+ 
+
+{% block javascripts %}
+{% endblock %}

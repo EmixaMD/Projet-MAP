@@ -19,22 +19,87 @@ class VisiteurRepository extends ServiceEntityRepository
         parent::__construct($registry, Visiteur::class);
     }
 
-    // /**
-    //  * @return Visiteur[] Returns an array of Visiteur objects
-    //  */
-    /*
-    public function findByExampleField($value)
+    /**
+    * @return Visiteur[] Returns an array of Visiteur objects
+    */
+    
+    public function findByName($value)
+    {
+       $query = $this->createQueryBuilder('v')
+            ->andWhere('v.nom = :val')
+            ->setParameter('val', $value)
+            ->orderBy('v.heure_arrivee', 'DESC')
+            ->getQuery()
+            ->getResult();
+        return $query;
+
+    }
+
+    public function findByFirstName($value)
+    {
+        $query = $this->createQueryBuilder('v')
+            ->andWhere('v.prenom = :val')
+            ->setParameter('val', $value)
+            ->orderBy('v.heure_arrivee', 'DESC')
+            ->getQuery()
+            ->getResult();
+        return $query;
+        
+    }
+
+    public function findBySociety($value)
+    {
+        $query = $this->createQueryBuilder('v')
+            ->andWhere('v.societe = :val')
+            ->setParameter('val', $value)
+            ->orderBy('v.heure_arrivee', 'DESC')
+            ->getQuery()
+            ->getResult();
+        return $query;
+        
+    }
+
+    public function findByMotive($value)
+    {
+        $query = $this->createQueryBuilder('v')
+            ->andWhere('v.motif = :val')
+            ->setParameter('val', $value)
+            ->orderBy('v.heure_arrivee', 'DESC')
+            ->getQuery()
+            ->getResult();
+        return $query;
+        
+    }
+
+    public function findByDate($value1, $value2)
     {
         return $this->createQueryBuilder('v')
-            ->andWhere('v.exampleField = :val')
-            ->setParameter('val', $value)
-            ->orderBy('v.id', 'ASC')
-            ->setMaxResults(10)
+            ->andWhere('v.heure_arrivee >= :val1')
+            ->andWhere('v.heure_depart <= :val2')
+            ->setParameter('val1', $value1)
+            ->setParameter('val2', $value2)
+            ->orderBy('v.heure_arrivee', 'DESC')
             ->getQuery()
             ->getResult()
-        ;
+            ;
+        
     }
-    */
+
+    public function findByIdUnique($value)
+    {
+        $query =$this->createQueryBuilder('v')
+            ->andWhere ('v.idUnique = :val')
+            // ->andWhere ('v.heureDepart = :val2')
+            ->setParameter ('val', $value)
+            // ->setParameter ('val2', null)
+            ->getQuery()
+            ->getOneOrNullResult()
+            ;
+            return $query;
+    }
+
+
+    
 
     /*
     public function findOneBySomeField($value): ?Visiteur

@@ -51,6 +51,12 @@ class Employe
      */
     private $email;
 
+    /**
+     * ORM\OneToMany(targetEntity="App\Entity\Visiteur", mappedBy="employe", cascade={"all"})
+     */
+    private $visiteur;
+
+
     public function getId(): ?int
     {
         return $this->id;
@@ -146,5 +152,10 @@ class Employe
         $this->dateNaissance = $dateNaissance;
 
         return $this;
+    }
+
+    public function __toString()
+    {
+        return $this->getNom() ." " . $this->getPrenom(); 
     }
 }

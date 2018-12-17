@@ -1,0 +1,29 @@
+{% extends 'layout.html.twig' %}
+
+{% block stylesheets %}
+<link rel="stylesheet" href="{{ asset('build/css/front.css') }}">
+<link rel="stylesheet" href="{{ asset('build/css/id.css') }}">
+<link rel="stylesheet" href="{{ asset('build/css/tablette.css') }}">
+<script> let timer = 15000; </script>
+{% endblock %}
+
+
+{% block page_content %}
+
+<h1 class="text-center mt-4">{{ "giveid.h1"|trans }}</h1>
+<h3 class="font-weight-light text-center">{{ "giveid.h3"|trans}}</h3>
+
+<div class="container">
+    <div class="row">
+        <div class="form-group justify-content-center mx-auto">
+            <div id="ident-sortie" class="text-uppercase "> {{ visiteur.idUnique }} </div>
+            <button id="reception-code" type="submit" class="btn btn-success btn-block"><a class="valide" href="{{ path ('home_index') }}">{{ "giveid.valide"|trans }}</a></button>
+        </div>
+    </div>
+</div>
+
+{% endblock page_content %}
+ 
+
+{% block javascripts %}
+{% endblock %}

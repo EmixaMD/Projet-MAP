@@ -1,0 +1,79 @@
+{% extends 'admin/admin_layout.html.twig' %}
+
+{% block title %}Liste des Visiteurs {% endblock %}
+
+{% block page_content %}
+    <h1>Liste des Visiteurs </h1>
+
+    <table class="table">
+        <thead>
+            <tr>
+                {# <th>Id</th> #}
+                <th>{{ "formulaire.nom"|trans }}</th>
+                <th>{{ "formulaire.prenom"|trans }}</th>
+                <th>{{ "formulaire.societe"|trans }}</th>
+                <th>{{ "formulaire.motif"|trans }}</th>
+                <th>{{ "formulaire.lieu"|trans }}</th>
+                
+                {# <th>marqueVehicule</th>
+                <th>Immatriculation</th>
+                <th>Couleur</th>
+                <th>Cni</th>
+                <th>idUnique</th>
+                <th>Sexe</th>
+                <th>dateNaissance</th>
+                <th>Ville</th>
+                <th>codePostal</th>
+                <th>numeroRue</th>
+                <th>Rue</th>
+                <th>Telephone</th>
+                <th>Email</th> #}
+                <th>Personne visitée</th>
+                <th>Heure d'arrivée</th>
+                <th>Signature</th>
+
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for visiteur in visiteurs %}
+            {% if not visiteur.heureDepart %}
+                <tr>
+                    {# <td>{{ visiteur.id }}</td> #}
+                    <td>{{ visiteur.nom }}</td>
+                    <td>{{ visiteur.prenom }}</td>
+                    <td>{{ visiteur.societe }}</td>
+                    <td>{{ visiteur.motifVisite }}</td>
+                    <td>{{ visiteur.lieuVisite }}</td>
+                    {# <td>{{ visiteur.marqueVehicule }}</td>
+                    <td>{{ visiteur.immatriculation }}</td>
+                    <td>{{ visiteur.couleur }}</td>
+                    <td>{{ visiteur.cni }}</td>
+                    <td>{{ visiteur.idUnique }}</td>
+                    <td>{{ visiteur.sexe }}</td>
+                    <td>{{ visiteur.dateNaissance|date("d/m/Y") }}</td>
+                    <td>{{ visiteur.ville }}</td>
+                    <td>{{ visiteur.codePostal }}</td>
+                    <td>{{ visiteur.numeroRue }}</td>
+                    <td>{{ visiteur.rue }}</td>
+                    <td>{{ visiteur.telephone }}</td>
+                    <td>{{ visiteur.email }}</td> #}
+                    <td> {{ visiteur.employe}}</td>
+                    <td> {{ visiteur.heureArrivee|date("H:i")}}</td>
+                    <td> {{ visiteur.image }}</td>
+                    <td>
+                        <a href="{{ path('admin_visiteur_show', {'id': visiteur.id}) }}"><i class="fa fa-eye"></i></a>
+                        {# <a href="{{ path('admin_visiteur_edit', {'id': visiteur.id}) }}"><i class="fa fa-pencil-alt"></i></a> #}
+                    </td>
+                </tr>
+            {% endif %}
+        {% else %}
+            <tr>
+                <td colspan="20">Aucun visiteur trouvé</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <a href="{{ path('admin_visiteur_new') }}"><i class="fa fa-plus"></i> Ajouter un nouveau visiteur</a>
+{% endblock %}

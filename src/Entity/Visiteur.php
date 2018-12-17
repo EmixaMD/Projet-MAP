@@ -3,9 +3,12 @@
 namespace App\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
+use Symfony\Component\HttpFoundation\File\UploadedFile;
+
 
 /**
  * @ORM\Entity(repositoryClass="App\Repository\VisiteurRepository")
+ * @ORM\HasLifecycleCallbacks
  */
 class Visiteur
 {
@@ -32,22 +35,22 @@ class Visiteur
     private $societe;
 
     /**
-     * @ORM\Column(type="string", length=255)
+     * @ORM\Column(type="string", length=255, nullable=true)
      */
     private $motif;
 
     /**
-     * @ORM\Column(type="string", length=255)
+     * @ORM\Column(type="string", length=255, nullable=true)
      */
     private $zoneVisite;
 
     /**
-     * @ORM\Column(type="string", length=255)
+     * @ORM\Column(type="string", length=255, nullable=true)
      */
     private $marqueVehicule;
 
     /**
-     * @ORM\Column(type="string", length=255)
+     * @ORM\Column(type="string", length=255, nullable=true)
      */
     private $immatriculation;
 
@@ -62,7 +65,7 @@ class Visiteur
     private $cni;
 
     /**
-     * @ORM\Column(type="string", length=255)
+     * @ORM\Column(type="string", length=255, nullable=true)
      */
     private $idUnique;
 
@@ -72,9 +75,10 @@ class Visiteur
     private $sexe;
 
     /**
-     * @ORM\Column(type="integer", nullable=true)
+     * @ORM\Column(type="date", nullable=true)
      */
     private $dateNaissance;
+
 
     /**
      * @ORM\Column(type="string", length=255, nullable=true)
@@ -92,7 +96,7 @@ class Visiteur
     private $numeroRue;
 
     /**
-     * @ORM\Column(type="string", length=255)
+     * @ORM\Column(type="string", length=255, nullable=true)
      */
     private $rue;
 
@@ -102,9 +106,47 @@ class Visiteur
     private $telephone;
 
     /**
-     * @ORM\Column(type="string", length=255)
+     * @ORM\Column(type="string", length=255, nullable=true)
      */
     private $email;
+
+    /**
+     * @ORM\ManyToOne(targetEntity="App\Entity\Employe", inversedBy="visiteur", cascade={"all"})
+     * @ORM\JoinColumn(onDelete="SET NULL")
+     */
+    private $employe; 
+
+    /**
+     * @ORM\ManyToOne(targetEntity="App\Entity\LieuVisite", inversedBy="visiteur", cascade={"all"})
+     */
+    private $lieuVisite;
+
+    /**
+     * @ORM\ManyToOne(targetEntity="App\Entity\MotifVisite", inversedBy="visiteur", cascade={"all"})
+     */
+    private $motifVisite;
+
+    /**
+
+     * @ORM\Column(type="datetime")
+     * 
+     */
+    private $heureArrivee;
+
+    /**
+     * @ORM\Column(type="datetime", nullable=true)
+     */
+    private $heureDepart;
+
+    /**
+     * @ORM\Column(type="string")
+     */
+    private $image;
+
+    /**
+     * @var string
+     */
+    private $imageData;
 
     public function getId(): ?int
     {
@@ -243,18 +285,6 @@ class Visiteur
         return $this;
     }
 
-    public function getdateNaissance(): ?int
-    {
-        return $this->dateNaissance;
-    }
-
-    public function setdateNaissance(?int $dateNaissance): self
-    {
-        $this->dateNaissance = $dateNaissance;
-
-        return $this;
-    }
-
     public function getVille(): ?string
     {
         return $this->ville;
@@ -326,4 +356,213 @@ class Visiteur
 
         return $this;
     }
+
+   
+
+    /**
+     * Get the value of employe
+     */ 
+    public function getEmploye()
+    {
+        return $this->employe;
+    }
+
+    /**
+     * Set the value of employe
+     *
+     * @return  self
+     */ 
+    public function setEmploye($employe)
+    {
+        $this->employe = $employe;
+
+
+        return $this;
+    }
+
+    /**
+
+     * Get the value of lieuVisite
+     */ 
+    public function getLieuVisite()
+    {
+        return $this->lieuVisite;
+    }
+
+    /**
+     * Set the value of lieuVisite
+     *
+     * @return  self
+     */ 
+    public function setLieuVisite($lieuVisite)
+    {
+        $this->lieuVisite = $lieuVisite;
+
+    }
+    /**
+     * Get the value of heureArrivee
+     */ 
+    public function getHeureArrivee(): ?\DateTimeInterface
+    {
+        return $this->heureArrivee;
+    }
+
+    /**
+     * Set the value of heureArrivee
+     *
+     * @return  self
+     */ 
+    public function setHeureArrivee(\DateTimeInterface $heureArrivee): self
+    {
+        $this->heureArrivee = $heureArrivee;
+
+        return $this;
+    }
+
+    /**
+
+     * Get the value of motifVisite
+     */ 
+    public function getMotifVisite()
+    {
+        return $this->motifVisite;
+    }
+
+    /**
+     * Set the value of motifVisite
+     *
+     * @return  self
+     */ 
+    public function setMotifVisite($motifVisite)
+    {
+        $this->motifVisite = $motifVisite;
+
+        return $this;
+    }
+
+
+
+    /**
+     * Get the value of heureDepart
+     */ 
+    public function getHeureDepart(): ?\DateTimeInterface
+    {
+        return $this->heureDepart;
+    }
+
+    /**
+     * Set the value of heureDepart
+     *
+     * @return  self
+     */ 
+    public function setHeureDepart(\DateTimeInterface $heureDepart): self
+    {
+        $this->heureDepart = $heureDepart;
+
+        return $this;
+    }
+
+
+    /**
+     * Get the value of dateNaissance
+     */ 
+    public function getDateNaissance()
+    {
+        return $this->dateNaissance;
+    }
+
+    /**
+     * Set the value of dateNaissance
+     *
+     * @return  self
+     */ 
+    public function setDateNaissance($dateNaissance)
+    {
+        $this->dateNaissance = $dateNaissance;
+
+        return $this;
+    }
+
+    /**
+     * Get the value of image
+     */ 
+    public function getImage()
+    {
+        return $this->image;
+    }
+
+    /**
+     * Set the value of image
+     *
+     * @return  self
+     */ 
+    public function setImage($image)
+    {
+        $this->image = $image;
+
+        return $this;
+    }
+
+    /**
+     * Get the value of imageData
+     *
+     * @return  string
+     */ 
+    public function getImageData()
+    {
+        return $this->imageData;
+    }
+
+    /**
+     * Set the value of imageData
+     *
+     * @param  string  $imageData
+     *
+     * @return  self
+     */ 
+    public function setImageData(string $imageData)
+    {
+        $this->imageData = $imageData;
+
+        return $this;
+    }
+
+    /**
+     * @ORM\PrePersist()
+     */
+    public function dataToImage()
+    {
+        // copier l'image 
+        if ($this->imageData) {
+            $idata = $this->imageData;
+            //Génère le chemin du fichier à uploader
+            $imageName = uniqid('img_') . '.png';
+            
+            $imageFile = fopen(__DIR__.'/../../public/signatures/' . $imageName, 'w+');
+            fwrite($imageFile, base64_decode($idata));
+            fclose($imageFile);
+
+            $this->image = $imageName;
+            
+
+        }
+    }
+
+    /**
+     * @ORM\PrePersist()
+     */
+    public function idUniqueCreate() 
+    {
+        $name = $this->nom;
+        $firstname = $this->prenom;
+        $random = rand(10, 99);
+        $name = str_replace("'","",iconv("utf-8", "ASCII//TRANSLIT", $name));
+        $firstname = str_replace("'","",iconv("utf-8", "ASCII//TRANSLIT", $firstname));
+        $firstPart = substr($name."XXX", 0, 3);
+        $secondPart = substr($firstname."XXX", 0,3);
+        $idUnique = $firstPart.$secondPart.$random;
+        return $this->idUnique = strtoupper($idUnique);
+    }
 }
+
+

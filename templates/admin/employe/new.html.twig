@@ -1,0 +1,11 @@
+{% extends 'admin/admin_layout.html.twig' %}
+
+{% block title %}Création nouveau employé{% endblock %}
+
+{% block page_content %}
+    <h1>Creation nouveau employé</h1>
+
+    {{ include('admin/employe/_form.html.twig') }}
+
+    <a href="{{ path('admin_employe_index') }}">Retour à la liste des employés</a>
+{% endblock %}

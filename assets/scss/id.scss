@@ -1,0 +1,33 @@
+// CSS des pages giveid & sortie
+
+
+#ident-sortie {
+    height: 125px;
+    width: 500px;
+    font-size: 56px;
+    text-align: center;
+    border: 4mm ridge rgba(104, 173, 175, 0.637);
+    margin-top: 150px;
+    color: rgb(39, 51, 211);
+    font-weight: bold;
+}
+
+#reception-code {
+    font-size: 25px;
+    margin-top: 25px;
+}
+
+.background-sortie {
+    background-color: #7dced1;
+    height: 21vh;
+    margin-top: 34.7vh;
+}
+
+.valide {
+    color: white;
+}
+
+.valide:hover {
+    text-decoration: none;
+    color: white;
+}
