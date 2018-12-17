@@ -11,6 +11,7 @@ import 'bootstrap';
 import 'chosen-js';
 
 $(function() {
+  
   var cmpt = 0;
   var canvas = document.getElementById('simple_sketch');
   var $formFront = $('form');
@@ -249,7 +250,7 @@ $(function() {
   /*****  Module caroussel  *****/
   /******************************/
 
-  $('chosen-select').chosen();
+  
 
   // CAROUSEL
   // Changement de la vitesse de defilement
@@ -312,7 +313,7 @@ $(function() {
     }, timer);
   }
 
-  if(timer) {
+  if(timer != 0 ) {
     backToHome(timer);
   }
 

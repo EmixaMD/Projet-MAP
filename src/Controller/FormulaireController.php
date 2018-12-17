@@ -16,7 +16,7 @@ use Symfony\Component\Routing\Annotation\Route;
 class FormulaireController extends AbstractController
 {
     /**
-     * @Route("/", name="formulaire_index", methods="GET")
+     * @Route("/", name="formulaire_index", methods="GET|POST")
      */
     public function formulaire(Request $request) : Response
     {
@@ -30,6 +30,12 @@ class FormulaireController extends AbstractController
             $em = $this->getDoctrine()->getManager();
             $em->persist($visiteurfront);
             $em->flush();
+
+            if ($request->isXmlHttpRequest()){
+                return $this->json(array(
+                    'url'=> $this->generateUrl('giveid', ['id'=> $visiteurfront->getId()]),
+                ));
+            }
             
             return $this->redirectToRoute('giveid', ['id'=> $visiteurfront->getId()]);
         }
