@@ -283,5 +283,15 @@ $(function() {
   });
 
   $("chosen-select").chosen();
-});
+
+  function backToHome(timer) {
+    setInterval(function() {
+      window.location.replace('http://127.0.0.1:8000/home');
+    }, timer);
+  }
+
+  if (timer) {
+    backToHome(timer);
+  }
+});// loading....
 
