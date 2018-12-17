@@ -249,8 +249,12 @@ $(function() {
   /*****  Module caroussel  *****/
   /******************************/
 
+  $('chosen-select').chosen();
+
+  // CAROUSEL
+  // Changement de la vitesse de defilement
   $('.carousel').carousel({
-    interval: 50000
+    interval: 120000
   });
 
   /*****   Requêtes Ajax    *****/
@@ -301,14 +305,16 @@ $(function() {
   /***** Fonction redirect auto  *****/
   /******************************/
 
+
   function backToHome(timer) {
     setInterval(function() {
       window.location.replace('http://127.0.0.1:8000/home');
     }, timer);
   }
 
-  if (timer) {
+  if(timer) {
     backToHome(timer);
   }
-});// loading....
 
+
+}); // loading...

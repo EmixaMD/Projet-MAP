@@ -11,6 +11,10 @@
     background-color: #f6f6f6;
 }
 
+.card:hover {
+    border: 3px solid #67adaf;
+}
+
 // Image technicien
 #technique {
     width: 90%;
@@ -36,4 +40,8 @@
     background-color: #7dced1;
     height: 21vh;
     margin-top: 27.3vh;
+}
+
+.imgcat:hover {
+    text-decoration: none;
 }
