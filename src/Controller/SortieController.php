@@ -24,9 +24,9 @@ class SortieController extends AbstractController
     /**
      * @Route("/", name="sortie_index", methods="GET|POST")
      */
-    public function index(Request $request): Response
-    {   
-        
+    public function index(Request $request) : Response
+    {
+
         $form = $this->createFormBuilder()
             ->add('idUnique', TextType::class)
             ->setAction($this->generateUrl('sortie_index'))
@@ -51,9 +51,9 @@ class SortieController extends AbstractController
         $form->handleRequest($request);
         if ($form->isSubmitted() && $form->isValid()) {
 
-            
+
             $em = $this->getDoctrine()->getManager();
-            if(!empty($_POST['form']) && isset($_POST['form']['idUnique'])) {
+            if (!empty($_POST['form']) && isset($_POST['form']['idUnique'])) {
                 $data = $form->getData();
 
                 // $entity = $em->getRepository(Visiteur::class)->find([
@@ -66,8 +66,7 @@ class SortieController extends AbstractController
                 // echo "<pre>";
                 //     var_dump($entity);
                 // echo "</pre>";
-                if($entity != null && $entity->getHeureDepart() == null)
-                {   
+                if ($entity != null && $entity->getHeureDepart() == null) {
                     $entity->setHeureDepart(new \DateTime('now'));
                     $em->flush();
                     return $this->redirectToRoute('home_index');
@@ -77,16 +76,25 @@ class SortieController extends AbstractController
                     // return $this->redirectToRoute('categorie_index');
                 }
             }
-            
+
         }
-        return $this->render('sortie.html.twig', ['form'=> $form->createView()]);
+        if (!empty($_GET['idUnique'])) {
+            $em = $this->getDoctrine()->getManager();
+            $entity = $em->getRepository(Visiteur::class)->findByIdUnique(strtoupper($_GET['idUnique']));
+
+            if ($entity != null && $entity->getHeureDepart() == null) {
+                $entity->setHeureDepart(new \DateTime('now'));
+                $em->flush();
+                return $this->redirectToRoute('home_index');
+            } else {
+
+                echo "<div class='alert alert-danger'>oops votre QR Code n'est pas valide ! :( </div>";
+                               // return $this->redirectToRoute('categorie_index');
+            }
+        }
+
+        return $this->render('sortie.html.twig', ['form' => $form->createView()]);
     }
 
-    // /**
-    //  * @Route("/", name="exit_index", methods="GET|POST")
-    //  */
-    // public function exit(Request $request)
-    // {
-    //     return $this->render('index.html.twig', ['form'=> $form->createView()]);
-    // }
+
 }

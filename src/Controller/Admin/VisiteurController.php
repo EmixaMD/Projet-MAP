@@ -126,6 +126,7 @@ class VisiteurController extends AbstractController
 
 
     /**
+
      * @Route("/{id}", name="visiteur_show", methods="GET")
      */
     public function show(Visiteur $visiteur) : Response

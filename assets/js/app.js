@@ -269,6 +269,8 @@ $(function() {
           dataType: 'json'
         }).done(function(data) {
           console.log($formFront.serialize());
+          var url = data.url;
+          document.location.href = url;
         });
       }
 
@@ -285,6 +287,10 @@ $(function() {
       console.log(data);
     });
   });
+
+
+  $("chosen-select").chosen();
+
 
   function backToHome(timer) {
     setInterval(function() {
