@@ -12,6 +12,20 @@
 
     <div class="fleche1"><a href="{{ path ('sortie_index') }}"><i class="fa fa-arrow-alt-circle-left" style="color: #c05257; font-size: 100px;"></i></a></div>
     <div class="fleche2"><a href= "{{ path ('categorie_index') }}"><i class="fa fa-arrow-alt-circle-right" style="color: #52c06d; font-size: 100px;"></i></a></div>
+    
+    <div class="container-fluid">
+  <div class="row justify-content-center">
+    <div class="col-2 text-center sortie" id="home-text">
+      {{ "accueil.exit"|trans}}
+    </div>
+    <div class="col-8">
+    
+    </div>
+    <div class="col-2 text-center entree" id="home-text">
+      {{ "accueil.enter"|trans}}
+    </div>
+  </div>
+</div>
 </div>
 
 {% endblock page_content %}
