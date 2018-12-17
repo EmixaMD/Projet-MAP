@@ -13,7 +13,11 @@ class SortieType extends AbstractType
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
         $builder
-            ->add('idUnique')
+            ->add('idUnique', 'text', array(
+                'attr' => array(
+                    'maxlength' => 8,
+                ),
+            ))
         ;
     }
 

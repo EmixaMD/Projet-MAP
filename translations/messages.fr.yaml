@@ -39,6 +39,7 @@ formulaire:
   societe: Société
   motif: Motif de la visite
   lieu: Lieu de la visite
+  employe: Personne visitée
 
 giveid:
   h1: Recuperation de votre identifiant unique de sortie
