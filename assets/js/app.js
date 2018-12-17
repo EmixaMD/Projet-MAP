@@ -244,8 +244,12 @@ $(function() {
     });
   }
 
+  $('chosen-select').chosen();
+
+  // CAROUSEL
+  // Changement de la vitesse de defilement
   $('.carousel').carousel({
-    interval: 50000
+    interval: 120000
   });
 
   $formFront.on('submit', function(e) {
@@ -284,7 +288,9 @@ $(function() {
     });
   });
 
+
   $("chosen-select").chosen();
+
 
   function backToHome(timer) {
     setInterval(function() {
@@ -292,8 +298,9 @@ $(function() {
     }, timer);
   }
 
-  if (timer) {
+  if(timer) {
     backToHome(timer);
   }
-});// loading....
 
+
+}); // loading...

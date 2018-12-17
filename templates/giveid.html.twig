@@ -11,14 +11,14 @@
 {% block page_content %}
 
 
-<h1 class="text-center mt-4">Recuperation de votre identifiant unique de sortie</h1>
-<h3 class="font-weight-light text-center">Veuillez retenir ce code afin de pouvoir sortir de l'entreprise</h3>
+<h1 class="text-center mt-4">{{ "giveid.h1"|trans }}</h1>
+<h3 class="font-weight-light text-center">{{ "giveid.h3"|trans}}</h3>
 
 <div class="container">
     <div class="row">
         <div class="form-group justify-content-center mx-auto">
             <div id="ident-sortie" class="text-uppercase "> {{ visiteur.idUnique }} </div>
-            <button id="reception-code" href="{{ path ('home_index') }}" type="submit" class="btn btn-success btn-block">C'est noté</button>
+            <button id="reception-code" type="submit" class="btn btn-success btn-block"><a class="valide" href="{{ path ('home_index') }}">{{ "giveid.valide"|trans }}</a></button>
         </div>
     </div>
 </div>
