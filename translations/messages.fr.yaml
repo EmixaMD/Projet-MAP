@@ -41,12 +41,12 @@ formulaire:
   lieu: Lieu de la visite
 
 giveid:
-  h1: Recuperation de votre identifiant unique de sortie
+  h1: Récuperation de votre identifiant unique de sortie
   h3: Veuillez retenir ce code afin de pouvoir sortir de l'entreprise
   valide: C'est noté
 
 sortie:
-  h1: Veuillez entrer votre identifiant unique de sortie
+  h1: Veuillez entrer votre identifiant unique de sortie ou scanner votre QR Code
   h3: Merci de votre visite et à bientôt
   valide: Au revoir
 

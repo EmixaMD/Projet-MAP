@@ -9,7 +9,7 @@ categorie:
 
 securite:
   h1: Security rules
-  checkbox: By ticking this box, I certify having read the security rules and agreeing to them.
+  checkbox: By ticking this box, I certify having read the security rules and agreeing it.
   valid: I agree
   previous: Previous
   next: Next
@@ -29,10 +29,10 @@ formulaire:
 
 giveid:
   h1: Recovering your unique exit ID
-  h3: Please remember this code, You need him for leave our company
+  h3: Please remember this code, You need it for leave our company
   valide: I agree
 
 sortie:
-  h1: Please enter your unique exit ID
-  h3: Thanks for your visit, see you soon
+  h1: Please enter your unique exit ID or scan your QR Code
+  h3: Thank you for your visit, see you soon
   valide: Good Bye
