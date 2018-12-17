@@ -17,6 +17,9 @@ $(function() {
   var $exitForm =$('.exit-form').parent().parent('form');
   var $field=$('#form_idUnique');
 
+
+  /*****  Module signature  *****/
+  /******************************/
   var __slice = Array.prototype.slice;
   (function($) {
     var Sketch;
@@ -243,6 +246,8 @@ $(function() {
       });
     });
   }
+  /*****  Module caroussel  *****/
+  /******************************/
 
   $('chosen-select').chosen();
 
@@ -251,6 +256,10 @@ $(function() {
   $('.carousel').carousel({
     interval: 120000
   });
+
+  /*****   Requêtes Ajax    *****/
+  /******************************/
+
 
   $formFront.on('submit', function(e) {
     var dataUrl = canvas.toDataURL();
@@ -288,8 +297,13 @@ $(function() {
     });
   });
 
+  /*****  Module chosen     *****/
+  /******************************/
 
   $("chosen-select").chosen();
+
+  /***** Fonction redirect auto  *****/
+  /******************************/
 
 
   function backToHome(timer) {
