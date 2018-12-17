@@ -27,7 +27,7 @@ class GiveIdController extends AbstractController
 
         $nom = $visiteur->getIdUnique();
         
-        $qrCode = new QrCode($nom);
+        $qrCode = new QrCode('http://127.0.0.1:8000/sortie?idUnique='. $nom);
         $qrCode->setSize(300);
 
         // Set advanced options
@@ -47,7 +47,7 @@ class GiveIdController extends AbstractController
 
     // Directly output the QR code
     header('Content-Type: '.$qrCode->getContentType());
-    echo $qrCode->writeString();
+    //echo $qrCode->writeString();
 
     // Save it to a file
     $qrCode->writeFile(__DIR__.'/../../public/signatures/'.$visiteur->getIdUnique().'.png');
@@ -55,11 +55,15 @@ class GiveIdController extends AbstractController
     // Create a response object
     $response = new QrCodeResponse($qrCode);
 
-    var_dump($qrCode);
+    // var_dump($qrCode);
 
-
-        return $this->render('admin/test.html.twig');
+    return $this->render('giveid.html.twig', array(
+    'visiteur' => $visiteur,
+    ));
+        
     }
+
+    
 
 
         

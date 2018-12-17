@@ -139,6 +139,12 @@ class VisiteurController extends AbstractController
             $em = $this->getDoctrine()->getManager();
             $em->persist($visiteurfront);
             $em->flush();
+
+            if ($request->isXmlHttpRequest()) {
+                return $this->json(array(
+                    'url' => $this->generateUrl('giveid', ['id'=> $visiteurfront->getId()]),
+                ));
+            }
             
             return $this->redirectToRoute('giveid', ['id'=> $visiteurfront->getId()]);
         }
