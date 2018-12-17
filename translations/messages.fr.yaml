@@ -17,6 +17,7 @@ accueil:
   return: Retour à l'écran d'accueil
   exit: Sortie
   enter: Entrée
+  cloak: https://www.zeitverschiebung.net/clock-widget-iframe-v2?language=fr&size=large&timezone=Europe%2FParis
 
 categorie:
   h1: Choisissez la raison de votre visite
