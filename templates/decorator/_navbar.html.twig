@@ -13,10 +13,10 @@
     </a>
     <ul class="nav justify-content-end">
   <li class="nav-item">
-    <a class="nav-link active" href="#"><img style="height: 30px;" src="/uploads/FlagFrance.png" alt="français"></a>
+    <a class="nav-link active" href="{{ path('change_locale', {'locale': 'fr'}) }}"><img style="height: 30px;" src="/uploads/FlagFrance.png" alt="français"></a>
   </li>
   <li class="nav-item">
-    <a class="nav-link" href="#"><img style="height: 30px;" src="/uploads/FlagEngland.png" alt="english"></a>
+    <a class="nav-link" href="{{ path('change_locale', {'locale': 'en'}) }}"><img style="height: 30px;" src="/uploads/FlagEngland.png" alt="english"></a>
   </li>
 </ul>
     {% endif %}

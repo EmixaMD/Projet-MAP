@@ -42,6 +42,12 @@ services:
         arguments: ["@knp_menu.factory", "@security.token_storage"]
         tags:
             - { name: knp_menu.menu_builder, method: createMenu, alias: user }
+
+    app.locale_listener:
+        class: App\EventListener\LocaleListener
+        arguments: ["%kernel.default_locale%"]
+        tags:
+            - { name: kernel.event_subscriber }
     
     #app.form_registration:
     #    class: App\Form\RegistrationType
