@@ -265,6 +265,8 @@ $(function() {
           dataType: 'json'
         }).done(function(data) {
           console.log($formFront.serialize());
+          var url = data.url;
+          document.location.href = url;
         });
       }
 
