@@ -12,7 +12,14 @@ import 'chosen-js';
 
 $(function() {
   var cmpt = 0;
+  var canvas = document.getElementById('simple_sketch');
+  var $formFront = $('form');
+  var $exitForm =$('.exit-form').parent().parent('form');
+  var $field=$('#form_idUnique');
 
+
+  /*****  Module signature  *****/
+  /******************************/
   var __slice = Array.prototype.slice;
   (function($) {
     var Sketch;
@@ -239,29 +246,8 @@ $(function() {
       });
     });
   }
-
-  var canvas = document.getElementById('simple_sketch');
-  var $form = $('form');
-  $form.on('submit', function() {
-    var dataUrl = canvas.toDataURL();
-    console.log(dataUrl);
-    $form.find('#visiteur_imageData').val(dataUrl.split(',')[1]);
-    if (cmpt == 0) {
-      $('.signature-error').replaceWith(
-        '<div class="alert alert-danger">Votre signature n\'est pas valide veuillez recommencer</div>'
-      );
-      return false;
-    } else {
-      $.ajax({
-        type: 'POST',
-        url: $form.attr('action'),
-        data: $form.serialize(),
-        dataType: 'json'
-      }).done(function(data) {
-        console.log($form.serialize());
-      });
-    }
-  });
+  /*****  Module caroussel  *****/
+  /******************************/
 
   $('chosen-select').chosen();
 
@@ -270,5 +256,65 @@ $(function() {
   $('.carousel').carousel({
     interval: 120000
   });
+
+  /*****   Requêtes Ajax    *****/
+  /******************************/
+
+
+  $formFront.on('submit', function(e) {
+    var dataUrl = canvas.toDataURL();
+    e.preventDefault();
+    $formFront.find('#visiteur_imageData').val(dataUrl.split(',')[1]);
+      if (cmpt == 0 ) {
+        $('.signature-error').replaceWith(
+          '<div class="alert alert-danger">Votre signature n\'est pas valide veuillez recommencer</div>'
+        );
+        return false;
+      } else {
+        $.ajax({
+          type: 'POST',
+          url: $formFront.attr('action'),
+          data: $formFront.serialize(),
+          dataType: 'json'
+        }).done(function(data) {
+          console.log($formFront.serialize());
+          var url = data.url;
+          document.location.href = url;
+        });
+      }
+
+  });
+
+  $field.on('keyUp', function(e) {
+    e.preventDefault();
+    $.ajax({
+      type: 'POST',
+      url: $exitForm.attr('action'),
+      data: $exitForm.serialize(),
+      dataType: 'json',
+    }).done(function(data) {
+      console.log(data);
+    });
+  });
+
+  /*****  Module chosen     *****/
+  /******************************/
+
+  $("chosen-select").chosen();
+
+  /***** Fonction redirect auto  *****/
+  /******************************/
+
+
+  function backToHome(timer) {
+    setInterval(function() {
+      window.location.replace('http://127.0.0.1:8000/home');
+    }, timer);
+  }
+
+  if(timer) {
+    backToHome(timer);
+  }
+
 
 }); // loading...

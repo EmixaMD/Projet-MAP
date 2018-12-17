@@ -2,29 +2,51 @@
 
 namespace App\Controller\Admin;
 
-use App\Entity\Visiteur;
 use App\Entity\Visite;
+use App\Entity\Visiteur;
 use App\Form\VisiteurType;
 use App\Repository\VisiteurRepository;
-use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
+use Symfony\Component\Form\Extension\Core\Type\DateType;
+use Symfony\Component\Form\Extension\Core\Type\DateTimeType;
+use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
+
+
+
 
 /**
  * @Route("/admin/visiteur" , name="admin_")
  */
 class VisiteurController extends AbstractController
-{
+{   
+
+
     /**
      * @Route("/", name="visiteur_index", methods="GET")
      */
     public function index(VisiteurRepository $visiteurRepository) : Response
     {
         $visitors = $visiteurRepository->findAll();
-        
-        
 
+        return $this->render('admin/visiteur/index.html.twig', [
+            'visiteurs' => $visitors,
+            ]);
+
+    }
+
+    /**
+     * @Route("/historique", name="visiteur_historique")
+     */
+    public function historique(Request $request, VisiteurRepository $visiteurRepository): Response
+    {   
+        $visitors = $visiteurRepository->findAll();
+        $form = $this->createFormBuilder()
+            ->add('date', DateType::class)
+            ->getForm();
+       ;
+     
         // if ($form->isSubmitted() && $form->isValid()) {
         //     $em = $this->getDoctrine()->getManager();
 
@@ -53,10 +75,11 @@ class VisiteurController extends AbstractController
         //     }
 
         //     if(!empty($_GET) && isset($_GET['heure_depart']) && !isset($_GET['heure_arrivee'])) {
-        //             findByDate('0000-00-00 00-00-00',$_GET['heure_depart']);
+        //             findByDate(date ("d-m-Y", mktime (0,0,0,date('m')-7,date('d'),date('Y'))),$_GET['heure_depart']);
         //     }
             
         // }
+
         return $this->render('admin/visiteur/index.html.twig', [
             'visiteurs' => $visitors,
             ]);
@@ -66,10 +89,13 @@ class VisiteurController extends AbstractController
     /**
      * @Route("/historique", name="visiteur_historique")
      */
-    public function look(): Response
+    public function history(VisiteurRepository $visiteurRepository): Response
     {   
-       
-        return $this->render('admin/visiteur/historique.html.twig');
+        $visitors = $visiteurRepository->findAll();
+        return $this->render('admin/visiteur/historique.html.twig',[
+            'visiteurs'=>$visitors,
+        ]);
+
     }
 
 
@@ -98,15 +124,15 @@ class VisiteurController extends AbstractController
         ]);
     }
 
+
     /**
+
      * @Route("/{id}", name="visiteur_show", methods="GET")
      */
     public function show(Visiteur $visiteur) : Response
     {
         return $this->render('admin/visiteur/show.html.twig', ['visiteur' => $visiteur]);
     }
-
-    
 
 
     /**
@@ -142,4 +168,7 @@ class VisiteurController extends AbstractController
 
         return $this->redirectToRoute('admin_visiteur_index');
     }
+
+
+    
 }
