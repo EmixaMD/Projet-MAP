@@ -1,5 +1,7 @@
 accueil:
   return: Back to home
+  exit: Exit
+  enter: Entry
 
 categorie:
   h1: Select the reason of your visit
